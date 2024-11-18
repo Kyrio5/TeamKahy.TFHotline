@@ -1,17 +1,18 @@
-[gd_scene load_steps=16 format=4 uid="uid://bt2ty5i8y2ofg"]
+[gd_scene load_steps=17 format=4 uid="uid://bt2ty5i8y2ofg"]
 
-[ext_resource type="PackedScene" uid="uid://bxl4evdxiurum" path="res://Mesh/Room.glb" id="1_y445k"]
-[ext_resource type="PackedScene" uid="uid://bdi8ao1wn7e3c" path="res://Mesh/Desk.glb" id="2_clxak"]
-[ext_resource type="PackedScene" uid="uid://bfojpif51mgm4" path="res://Mesh/Drawer.glb" id="3_s2qst"]
-[ext_resource type="PackedScene" uid="uid://gcvd20op3sqe" path="res://Mesh/LongDrawer.glb" id="4_88yuo"]
-[ext_resource type="PackedScene" uid="uid://kb5mlmhlc0ih" path="res://Mesh/Phone.glb" id="5_4w5th"]
-[ext_resource type="PackedScene" uid="uid://k5jgkcoget6j" path="res://Mesh/Printer.glb" id="6_xurpc"]
-[ext_resource type="PackedScene" uid="uid://csxr6je25dalm" path="res://Mesh/Corkboard.glb" id="7_lrtwo"]
-[ext_resource type="Material" uid="uid://ck4oilxmu0qn0" path="res://Mesh/Wood.tres" id="8_ldh4i"]
-[ext_resource type="PackedScene" uid="uid://bwxj6bxleoxff" path="res://Mesh/Skull.glb" id="9_1d4pr"]
-[ext_resource type="PackedScene" uid="uid://4r3lqnm0sdkd" path="res://Mesh/Cattree.glb" id="10_5qa6i"]
-[ext_resource type="PackedScene" uid="uid://b73o2maogvmte" path="res://Mesh/Book.glb" id="10_o62pr"]
-[ext_resource type="PackedScene" uid="uid://cx040c8y3b8ae" path="res://Mesh/Coatrack.glb" id="11_n4ike"]
+[ext_resource type="PackedScene" uid="uid://bxl4evdxiurum" path="res://Mesh/Room.glb" id="1_0nyey"]
+[ext_resource type="PackedScene" uid="uid://bdi8ao1wn7e3c" path="res://Mesh/Desk.glb" id="2_64l47"]
+[ext_resource type="PackedScene" uid="uid://bfojpif51mgm4" path="res://Mesh/Drawer.glb" id="3_06m7j"]
+[ext_resource type="PackedScene" uid="uid://gcvd20op3sqe" path="res://Mesh/LongDrawer.glb" id="4_bvniv"]
+[ext_resource type="PackedScene" uid="uid://kb5mlmhlc0ih" path="res://Mesh/Phone.glb" id="5_1g6lf"]
+[ext_resource type="PackedScene" uid="uid://k5jgkcoget6j" path="res://Mesh/Printer.glb" id="6_luqux"]
+[ext_resource type="PackedScene" uid="uid://csxr6je25dalm" path="res://Mesh/Corkboard.glb" id="7_xip52"]
+[ext_resource type="Material" uid="uid://ck4oilxmu0qn0" path="res://Mesh/Wood.tres" id="8_t2pec"]
+[ext_resource type="PackedScene" uid="uid://bwxj6bxleoxff" path="res://Mesh/Skull.glb" id="9_jykcf"]
+[ext_resource type="PackedScene" uid="uid://b73o2maogvmte" path="res://Mesh/Book.glb" id="10_2we43"]
+[ext_resource type="PackedScene" uid="uid://4r3lqnm0sdkd" path="res://Mesh/Cattree.glb" id="11_vr1j1"]
+[ext_resource type="PackedScene" uid="uid://cx040c8y3b8ae" path="res://Mesh/Coatrack.glb" id="12_h3668"]
+[ext_resource type="Script" path="res://Scenes/Level/Mouselook.gd" id="13_083ae"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_nfkkb"]
 _surfaces = [{
@@ -35,7 +36,7 @@ _surfaces = [{
 "format": 34359742487,
 "index_count": 396,
 "index_data": PackedByteArray("IQALAAUAIQAjAAsAIgAVAAkAIgAsABUALQARABcALQA3ABEArwCyAKwArwC1ALIABwANABMABwABAA0AFgAEAAoAFgAQAAQADAAYAD4ADAAAABgAowCmAKAAowCpAKYAlwCaAJQAlwCdAJoAiwCOAIgAiwCRAI4AfwCCAHwAfwCFAIIAFAA/ADUAFAAOAD8ANQA9ADMANQA/AD0AMwA7ADEAMwA9ADsAMQA5AC8AMQA7ADkALwA3AC0ALwA5ADcABgA0ACoABgASADQAKgAyACgAKgA0ADIAKAAwACYAKAAyADAAJgAuACQAJgAwAC4AJAAsACIAJAAuACwAAgArABkAAgAIACsAGQApABsAGQArACkAGwAnAB0AGwApACcAHQAlAB8AHQAnACUAHwAjACEAHwAlACMAWgCWAF0AWgCZAJYADwBAAEMADwA2AEAAAwBDAEYAAwAPAEMAIABGAEkAIAADAEYANgBJAEAANgAgAEkARACDAEcARAB9AIMAPABMAE8APAA+AEwAGgBPAFIAGgA8AE8AGABSAFUAGAAaAFIAPgBVAEwAPgAYAFUATgCKAFEATgCNAIoAOgBYAFsAOgA8AFgAHABbAF4AHAA6AFsAGgBeAGEAGgAcAF4APABhAFgAPAAaAGEAQgB+AEUAQgCBAH4AOABkAGcAOAA6AGQAHgBnAGoAHgA4AGcAHABqAG0AHAAeAGoAOgBtAGQAOgAcAG0AegCwAHEAegC2ALAANgBwAHMANgA4AHAAIABzAHYAIAA2AHMAHgB2AHkAHgAgAHYAOAB5AHAAOAAeAHkAUACPAFMAUACJAI8AZgCiAGkAZgClAKIASACHAEsASACEAIcAXACbAF8AXACVAJsAcgCuAHUAcgCxAK4AVACTAFcAVACQAJMAaACnAGsAaAChAKcASgCAAEEASgCGAIAAYACfAGMAYACcAJ8AdACzAHcAdACtALMAVgCMAE0AVgCSAIwAbACrAG8AbACoAKsAYgCYAFkAYgCeAJgAeAC3AHsAeAC0ALcAbgCkAGUAbgCqAKQA"),
-"material": ExtResource("8_ldh4i"),
+"material": ExtResource("8_t2pec"),
 "name": "Wood",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -53,33 +54,33 @@ glow_enabled = true
 
 [node name="Node3D" type="Node3D"]
 
-[node name="Room" parent="." instance=ExtResource("1_y445k")]
+[node name="Room" parent="." instance=ExtResource("1_0nyey")]
 
-[node name="Desk" parent="Room" instance=ExtResource("2_clxak")]
+[node name="Desk" parent="Room" instance=ExtResource("2_64l47")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6644, -1.74523)
 
-[node name="Drawer" parent="Room/Desk" instance=ExtResource("3_s2qst")]
+[node name="Drawer" parent="Room/Desk" instance=ExtResource("3_06m7j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.82655, 0.987795, -0.0126672)
 
-[node name="Drawer2" parent="Room/Desk" instance=ExtResource("3_s2qst")]
+[node name="Drawer2" parent="Room/Desk" instance=ExtResource("3_06m7j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.84352, 0.987795, -0.0126672)
 
-[node name="Drawer3" parent="Room/Desk" instance=ExtResource("3_s2qst")]
+[node name="Drawer3" parent="Room/Desk" instance=ExtResource("3_06m7j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8263, -0.306915, -0.0410104)
 
-[node name="Drawer4" parent="Room/Desk" instance=ExtResource("3_s2qst")]
+[node name="Drawer4" parent="Room/Desk" instance=ExtResource("3_06m7j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.84352, -0.3721, -0.0126672)
 
-[node name="LongDrawer" parent="Room/Desk" instance=ExtResource("4_88yuo")]
+[node name="LongDrawer" parent="Room/Desk" instance=ExtResource("4_bvniv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.23807, 1.45294)
 
-[node name="Phone" parent="Room/Desk" instance=ExtResource("5_4w5th")]
+[node name="Phone" parent="Room/Desk" instance=ExtResource("5_1g6lf")]
 transform = Transform3D(0.852202, 0, 0.523213, 0, 1, 0, -0.523213, 0, 0.852202, -2.90934, 2.25683, 0)
 
-[node name="Printer" parent="Room/Desk" instance=ExtResource("6_xurpc")]
+[node name="Printer" parent="Room/Desk" instance=ExtResource("6_luqux")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.64885, 2.32268, -0.496486)
 
-[node name="Corkboard" parent="Room" instance=ExtResource("7_lrtwo")]
+[node name="Corkboard" parent="Room" instance=ExtResource("7_xip52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.20646, -2.84175)
 
 [node name="Shelf" type="Node3D" parent="Room"]
@@ -90,31 +91,31 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.4, -1.49012e-08, 0, 0.869774)
 mesh = SubResource("ArrayMesh_2h0fh")
 skeleton = NodePath("")
 
-[node name="Skull" parent="Room/Shelf" instance=ExtResource("9_1d4pr")]
+[node name="Skull" parent="Room/Shelf" instance=ExtResource("9_jykcf")]
 transform = Transform3D(-0.134594, 0.264535, -0.63396, -0.00336226, 0.645753, 0.27017, 0.686931, 0.0549925, -0.122893, 1.75877, 0.488782, 0.758316)
 
-[node name="Book" parent="Room/Shelf" instance=ExtResource("10_o62pr")]
+[node name="Book" parent="Room/Shelf" instance=ExtResource("10_2we43")]
 transform = Transform3D(-2.62268e-08, 0.6, -2.62268e-08, 0, -2.62268e-08, -0.6, -0.6, -2.62268e-08, 1.14641e-15, -2.37061, 3.86645, 0.837242)
 
-[node name="Book2" parent="Room/Shelf" instance=ExtResource("10_o62pr")]
+[node name="Book2" parent="Room/Shelf" instance=ExtResource("10_2we43")]
 transform = Transform3D(-2.98023e-08, 0.6, -2.62268e-08, 0, -2.62268e-08, -0.6, -0.6, -2.98023e-08, 1.77636e-15, -2.06044, 3.86645, 0.766535)
 
-[node name="Book3" parent="Room/Shelf" instance=ExtResource("10_o62pr")]
+[node name="Book3" parent="Room/Shelf" instance=ExtResource("10_2we43")]
 transform = Transform3D(-2.98023e-08, 0.6, -2.62268e-08, 0, -2.62268e-08, -0.6, -0.6, -2.98023e-08, 2.22045e-15, -1.76537, 3.86645, 0.763602)
 
-[node name="Book4" parent="Room/Shelf" instance=ExtResource("10_o62pr")]
+[node name="Book4" parent="Room/Shelf" instance=ExtResource("10_2we43")]
 transform = Transform3D(-2.62268e-08, 0.6, -2.62268e-08, 0, -2.62268e-08, -0.6, -0.6, -2.62268e-08, 1.14641e-15, -1.46451, 3.86645, 0.935374)
 
-[node name="Book5" parent="Room/Shelf" instance=ExtResource("10_o62pr")]
+[node name="Book5" parent="Room/Shelf" instance=ExtResource("10_2we43")]
 transform = Transform3D(-2.98023e-08, 0.6, -2.62268e-08, 0, -2.62268e-08, -0.6, -0.6, -2.98023e-08, 1.77636e-15, -1.15434, 3.86645, 0.864666)
 
-[node name="Book6" parent="Room/Shelf" instance=ExtResource("10_o62pr")]
+[node name="Book6" parent="Room/Shelf" instance=ExtResource("10_2we43")]
 transform = Transform3D(-2.98023e-08, 0.6, -2.62268e-08, 0, -2.62268e-08, -0.6, -0.6, -2.98023e-08, 2.22045e-15, -0.859272, 3.86645, 0.861733)
 
-[node name="Cattree" parent="Room" instance=ExtResource("10_5qa6i")]
+[node name="Cattree" parent="Room" instance=ExtResource("11_vr1j1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.28747, 0, -1.64768)
 
-[node name="Coatrack" parent="Room" instance=ExtResource("11_n4ike")]
+[node name="Coatrack" parent="Room" instance=ExtResource("12_h3668")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.82436, 0.276311, 0)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Room"]
@@ -124,7 +125,10 @@ light_energy = 2.0
 omni_range = 20.3192
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.03137, 4.91892)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.429902, 4.60732, 2.5023)
+script = ExtResource("13_083ae")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_vn56m")
+
+[editable path="Room/Cattree"]
