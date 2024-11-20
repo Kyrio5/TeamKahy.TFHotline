@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://bt2ty5i8y2ofg"]
+[gd_scene load_steps=24 format=4 uid="uid://bt2ty5i8y2ofg"]
 
 [ext_resource type="PackedScene" uid="uid://bxl4evdxiurum" path="res://Mesh/Room.glb" id="1_0nyey"]
 [ext_resource type="PackedScene" uid="uid://bdi8ao1wn7e3c" path="res://Mesh/Desk.glb" id="2_64l47"]
@@ -12,7 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://b73o2maogvmte" path="res://Mesh/Book.glb" id="10_2we43"]
 [ext_resource type="PackedScene" uid="uid://4r3lqnm0sdkd" path="res://Mesh/Cattree.glb" id="11_vr1j1"]
 [ext_resource type="PackedScene" uid="uid://cx040c8y3b8ae" path="res://Mesh/Coatrack.glb" id="12_h3668"]
-[ext_resource type="Script" path="res://Scenes/Level/Mouselook.gd" id="13_083ae"]
+[ext_resource type="Script" path="res://Script/StateMachines/StateMachine.gd" id="14_bmj4s"]
+[ext_resource type="Script" path="res://Script/StateMachines/Camera/Cam_Intro_State.gd" id="15_c5uax"]
+[ext_resource type="Script" path="res://Script/StateMachines/Camera/Cam_Seated_State.gd" id="16_a7j42"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_nfkkb"]
 _surfaces = [{
@@ -45,6 +47,123 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_nfkkb")
+
+[sub_resource type="Animation" id="Animation_yjwkv"]
+resource_name = "LookDrawers"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.0174375, 5.21841, 1.28598)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.466667),
+"transitions": PackedFloat32Array(2.82843, 0.353553),
+"update": 0,
+"values": [Vector3(0, -0.00069812, 0), Vector3(-0.731293, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_uni7a"]
+resource_name = "LookShelf"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.0174375, 5.21841, 1.28598), Vector3(0.888339, 5.21841, 1.28598), Vector3(5.96897, 6.38848, 3.22621)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(-0.0333333, 0.366667, 1),
+"transitions": PackedFloat32Array(1, 1.86607, 1),
+"update": 0,
+"values": [Vector3(0, -0.00069812, 0), Vector3(0, -0.975639, 0), Vector3(0, -0.244346, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_nunxs"]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.429902, 6.01398, 5.25884)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_enqdy"]
+resource_name = "SitDown"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.5, 2.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.429902, 6.01398, 5.25884), Vector3(-0.429902, 6.01398, 2.79579), Vector3(-0.429902, 6.01398, 2.79579), Vector3(-0.0182824, 6.01398, 2.49624), Vector3(-0.0174375, 5.21841, 1.28598)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 1.5, 2.2, 2.63333, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.0993441, 0), Vector3(0, 0.0993441, 0), Vector3(0, -0.529219, 0), Vector3(0, -0.529219, 0), Vector3(0, -0.00069812, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qx82k"]
+_data = {
+"LookDrawers": SubResource("Animation_yjwkv"),
+"LookShelf": SubResource("Animation_uni7a"),
+"RESET": SubResource("Animation_nunxs"),
+"SitDown": SubResource("Animation_enqdy")
+}
 
 [sub_resource type="Environment" id="Environment_vn56m"]
 background_mode = 1
@@ -125,8 +244,36 @@ light_energy = 2.0
 omni_range = 20.3192
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.429902, 4.60732, 2.5023)
-script = ExtResource("13_083ae")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.429902, 6.01398, 5.25884)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera3D"]
+libraries = {
+"": SubResource("AnimationLibrary_qx82k")
+}
+
+[node name="States" type="Node" parent="Camera3D" node_paths=PackedStringArray("body", "animator")]
+script = ExtResource("14_bmj4s")
+body = NodePath("..")
+animator = NodePath("../AnimationPlayer")
+
+[node name="Intro" type="Node" parent="Camera3D/States"]
+script = ExtResource("15_c5uax")
+state_name = "default"
+animation = &"SitDown"
+
+[node name="LookAtCat" type="Node" parent="Camera3D/States"]
+
+[node name="Seated" type="Node" parent="Camera3D/States"]
+script = ExtResource("16_a7j42")
+state_name = "seated"
+
+[node name="Drawers" type="Node" parent="Camera3D/States"]
+
+[node name="Phone" type="Node" parent="Camera3D/States"]
+
+[node name="Printer" type="Node" parent="Camera3D/States"]
+
+[node name="Shelf" type="Node" parent="Camera3D/States"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_vn56m")
