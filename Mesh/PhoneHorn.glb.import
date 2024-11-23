@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://csxr6je25dalm"
-path="res://.godot/imported/Corkboard.glb-1d0bd5c2d215e88f209cbfa7e9cadf92.scn"
+uid="uid://c5aceswqht11c"
+path="res://.godot/imported/PhoneHorn.glb-fc5225ebdb7cc71435ef16642dc1f11d.scn"
 
 [deps]
 
-source_file="res://Mesh/Corkboard.glb"
-dest_files=["res://.godot/imported/Corkboard.glb-1d0bd5c2d215e88f209cbfa7e9cadf92.scn"]
+source_file="res://Mesh/PhoneHorn.glb"
+dest_files=["res://.godot/imported/PhoneHorn.glb-fc5225ebdb7cc71435ef16642dc1f11d.scn"]
 
 [params]
 
@@ -31,17 +31,6 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={
-"materials": {
-"Cork": {
-"use_external/enabled": true,
-"use_external/path": "res://Materials/Cork.tres"
-},
-"Wood": {
-"use_external/enabled": true,
-"use_external/path": "res://Mesh/Wood.tres"
-}
-}
-}
+_subresources={}
 gltf/naming_version=1
 gltf/embedded_image_handling=1
