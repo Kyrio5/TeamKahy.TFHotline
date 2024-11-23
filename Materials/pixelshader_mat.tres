@@ -1,0 +1,17 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cp5ifetu6sk5n"]
+
+[ext_resource type="Shader" path="res://Materials/Shaders/pixelshader.gdshader" id="1_8kiwv"]
+
+[resource]
+shader = ExtResource("1_8kiwv")
+shader_parameter/shake = 0.001
+shader_parameter/noiseQuality = 225.0
+shader_parameter/noiseIntensity = 0.001
+shader_parameter/offsetIntensity = 0.0
+shader_parameter/colorOffsetIntensity = 0.2
+shader_parameter/pixelSize = 578.233
+shader_parameter/grainIntensity = 0.04
+shader_parameter/use_overlay = false
+shader_parameter/use_lens_distortion = false
+shader_parameter/overlay_color = Color(1, 1, 1, 10)
+shader_parameter/lens_distortion_strength = 0.0

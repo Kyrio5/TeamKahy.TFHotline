@@ -6,17 +6,17 @@ var look_dir: Vector2 # Input direction for look/aim
 
 @onready var camera: Camera3D
 func default_lifecycle():
+	if Input.is_action_just_released("Mouse_Confirm"):
+		return GlobalSignalPipe.context.to_lower()
+		
 	return "continue"
 
 func on_enter() -> void:
 	camera = my_machine.body
-	capture_mouse()
+	#capture_mouse()
 
-func _unhandled_input(event: InputEvent) -> void:
-	if(my_machine.current_state == self):
-		if event is InputEventMouseMotion:
-			look_dir = event.relative * 0.001
-			if mouse_captured: _rotate_camera()
+func _input(event: InputEvent) -> void:
+	pass
 
 func capture_mouse() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
