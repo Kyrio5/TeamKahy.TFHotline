@@ -33,10 +33,6 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "materials": {
-"Cork": {
-"use_external/enabled": true,
-"use_external/path": "res://Materials/Cork.tres"
-},
 "Wood": {
 "use_external/enabled": true,
 "use_external/path": "res://Mesh/Wood.tres"

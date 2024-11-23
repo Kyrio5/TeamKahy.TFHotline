@@ -1,44 +1,18 @@
-[gd_scene load_steps=49 format=4 uid="uid://bt2ty5i8y2ofg"]
+[gd_scene load_steps=17 format=4 uid="uid://bt2ty5i8y2ofg"]
 
 [ext_resource type="PackedScene" uid="uid://bxl4evdxiurum" path="res://Mesh/Room.glb" id="1_0nyey"]
 [ext_resource type="PackedScene" uid="uid://bdi8ao1wn7e3c" path="res://Mesh/Desk.glb" id="2_64l47"]
 [ext_resource type="PackedScene" uid="uid://bfojpif51mgm4" path="res://Mesh/Drawer.glb" id="3_06m7j"]
 [ext_resource type="PackedScene" uid="uid://gcvd20op3sqe" path="res://Mesh/LongDrawer.glb" id="4_bvniv"]
 [ext_resource type="PackedScene" uid="uid://kb5mlmhlc0ih" path="res://Mesh/Phone.glb" id="5_1g6lf"]
-[ext_resource type="Script" path="res://Script/Interaction.gd" id="6_fus12"]
 [ext_resource type="PackedScene" uid="uid://k5jgkcoget6j" path="res://Mesh/Printer.glb" id="6_luqux"]
 [ext_resource type="PackedScene" uid="uid://csxr6je25dalm" path="res://Mesh/Corkboard.glb" id="7_xip52"]
-[ext_resource type="PackedScene" uid="uid://c5aceswqht11c" path="res://Mesh/PhoneHorn.glb" id="7_yjjn6"]
-[ext_resource type="PackedScene" uid="uid://4cw1cl282a2s" path="res://Mesh/Binder.glb" id="8_8tnwm"]
 [ext_resource type="Material" uid="uid://ck4oilxmu0qn0" path="res://Mesh/Wood.tres" id="8_t2pec"]
 [ext_resource type="PackedScene" uid="uid://bwxj6bxleoxff" path="res://Mesh/Skull.glb" id="9_jykcf"]
 [ext_resource type="PackedScene" uid="uid://b73o2maogvmte" path="res://Mesh/Book.glb" id="10_2we43"]
 [ext_resource type="PackedScene" uid="uid://4r3lqnm0sdkd" path="res://Mesh/Cattree.glb" id="11_vr1j1"]
 [ext_resource type="PackedScene" uid="uid://cx040c8y3b8ae" path="res://Mesh/Coatrack.glb" id="12_h3668"]
-[ext_resource type="Script" path="res://Script/StateMachines/StateMachine.gd" id="14_bmj4s"]
-[ext_resource type="Script" path="res://Script/StateMachines/Camera/Cam_Intro_State.gd" id="15_c5uax"]
-[ext_resource type="Script" path="res://Script/StateMachines/Camera/Cam_Seated_State.gd" id="16_a7j42"]
-[ext_resource type="Script" path="res://Scenes/Level/Cam_LookCat_State.gd" id="16_eriqk"]
-[ext_resource type="Script" path="res://Scenes/Level/Cam_Drawers_State.gd" id="16_vsrjl"]
-[ext_resource type="Animation" uid="uid://ceeimhrpg442o" path="res://Anim/PickUpPhone.res" id="16_w655s"]
-[ext_resource type="Material" uid="uid://cp5ifetu6sk5n" path="res://Materials/pixelshader_mat.tres" id="17_cosua"]
-[ext_resource type="Script" path="res://Scenes/Level/UINode.gd" id="17_hqtwi"]
-[ext_resource type="Script" path="res://Scenes/Level/Cam_Bookshelf_State.gd" id="18_varta"]
-[ext_resource type="Script" path="res://Scenes/Level/Cam_Examine_State.gd" id="22_38sxo"]
-[ext_resource type="Script" path="res://Scenes/Level/GameStateController.gd" id="22_gtci2"]
-[ext_resource type="Script" path="res://Scenes/Level/Main_Game_State.gd" id="23_uum5g"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_qpe1c"]
-size = Vector3(1.29736, 0.749146, 1.20605)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_dnmh6"]
-size = Vector3(2.1037, 1.58496, 1.34131)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_tv3jd"]
-size = Vector3(7.33765, 1, 0.522949)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_a5y0w"]
-size = Vector3(1, 0.334473, 1.35986)
+[ext_resource type="Script" path="res://Scenes/Level/Mouselook.gd" id="13_083ae"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_nfkkb"]
 _surfaces = [{
@@ -72,359 +46,13 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_nfkkb")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_4ejj0"]
-size = Vector3(6.56445, 9.53418, 2.14868)
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_1qmm6"]
-radius = 0.727944
-
-[sub_resource type="Animation" id="Animation_yjwkv"]
-resource_name = "LookDrawers"
-length = 0.6
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-0.0174375, 5.21841, 1.28598)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.466667),
-"transitions": PackedFloat32Array(2.82843, 0.353553),
-"update": 0,
-"values": [Vector3(0, -0.00069812, 0), Vector3(-0.731293, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_uni7a"]
-resource_name = "LookShelf"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(-0.0174375, 5.21841, 1.28598), Vector3(0.888339, 5.21841, 1.28598), Vector3(5.96897, 6.38848, 3.22621)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(-0.0333333, 0.366667, 1),
-"transitions": PackedFloat32Array(1, 1.86607, 1),
-"update": 0,
-"values": [Vector3(0, -0.00069812, 0), Vector3(0, -0.975639, 0), Vector3(0, -0.244346, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_nunxs"]
-resource_name = "RESET"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-0.429902, 6.01398, 5.25884)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../Room/Desk/Phone/PhoneHorn:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("../Room/Desk/Phone/PhoneHorn:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("PhonePickedUp:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-0.30537, -2.7781, -0.330028)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("PhonePickedUp:rotation")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.83417, -2.30559, -1.01384)]
-}
-
-[sub_resource type="Animation" id="Animation_e7o27"]
-resource_name = "Seated"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-0.0174375, 5.21841, 1.28598)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, -0.00069812, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_enqdy"]
-resource_name = "SitDown"
-length = 4.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 1.5, 2.5, 3),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(-0.429902, 6.01398, 5.25884), Vector3(-0.429902, 6.01398, 2.79579), Vector3(-0.429902, 6.01398, 2.79579), Vector3(-0.0182824, 6.01398, 2.49624), Vector3(-0.0174375, 5.21841, 1.28598)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1, 1.5, 2.2, 2.63333, 3),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0.0993441, 0), Vector3(0, 0.0993441, 0), Vector3(0, -0.529219, 0), Vector3(0, -0.529219, 0), Vector3(0, -0.00069812, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_2qvre"]
-resource_name = "LookBoard"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-0.0174375, 5.21841, 1.28598), Vector3(-0.271101, 6.15425, -0.568915)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 0
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, -0.00069812, 0), Vector3(0, -0.00069812, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_h4gj3"]
-resource_name = "LookCat"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.9),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-0.0174375, 5.21841, 1.28598), Vector3(-2.97742, 5.86665, 0.0149274)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.9),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, -0.00069812, 0), Vector3(0.391538, 0.730999, -0.0480411)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_qx82k"]
-_data = {
-"LookCorkboard": SubResource("Animation_2qvre"),
-"LookDrawers": SubResource("Animation_yjwkv"),
-"LookNoodle": SubResource("Animation_h4gj3"),
-"LookShelf": SubResource("Animation_uni7a"),
-"RESET": SubResource("Animation_nunxs"),
-"Seated": SubResource("Animation_e7o27"),
-"SitDown": SubResource("Animation_enqdy")
-}
-
-[sub_resource type="Animation" id="Animation_3vyhy"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../UI/SubViewportContainer/SubViewport/Node3D/ViewBinder:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, -2.30916, 2.55493)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../Room/Desk/Binder:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.759823, 2.26702, 0.536201)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../Room/Desk/Binder:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_mw4lu"]
-_data = {
-"RESET": SubResource("Animation_3vyhy")
-}
-
-[sub_resource type="Animation" id="Animation_bjmuo"]
-resource_name = "PickUpBinder"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../UI/SubViewportContainer/SubViewport/Node3D/ViewBinder:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.666667, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, -2.15362, 2.55493), Vector3(0, -0.59416, 2.55493)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../Room/Desk/Binder:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0.759823, 2.26702, 0.536201), Vector3(0.759823, 2.72117, 3.88864)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../Room/Desk/Binder:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0.86968, 0, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_awu4g"]
-_data = {
-"PickUpBinder": SubResource("Animation_bjmuo"),
-"PickUpPhone": ExtResource("16_w655s")
-}
-
 [sub_resource type="Environment" id="Environment_vn56m"]
 background_mode = 1
 ssao_enabled = true
 ssil_enabled = true
 glow_enabled = true
 
-[node name="Game" type="Node3D"]
+[node name="Node3D" type="Node3D"]
 
 [node name="Room" parent="." instance=ExtResource("1_0nyey")]
 
@@ -449,58 +77,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.23807, 1.45294)
 [node name="Phone" parent="Room/Desk" instance=ExtResource("5_1g6lf")]
 transform = Transform3D(0.852202, 0, 0.523213, 0, 1, 0, -0.523213, 0, 0.852202, -2.90934, 2.25683, 0)
 
-[node name="Area3D" type="Area3D" parent="Room/Desk/Phone"]
-script = ExtResource("6_fus12")
-context = "Phone"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Desk/Phone/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0131876, 0.278121, 0.323717)
-shape = SubResource("BoxShape3D_qpe1c")
-
-[node name="PhoneHorn" parent="Room/Desk/Phone" instance=ExtResource("7_yjjn6")]
-
 [node name="Printer" parent="Room/Desk" instance=ExtResource("6_luqux")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.64885, 2.32268, -0.496486)
-
-[node name="Area3D" type="Area3D" parent="Room/Desk/Printer"]
-script = ExtResource("6_fus12")
-context = "Print/Fax"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Desk/Printer/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.207912, 0.570601, 0.153063)
-shape = SubResource("BoxShape3D_dnmh6")
-
-[node name="Area3D" type="Area3D" parent="Room/Desk"]
-script = ExtResource("6_fus12")
-context = "Drawers"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Desk/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00866294, 1.77496, 1.42732)
-shape = SubResource("BoxShape3D_tv3jd")
-
-[node name="Binder" parent="Room/Desk" instance=ExtResource("8_8tnwm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.759823, 2.26702, 0.536201)
-
-[node name="Skeleton3D" parent="Room/Desk/Binder/Armature_001" index="0"]
-bones/1/rotation = Quaternion(2.17444e-07, 1.66786e-07, -0.760541, 0.64929)
-bones/2/rotation = Quaternion(3.45728e-07, 1.35002e-07, -0.744512, 0.667609)
-
-[node name="Torus" parent="Room/Desk/Binder/Armature_001/Skeleton3D" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.47053, 0, 0)
-
-[node name="Area3D2" type="Area3D" parent="Room/Desk/Binder"]
-script = ExtResource("6_fus12")
-context = "Binder"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Desk/Binder/Area3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.92285, 0.292772, -0.473904)
-shape = SubResource("BoxShape3D_a5y0w")
 
 [node name="Corkboard" parent="Room" instance=ExtResource("7_xip52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.20646, -2.84175)
 
 [node name="Shelf" type="Node3D" parent="Room"]
-transform = Transform3D(0.938566, 0, -0.345101, 0, 1, 0, 0.345101, 0, 0.938566, 7.20262, 4.50459, -2.05666)
+transform = Transform3D(0.974987, 0, -0.222263, 0, 1, 0, 0.222263, 0, 0.974987, 7.70382, 4.50459, -0.832501)
 
 [node name="Cube_042" type="MeshInstance3D" parent="Room/Shelf"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.4, -1.49012e-08, 0, 0.869774)
@@ -528,200 +112,23 @@ transform = Transform3D(-2.98023e-08, 0.6, -2.62268e-08, 0, -2.62268e-08, -0.6, 
 [node name="Book6" parent="Room/Shelf" instance=ExtResource("10_2we43")]
 transform = Transform3D(-2.98023e-08, 0.6, -2.62268e-08, 0, -2.62268e-08, -0.6, -0.6, -2.98023e-08, 2.22045e-15, -0.859272, 3.86645, 0.861733)
 
-[node name="Interaction" type="Area3D" parent="Room/Shelf"]
-script = ExtResource("6_fus12")
-context = "Bookshelf"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Shelf/Interaction"]
-transform = Transform3D(0.999996, 0, 3.12924e-07, 0, 1, 0, -3.12924e-07, 0, 0.999996, -0.548523, 0, 1.05887)
-shape = SubResource("BoxShape3D_4ejj0")
-
 [node name="Cattree" parent="Room" instance=ExtResource("11_vr1j1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.28747, 0, -1.64768)
-
-[node name="Skeleton3D" parent="Room/Cattree/Armature_003" index="0"]
-bones/0/rotation = Quaternion(0.28897, -0.0507826, -0.0936558, 0.951392)
-
-[node name="Area3D" type="Area3D" parent="Room/Cattree"]
-script = ExtResource("6_fus12")
-context = "Noodle"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Cattree/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.93905, 6.42414, 0.0766485)
-shape = SubResource("SphereShape3D_1qmm6")
 
 [node name="Coatrack" parent="Room" instance=ExtResource("12_h3668")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.82436, 0.276311, 0)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Room"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00661802, 6.84754, 1.81343)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.62297, 5.92314, 4.62985)
 light_color = Color(1, 1, 0.631373, 1)
 light_energy = 2.0
-light_cull_mask = 4294967293
 omni_range = 20.3192
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.429902, 6.01398, 5.25884)
-cull_mask = 1048573
-
-[node name="ViewAnimator" type="AnimationPlayer" parent="Camera3D"]
-libraries = {
-"": SubResource("AnimationLibrary_qx82k")
-}
-playback_auto_capture_ease_type = 2
-
-[node name="ObjectAnimator" type="AnimationPlayer" parent="Camera3D"]
-libraries = {
-"": SubResource("AnimationLibrary_mw4lu"),
-"ObjectAnim": SubResource("AnimationLibrary_awu4g")
-}
-
-[node name="ViewStates" type="Node" parent="Camera3D" node_paths=PackedStringArray("body", "animator")]
-script = ExtResource("14_bmj4s")
-body = NodePath("..")
-animator = NodePath("../ViewAnimator")
-
-[node name="Intro" type="Node" parent="Camera3D/ViewStates"]
-script = ExtResource("15_c5uax")
-state_name = "default"
-animation = &"SitDown"
-
-[node name="LookAtCat" type="Node" parent="Camera3D/ViewStates"]
-script = ExtResource("16_eriqk")
-state_name = "noodle"
-animation = &"LookNoodle"
-
-[node name="Seated" type="Node" parent="Camera3D/ViewStates"]
-script = ExtResource("16_a7j42")
-camera_sens = 2.0
-state_name = "seated"
-
-[node name="Drawers" type="Node" parent="Camera3D/ViewStates"]
-script = ExtResource("16_vsrjl")
-state_name = "drawers"
-animation = &"LookDrawers"
-
-[node name="Examine" type="Node" parent="Camera3D/ViewStates"]
-script = ExtResource("22_38sxo")
-state_name = "examine"
-
-[node name="Phone" type="Node" parent="Camera3D/ViewStates"]
-
-[node name="Shelf" type="Node" parent="Camera3D/ViewStates"]
-script = ExtResource("18_varta")
-state_name = "bookshelf"
-animation = &"LookShelf"
-
-[node name="PhonePickedUp" parent="Camera3D" instance=ExtResource("7_yjjn6")]
-transform = Transform3D(0.112148, -0.859635, -0.49845, -0.570263, 0.355113, -0.74074, 0.81377, 0.36732, -0.450393, -0.30537, -2.7781, -0.330028)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.429902, 4.60732, 2.5023)
+script = ExtResource("13_083ae")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_vn56m")
 
-[node name="UI" type="Control" parent="." node_paths=PackedStringArray("context_label")]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
-script = ExtResource("17_hqtwi")
-context_label = NodePath("ContextLabel")
-
-[node name="SubViewportContainer" type="SubViewportContainer" parent="UI"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-stretch = true
-
-[node name="SubViewport" type="SubViewport" parent="UI/SubViewportContainer"]
-transparent_bg = true
-handle_input_locally = false
-size = Vector2i(1920, 1080)
-size_2d_override_stretch = true
-render_target_update_mode = 4
-
-[node name="Node3D" type="Node3D" parent="UI/SubViewportContainer/SubViewport"]
-
-[node name="ViewBinder" parent="UI/SubViewportContainer/SubViewport/Node3D" instance=ExtResource("8_8tnwm")]
-transform = Transform3D(1, 0, 0, 0, -0.0447178, -0.999, 0, 0.999, -0.0447178, 0, -2.30916, 2.55493)
-
-[node name="Skeleton3D" parent="UI/SubViewportContainer/SubViewport/Node3D/ViewBinder/Armature_001" index="0"]
-bones/1/rotation = Quaternion(-1.02887e-07, 2.30251e-08, 2.2479e-08, 1)
-bones/2/rotation = Quaternion(1.00781e-07, -2.27711e-08, -2.22566e-08, 1)
-
-[node name="Torus" parent="UI/SubViewportContainer/SubViewport/Node3D/ViewBinder/Armature_001/Skeleton3D" index="0"]
-transform = Transform3D(1, 0, 0, 0, 0.993552, 0.113377, 0, -0.113377, 0.993552, 0, -0.0890298, -0.0672036)
-layers = 2
-
-[node name="AnimationPlayer" parent="UI/SubViewportContainer/SubViewport/Node3D/ViewBinder" index="1"]
-speed_scale = 0.0
-
-[node name="Camera3D" type="Camera3D" parent="UI/SubViewportContainer/SubViewport/Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.4018)
-cull_mask = 1048574
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="UI/SubViewportContainer/SubViewport/Node3D"]
-transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 0, 9.3978, 3.0569)
-layers = 2
-light_cull_mask = 4294967294
-
-[node name="ShaderRect" type="ColorRect" parent="UI"]
-material = ExtResource("17_cosua")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="ContextLabel" type="Label" parent="UI"]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -79.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 5
-theme_override_font_sizes/font_size = 35
-text = "Interaction Label"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="GameStates" type="Node" parent="." node_paths=PackedStringArray("CameraState", "body")]
-script = ExtResource("22_gtci2")
-CameraState = NodePath("../Camera3D/ViewStates")
-body = NodePath("..")
-
-[node name="Intro" type="Node" parent="GameStates"]
-
-[node name="TitleScreen" type="Node" parent="GameStates"]
-
-[node name="Tutorial" type="Node" parent="GameStates"]
-
-[node name="Game" type="Node" parent="GameStates"]
-script = ExtResource("23_uum5g")
-state_name = "default"
-
-[node name="Pause" type="Node" parent="GameStates"]
-
-[node name="EndDayReport" type="Node" parent="GameStates"]
-
-[node name="GameOver" type="Node" parent="GameStates"]
-
-[node name="Credits" type="Node" parent="GameStates"]
-
-[node name="Settings" type="Node" parent="GameStates"]
-
-[editable path="Room/Desk/Binder"]
-[editable path="Room/Corkboard"]
 [editable path="Room/Cattree"]
-[editable path="UI/SubViewportContainer/SubViewport/Node3D/ViewBinder"]
