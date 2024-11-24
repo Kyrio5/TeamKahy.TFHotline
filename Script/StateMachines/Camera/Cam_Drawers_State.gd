@@ -5,5 +5,8 @@ func default_lifecycle():
 		return "seated"
 	return "continue"
 
+func on_enter():
+	GlobalSignalPipe.change_context("Drawers")
+
 func on_exit():
 	animator.play_backwards(animation)

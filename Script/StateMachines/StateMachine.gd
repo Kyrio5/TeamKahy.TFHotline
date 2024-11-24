@@ -58,12 +58,14 @@ func _process(delta: float) -> void:
 			if(states_list.has(status)):
 				switch_state(status)
 			else: #if the status isn't one of the our states, it should tell us what to do
-				status = GlobalSignalPipe.current_interaction.interact(self)
-				if(states_list.has(status)):
-					switch_state(status)	
+				if(GlobalSignalPipe.current_interaction != null):
+					status = GlobalSignalPipe.current_interaction.interact(self)
+					if(states_list.has(status)):
+						switch_state(status)	
+					else:
+						#if it's still not there, ignore it :V
+						print("ERR: State not found")
 				else:
-					#if it's still not there, ignore it :V
 					print("ERR: State not found")
-				
 	else:
 		switch_state("default")

@@ -5,7 +5,7 @@
 [ext_resource type="FontFile" uid="uid://26ewtnm04etc" path="res://Materials/Fonts/micross.ttf" id="3_udlwn"]
 [ext_resource type="StyleBox" uid="uid://dmeocjbj31ur4" path="res://Materials/Styleboxes/Title/title-hover.tres" id="3_ur0nq"]
 [ext_resource type="StyleBox" uid="uid://bj5v88gfgf2nf" path="res://Materials/Styleboxes/Title/title-normal.tres" id="4_2kdmo"]
-[ext_resource type="Material" path="res://Materials/Shaders/vhsshader.tres" id="5_lxlhd"]
+[ext_resource type="Material" uid="uid://nrn7e0wp5kgk" path="res://Materials/Shaders/vhsshader.tres" id="5_lxlhd"]
 
 [node name="TitleScreen" type="Control"]
 layout_mode = 3
@@ -14,6 +14,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.5, 0.5)
 script = ExtResource("1_osbd3")
 
 [node name="Control" type="Control" parent="."]
@@ -163,13 +164,13 @@ theme_override_styles/normal_mirrored = ExtResource("4_2kdmo")
 theme_override_styles/normal = ExtResource("4_2kdmo")
 text = "EJECT TAPE"
 
-[node name="CanvasLayer" type="CanvasLayer" parent="Control"]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 process_mode = 4
 process_priority = -1
 physics_interpolation_mode = 2
 auto_translate_mode = 2
 
-[node name="ColorRect" type="ColorRect" parent="Control/CanvasLayer"]
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 material = ExtResource("5_lxlhd")
 anchors_preset = 15
 anchor_right = 1.0

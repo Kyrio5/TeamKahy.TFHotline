@@ -1,11 +1,11 @@
-[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://dumguqq4aoh3p"]
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://nrn7e0wp5kgk"]
 
 [ext_resource type="Shader" path="res://Materials/Shaders/vhsshader.gdshader" id="1_wosce"]
 [ext_resource type="Texture2D" uid="uid://cxde4gq7rhaj2" path="res://Materials/Texture/rgb noise.png" id="2_oa5pc"]
 
 [resource]
 shader = ExtResource("1_wosce")
-shader_parameter/vhs_resolution = Vector2(320, 240)
+shader_parameter/vhs_resolution = Vector2(640, 480)
 shader_parameter/samples = 2
 shader_parameter/crease_noise = 1.0
 shader_parameter/crease_opacity = 0.5

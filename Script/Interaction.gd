@@ -18,5 +18,4 @@ func _on_area_3d_mouse_exited() -> void:
 	pass # Replace with function body.
 
 func interact(other):
-	GlobalSignalPipe.change_context(trigger_state)
 	return trigger_state
