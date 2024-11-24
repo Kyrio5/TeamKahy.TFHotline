@@ -1,6 +1,6 @@
 extends Node
 
-@export var UI_node : Control
+@export var UI_node : UINode
 @export var GameState : StateMachine
 @export var CamState : StateMachine
 

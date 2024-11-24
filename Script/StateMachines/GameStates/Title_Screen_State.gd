@@ -1,8 +1,7 @@
 extends State
-@export var title_screen:TitleScreen
 
 func on_enter():
-	title_screen.show()
+	GlobalSignalPipe.UI_node.title_overlay.show()
 	pass
 
 func default_lifecycle():
@@ -10,5 +9,5 @@ func default_lifecycle():
 
 func on_exit():
 	GlobalSignalPipe.CamState.switch_state("intro")
-	title_screen.hide()
+	GlobalSignalPipe.UI_node.title_overlay.hide()
 	pass
