@@ -7,6 +7,7 @@ class_name State
 var animator : AnimationPlayer
 var start_time : float
 var duration : float = 0
+var has_forced : bool = false
 
 func on_enter():
 	#called when the state is first switched to
@@ -48,5 +49,7 @@ func lasted_between(time_1, time_2):
 	return time_1 < lifetime() < time_2
 	
 func check_state():
+	if(has_forced):
+		pass
 	#function to check the transition of the state. Used if you want to force a state change outside of normal lifecycle
 	return default_lifecycle()
