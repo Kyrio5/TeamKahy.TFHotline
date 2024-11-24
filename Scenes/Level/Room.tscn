@@ -27,7 +27,10 @@
 [ext_resource type="Script" path="res://Scenes/Level/Cam_Bookshelf_State.gd" id="18_varta"]
 [ext_resource type="Script" path="res://Scenes/Level/Cam_Examine_State.gd" id="22_38sxo"]
 [ext_resource type="Script" path="res://Scenes/Level/GameStateController.gd" id="22_gtci2"]
-[ext_resource type="Script" path="res://Scenes/Level/Main_Game_State.gd" id="23_uum5g"]
+[ext_resource type="Script" path="res://Scenes/GameStates/Main_Game_State.gd" id="23_uum5g"]
+[ext_resource type="PackedScene" uid="uid://c0tw8yyvew6h4" path="res://Scenes/TitleScreen.tscn" id="26_xfmph"]
+[ext_resource type="Script" path="res://Scenes/GameStates/intro_State.gd" id="27_25eye"]
+[ext_resource type="Script" path="res://Scenes/Level/Title_Screen_State.gd" id="28_nh4lm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qpe1c"]
 size = Vector3(1.29736, 0.749146, 1.20605)
@@ -374,29 +377,26 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("../Room/Desk/Drawer:position")
+tracks/3/path = NodePath("../Room/Desk/Phone/PhoneHorn:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(-2.82655, 0.987795, -0.0126672)]
+"values": [Vector3(1.44592, -0.0863137, 5.17054)]
 }
-
-[sub_resource type="Animation" id="Animation_bq82v"]
-resource_name = "OpenDrawerTopLeft"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../Room/Desk/Drawer:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Room/Desk/Phone/PhoneHorn:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(-2.82655, 0.987795, -0.0126672), Vector3(-2.82655, 0.987795, 1.72994)]
+"values": [Vector3(0.277819, -0.00483175, -0.0189898)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mw4lu"]
@@ -407,6 +407,7 @@ _data = {
 
 [sub_resource type="Animation" id="Animation_bjmuo"]
 resource_name = "PickUpBinder"
+length = 0.7
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -414,7 +415,7 @@ tracks/0/path = NodePath("../UI/SubViewportContainer/SubViewport/Node3D/ViewBind
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.666667, 1),
+"times": PackedFloat32Array(0.5, 0.7),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(0, -2.15362, 2.55493), Vector3(0, -0.59416, 2.55493)]
@@ -426,10 +427,10 @@ tracks/1/path = NodePath("../Room/Desk/Binder:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.233333, 0.433333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0.759823, 2.26702, 0.536201), Vector3(0.759823, 2.72117, 3.88864)]
+"values": [Vector3(0.759823, 2.26702, 0.536201), Vector3(0.759823, 2.26702, 0.536201), Vector3(0.759823, 2.42053, 0.756881), Vector3(0.759823, 2.42053, 0.756881), Vector3(0.759823, 1.44343, 3.88864)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -438,10 +439,10 @@ tracks/2/path = NodePath("../Room/Desk/Binder:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.233333, 0.433333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0.86968, 0, 0)]
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0.054355, 0, 0), Vector3(0.054355, 0, 0), Vector3(0.86968, 0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_awu4g"]
@@ -582,6 +583,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.23807, 1.45294)
 transform = Transform3D(0.852202, 0, 0.523213, 0, 1, 0, -0.523213, 0, 0.852202, -2.90934, 2.25683, 0)
 
 [node name="PhoneHorn" parent="Room/Desk/Phone" instance=ExtResource("7_yjjn6")]
+transform = Transform3D(0.999833, 0.0176635, -0.00464646, -0.0182606, 0.961482, -0.274259, -0.000376893, 0.274298, 0.961644, 1.44592, -0.0863137, 5.17054)
 
 [node name="Printer" parent="Room/Desk" instance=ExtResource("6_luqux")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.64885, 2.32268, -0.496486)
@@ -717,7 +719,7 @@ state_name = "bookshelf"
 animation = &"LookShelf"
 
 [node name="PhonePickedUp" parent="Camera3D" instance=ExtResource("7_yjjn6")]
-transform = Transform3D(0.112148, -0.859635, -0.49845, -0.570263, 0.355113, -0.74074, 0.81377, 0.36732, -0.450393, -0.30537, -2.7781, -0.330028)
+transform = Transform3D(0.112148, -0.859635, -0.49845, -0.570262, 0.355113, -0.74074, 0.813769, 0.36732, -0.450393, -0.30537, -2.7781, -0.330028)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_vn56m")
@@ -800,19 +802,25 @@ text = "Interaction Label"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="GameStates" type="Node" parent="." node_paths=PackedStringArray("body")]
+[node name="TitleScreen" parent="UI" instance=ExtResource("26_xfmph")]
+layout_mode = 1
+
+[node name="GameStates" type="Node" parent="." node_paths=PackedStringArray("CameraState", "body")]
 script = ExtResource("22_gtci2")
 body = NodePath("..")
 
 [node name="Intro" type="Node" parent="GameStates"]
+script = ExtResource("27_25eye")
 
-[node name="TitleScreen" type="Node" parent="GameStates"]
+[node name="TitleScreen" type="Node" parent="GameStates" node_paths=PackedStringArray("title_screen")]
+script = ExtResource("28_nh4lm")
+title_screen = NodePath("../../UI/TitleScreen")
+state_name = "default"
 
 [node name="Tutorial" type="Node" parent="GameStates"]
 
 [node name="Game" type="Node" parent="GameStates"]
 script = ExtResource("23_uum5g")
-state_name = "default"
 
 [node name="Pause" type="Node" parent="GameStates"]
 

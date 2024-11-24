@@ -1,0 +1,181 @@
+[gd_scene load_steps=7 format=3 uid="uid://c0tw8yyvew6h4"]
+
+[ext_resource type="Script" path="res://Scenes/title_screen.gd" id="1_osbd3"]
+[ext_resource type="FontFile" uid="uid://8tgdlb4d31kx" path="res://Materials/Fonts/FANTONY.otf" id="2_g74ay"]
+[ext_resource type="FontFile" uid="uid://26ewtnm04etc" path="res://Materials/Fonts/micross.ttf" id="3_udlwn"]
+[ext_resource type="StyleBox" uid="uid://dmeocjbj31ur4" path="res://Materials/Styleboxes/Title/title-hover.tres" id="3_ur0nq"]
+[ext_resource type="StyleBox" uid="uid://bj5v88gfgf2nf" path="res://Materials/Styleboxes/Title/title-normal.tres" id="4_2kdmo"]
+[ext_resource type="Material" uid="uid://dumguqq4aoh3p" path="res://Materials/Shaders/vhsshader.tres" id="5_lxlhd"]
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_osbd3")
+
+[node name="Control" type="Control" parent="."]
+custom_minimum_size = Vector2(3840, 2160)
+anchors_preset = 0
+offset_right = 3840.0
+offset_bottom = 2160.0
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0541214, 0.315293, 0.534843, 1)
+
+[node name="Title" type="Control" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control/Title"]
+layout_mode = 0
+offset_left = 998.0
+offset_top = 640.0
+offset_right = 2755.0
+offset_bottom = 952.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.615686)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 20
+theme_override_constants/shadow_offset_y = 20
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("2_g74ay")
+theme_override_font_sizes/font_size = 321
+text = "TF"
+
+[node name="Label2" type="Label" parent="Control/Title"]
+layout_mode = 0
+offset_left = 1437.0
+offset_top = 642.0
+offset_right = 3194.0
+offset_bottom = 954.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.615686)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 20
+theme_override_constants/shadow_offset_y = 20
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("2_g74ay")
+theme_override_font_sizes/font_size = 321
+text = "H0T-L1NE
+"
+
+[node name="Subtitle" type="Control" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control/Subtitle"]
+layout_mode = 0
+offset_left = 1620.0
+offset_top = 929.0
+offset_right = 2220.0
+offset_bottom = 1024.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.615686)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_udlwn")
+theme_override_font_sizes/font_size = 40
+text = "A game by Kainik & Kyrio
+$1 for 1st min./50c each add. min."
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -500.0
+offset_top = 1080.0
+offset_right = 500.0
+offset_bottom = 1347.0
+grow_horizontal = 2
+
+[node name="EnterGameButton" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_udlwn")
+theme_override_font_sizes/font_size = 56
+theme_override_styles/focus = ExtResource("4_2kdmo")
+theme_override_styles/disabled_mirrored = ExtResource("4_2kdmo")
+theme_override_styles/disabled = ExtResource("4_2kdmo")
+theme_override_styles/hover_mirrored = ExtResource("3_ur0nq")
+theme_override_styles/hover = ExtResource("3_ur0nq")
+theme_override_styles/normal_mirrored = ExtResource("4_2kdmo")
+theme_override_styles/normal = ExtResource("4_2kdmo")
+text = "CALL NOW"
+
+[node name="Control" type="Control" parent="Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="CreditsButton" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_udlwn")
+theme_override_font_sizes/font_size = 56
+theme_override_styles/focus = ExtResource("4_2kdmo")
+theme_override_styles/disabled_mirrored = ExtResource("4_2kdmo")
+theme_override_styles/disabled = ExtResource("4_2kdmo")
+theme_override_styles/hover_mirrored = ExtResource("3_ur0nq")
+theme_override_styles/hover = ExtResource("3_ur0nq")
+theme_override_styles/normal_mirrored = ExtResource("4_2kdmo")
+theme_override_styles/normal = ExtResource("4_2kdmo")
+text = "VIEW CREDITS"
+
+[node name="Control2" type="Control" parent="Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="ExitGameButton" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_udlwn")
+theme_override_font_sizes/font_size = 56
+theme_override_styles/focus = ExtResource("4_2kdmo")
+theme_override_styles/disabled_mirrored = ExtResource("4_2kdmo")
+theme_override_styles/disabled = ExtResource("4_2kdmo")
+theme_override_styles/hover_mirrored = ExtResource("3_ur0nq")
+theme_override_styles/hover = ExtResource("3_ur0nq")
+theme_override_styles/normal_mirrored = ExtResource("4_2kdmo")
+theme_override_styles/normal = ExtResource("4_2kdmo")
+text = "EJECT TAPE"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Control"]
+process_mode = 4
+process_priority = -1
+physics_interpolation_mode = 2
+auto_translate_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control/CanvasLayer"]
+material = ExtResource("5_lxlhd")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[connection signal="pressed" from="Control/VBoxContainer/EnterGameButton" to="." method="_on_enter_game_button_pressed"]
