@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=4 uid="uid://bt2ty5i8y2ofg"]
+[gd_scene load_steps=52 format=4 uid="uid://bt2ty5i8y2ofg"]
 
 [ext_resource type="PackedScene" uid="uid://bxl4evdxiurum" path="res://Mesh/Room.glb" id="1_0nyey"]
 [ext_resource type="PackedScene" uid="uid://bdi8ao1wn7e3c" path="res://Mesh/Desk.glb" id="2_64l47"]
@@ -15,7 +15,6 @@
 [ext_resource type="PackedScene" uid="uid://b73o2maogvmte" path="res://Mesh/Book.glb" id="10_2we43"]
 [ext_resource type="PackedScene" uid="uid://4r3lqnm0sdkd" path="res://Mesh/Cattree.glb" id="11_vr1j1"]
 [ext_resource type="PackedScene" uid="uid://cx040c8y3b8ae" path="res://Mesh/Coatrack.glb" id="12_h3668"]
-[ext_resource type="Script" path="res://Script/StateMachines/StateMachine.gd" id="14_bmj4s"]
 [ext_resource type="Script" path="res://Script/StateMachines/Camera/Cam_Intro_State.gd" id="15_c5uax"]
 [ext_resource type="Script" path="res://Script/StateMachines/Camera/Cam_Seated_State.gd" id="16_a7j42"]
 [ext_resource type="Script" path="res://Scenes/Level/Cam_LookCat_State.gd" id="16_eriqk"]
@@ -23,6 +22,8 @@
 [ext_resource type="Animation" uid="uid://ceeimhrpg442o" path="res://Anim/PickUpPhone.res" id="16_w655s"]
 [ext_resource type="Material" uid="uid://cp5ifetu6sk5n" path="res://Materials/pixelshader_mat.tres" id="17_cosua"]
 [ext_resource type="Script" path="res://Scenes/Level/UINode.gd" id="17_hqtwi"]
+[ext_resource type="Script" path="res://Scenes/Level/CamStateMachine.gd" id="17_ut0lg"]
+[ext_resource type="Script" path="res://Scenes/Level/Cam_Wait_State.gd" id="18_fnigv"]
 [ext_resource type="Script" path="res://Scenes/Level/Cam_Bookshelf_State.gd" id="18_varta"]
 [ext_resource type="Script" path="res://Scenes/Level/Cam_Examine_State.gd" id="22_38sxo"]
 [ext_resource type="Script" path="res://Scenes/Level/GameStateController.gd" id="22_gtci2"]
@@ -31,14 +32,20 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_qpe1c"]
 size = Vector3(1.29736, 0.749146, 1.20605)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_dnmh6"]
-size = Vector3(2.1037, 1.58496, 1.34131)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_tv3jd"]
-size = Vector3(7.33765, 1, 0.522949)
+size = Vector3(1.64588, 1, 0.522949)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a5y0w"]
 size = Vector3(1, 0.334473, 1.35986)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4ejj0"]
+size = Vector3(6.56445, 9.53418, 2.14868)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a7p37"]
+size = Vector3(3.0769, 0.657654, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dnmh6"]
+size = Vector3(2.1037, 1.58496, 1.34131)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_nfkkb"]
 _surfaces = [{
@@ -72,11 +79,35 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_nfkkb")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_4ejj0"]
-size = Vector3(6.56445, 9.53418, 2.14868)
-
 [sub_resource type="SphereShape3D" id="SphereShape3D_1qmm6"]
 radius = 0.727944
+
+[sub_resource type="Animation" id="Animation_2qvre"]
+resource_name = "LookBoard"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.0174375, 5.21841, 1.28598), Vector3(-0.271101, 6.15425, -0.568915)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -0.00069812, 0), Vector3(0, -0.00069812, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_yjwkv"]
 resource_name = "LookDrawers"
@@ -104,6 +135,33 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(2.82843, 0.353553),
 "update": 0,
 "values": [Vector3(0, -0.00069812, 0), Vector3(-0.731293, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_h4gj3"]
+resource_name = "LookCat"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.0174375, 5.21841, 1.28598), Vector3(-2.97742, 5.86665, 0.0149274)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -0.00069812, 0), Vector3(0.391538, 0.730999, -0.0480411)]
 }
 
 [sub_resource type="Animation" id="Animation_uni7a"]
@@ -264,60 +322,6 @@ tracks/1/keys = {
 "values": [Vector3(0, 0, 0), Vector3(0, 0.0993441, 0), Vector3(0, 0.0993441, 0), Vector3(0, -0.529219, 0), Vector3(0, -0.529219, 0), Vector3(0, -0.00069812, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_2qvre"]
-resource_name = "LookBoard"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-0.0174375, 5.21841, 1.28598), Vector3(-0.271101, 6.15425, -0.568915)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 0
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, -0.00069812, 0), Vector3(0, -0.00069812, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_h4gj3"]
-resource_name = "LookCat"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.9),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-0.0174375, 5.21841, 1.28598), Vector3(-2.97742, 5.86665, 0.0149274)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.9),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, -0.00069812, 0), Vector3(0.391538, 0.730999, -0.0480411)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qx82k"]
 _data = {
 "LookCorkboard": SubResource("Animation_2qvre"),
@@ -367,9 +371,37 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector3(0, 0, 0)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Room/Desk/Drawer:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-2.82655, 0.987795, -0.0126672)]
+}
+
+[sub_resource type="Animation" id="Animation_bq82v"]
+resource_name = "OpenDrawerTopLeft"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Room/Desk/Drawer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-2.82655, 0.987795, -0.0126672), Vector3(-2.82655, 0.987795, 1.72994)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mw4lu"]
 _data = {
+"OpenDrawerTopLeft": SubResource("Animation_bq82v"),
 "RESET": SubResource("Animation_3vyhy")
 }
 
@@ -426,6 +458,106 @@ glow_enabled = true
 
 [node name="Game" type="Node3D"]
 
+[node name="InteractionZones" type="Node3D" parent="."]
+
+[node name="Seated" type="Node3D" parent="InteractionZones"]
+visible = false
+
+[node name="PhoneMouseOver" type="Area3D" parent="InteractionZones/Seated"]
+transform = Transform3D(0.852202, 0, 0.523213, 0, 1, 0, -0.523213, 0, 0.852202, -2.90934, 3.92123, -1.74523)
+script = ExtResource("6_fus12")
+context = "Phone"
+trigger_state = "examine"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionZones/Seated/PhoneMouseOver"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0131876, 0.278121, 0.323717)
+shape = SubResource("BoxShape3D_qpe1c")
+
+[node name="DrawersMouseOver" type="Area3D" parent="InteractionZones/Seated"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6644, -1.74523)
+script = ExtResource("6_fus12")
+context = "Drawers"
+trigger_state = "drawers"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionZones/Seated/DrawersMouseOver"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00866294, 1.77496, 1.42732)
+shape = SubResource("BoxShape3D_tv3jd")
+
+[node name="BinderMouseOver" type="Area3D" parent="InteractionZones/Seated"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.759823, 3.93142, -1.20903)
+script = ExtResource("6_fus12")
+context = "Binder"
+trigger_state = "examine"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionZones/Seated/BinderMouseOver"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.92285, 0.292772, -0.473904)
+shape = SubResource("BoxShape3D_a5y0w")
+
+[node name="ShelfMouseOver" type="Area3D" parent="InteractionZones/Seated"]
+transform = Transform3D(0.938566, 0, -0.345101, 0, 1, 0, 0.345101, 0, 0.938566, 7.20262, 4.50459, -2.05666)
+script = ExtResource("6_fus12")
+context = "Bookshelf"
+trigger_state = "bookshelf"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionZones/Seated/ShelfMouseOver"]
+transform = Transform3D(0.999996, 0, 3.12924e-07, 0, 1, 0, -3.12924e-07, 0, 0.999996, -0.548523, 0, 1.05887)
+shape = SubResource("BoxShape3D_4ejj0")
+
+[node name="Drawers" type="Node3D" parent="InteractionZones"]
+visible = false
+
+[node name="DrawersMouseOver2" type="Area3D" parent="InteractionZones/Drawers" node_paths=PackedStringArray("object_animator")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6644, -1.74523)
+script = ExtResource("6_fus12")
+context = "Patient Files"
+trigger_state = "continue"
+object_animator = NodePath("../../../Camera3D/ObjectAnimator")
+animation = &"OpenDrawerTopLeft"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionZones/Drawers/DrawersMouseOver2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.79145, 0.892312, 1.08822)
+shape = SubResource("BoxShape3D_tv3jd")
+
+[node name="DrawersMouseOver3" type="Area3D" parent="InteractionZones/Drawers" node_paths=PackedStringArray("object_animator")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.397555, -1.74523)
+script = ExtResource("6_fus12")
+context = "Empty"
+object_animator = NodePath("../../../Camera3D/ObjectAnimator")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionZones/Drawers/DrawersMouseOver3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.79145, 0.892312, 1.08822)
+shape = SubResource("BoxShape3D_tv3jd")
+
+[node name="DrawersMouseOver4" type="Area3D" parent="InteractionZones/Drawers" node_paths=PackedStringArray("object_animator")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.54759, 1.6644, -1.74523)
+script = ExtResource("6_fus12")
+context = "Call Transcripts"
+object_animator = NodePath("../../../Camera3D/ObjectAnimator")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionZones/Drawers/DrawersMouseOver4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.79145, 0.892312, 1.08822)
+shape = SubResource("BoxShape3D_tv3jd")
+
+[node name="DrawersMouseOver5" type="Area3D" parent="InteractionZones/Drawers" node_paths=PackedStringArray("object_animator")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.54759, 0.397555, -1.74523)
+script = ExtResource("6_fus12")
+context = "Empty"
+object_animator = NodePath("../../../Camera3D/ObjectAnimator")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionZones/Drawers/DrawersMouseOver5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.79145, 0.892312, 1.08822)
+shape = SubResource("BoxShape3D_tv3jd")
+
+[node name="DrawersMouseOver6" type="Area3D" parent="InteractionZones/Drawers" node_paths=PackedStringArray("object_animator")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.55414, 2.18873, -1.74523)
+script = ExtResource("6_fus12")
+context = "Treatment Forms"
+object_animator = NodePath("../../../Camera3D/ObjectAnimator")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionZones/Drawers/DrawersMouseOver6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.52244, 0.721566, 1.08822)
+shape = SubResource("BoxShape3D_a7p37")
+
 [node name="Room" parent="." instance=ExtResource("1_0nyey")]
 
 [node name="Desk" parent="Room" instance=ExtResource("2_64l47")]
@@ -449,34 +581,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.23807, 1.45294)
 [node name="Phone" parent="Room/Desk" instance=ExtResource("5_1g6lf")]
 transform = Transform3D(0.852202, 0, 0.523213, 0, 1, 0, -0.523213, 0, 0.852202, -2.90934, 2.25683, 0)
 
-[node name="Area3D" type="Area3D" parent="Room/Desk/Phone"]
-script = ExtResource("6_fus12")
-context = "Phone"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Desk/Phone/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0131876, 0.278121, 0.323717)
-shape = SubResource("BoxShape3D_qpe1c")
-
 [node name="PhoneHorn" parent="Room/Desk/Phone" instance=ExtResource("7_yjjn6")]
 
 [node name="Printer" parent="Room/Desk" instance=ExtResource("6_luqux")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.64885, 2.32268, -0.496486)
 
-[node name="Area3D" type="Area3D" parent="Room/Desk/Printer"]
+[node name="PrinterMouseOver" type="Area3D" parent="Room/Desk/Printer"]
 script = ExtResource("6_fus12")
 context = "Print/Fax"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Desk/Printer/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Desk/Printer/PrinterMouseOver"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.207912, 0.570601, 0.153063)
 shape = SubResource("BoxShape3D_dnmh6")
-
-[node name="Area3D" type="Area3D" parent="Room/Desk"]
-script = ExtResource("6_fus12")
-context = "Drawers"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Desk/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00866294, 1.77496, 1.42732)
-shape = SubResource("BoxShape3D_tv3jd")
 
 [node name="Binder" parent="Room/Desk" instance=ExtResource("8_8tnwm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.759823, 2.26702, 0.536201)
@@ -488,21 +604,13 @@ bones/2/rotation = Quaternion(3.45728e-07, 1.35002e-07, -0.744512, 0.667609)
 [node name="Torus" parent="Room/Desk/Binder/Armature_001/Skeleton3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.47053, 0, 0)
 
-[node name="Area3D2" type="Area3D" parent="Room/Desk/Binder"]
-script = ExtResource("6_fus12")
-context = "Binder"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Desk/Binder/Area3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.92285, 0.292772, -0.473904)
-shape = SubResource("BoxShape3D_a5y0w")
-
 [node name="Corkboard" parent="Room" instance=ExtResource("7_xip52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.20646, -2.84175)
 
 [node name="Shelf" type="Node3D" parent="Room"]
 transform = Transform3D(0.938566, 0, -0.345101, 0, 1, 0, 0.345101, 0, 0.938566, 7.20262, 4.50459, -2.05666)
 
-[node name="Cube_042" type="MeshInstance3D" parent="Room/Shelf"]
+[node name="Bookshelf" type="MeshInstance3D" parent="Room/Shelf"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.4, -1.49012e-08, 0, 0.869774)
 mesh = SubResource("ArrayMesh_2h0fh")
 skeleton = NodePath("")
@@ -527,14 +635,6 @@ transform = Transform3D(-2.98023e-08, 0.6, -2.62268e-08, 0, -2.62268e-08, -0.6, 
 
 [node name="Book6" parent="Room/Shelf" instance=ExtResource("10_2we43")]
 transform = Transform3D(-2.98023e-08, 0.6, -2.62268e-08, 0, -2.62268e-08, -0.6, -0.6, -2.98023e-08, 2.22045e-15, -0.859272, 3.86645, 0.861733)
-
-[node name="Interaction" type="Area3D" parent="Room/Shelf"]
-script = ExtResource("6_fus12")
-context = "Bookshelf"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Shelf/Interaction"]
-transform = Transform3D(0.999996, 0, 3.12924e-07, 0, 1, 0, -3.12924e-07, 0, 0.999996, -0.548523, 0, 1.05887)
-shape = SubResource("BoxShape3D_4ejj0")
 
 [node name="Cattree" parent="Room" instance=ExtResource("11_vr1j1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.28747, 0, -1.64768)
@@ -577,13 +677,17 @@ libraries = {
 }
 
 [node name="ViewStates" type="Node" parent="Camera3D" node_paths=PackedStringArray("body", "animator")]
-script = ExtResource("14_bmj4s")
+script = ExtResource("17_ut0lg")
 body = NodePath("..")
 animator = NodePath("../ViewAnimator")
 
+[node name="Wait" type="Node" parent="Camera3D/ViewStates"]
+script = ExtResource("18_fnigv")
+state_name = "default"
+
 [node name="Intro" type="Node" parent="Camera3D/ViewStates"]
 script = ExtResource("15_c5uax")
-state_name = "default"
+state_name = "intro"
 animation = &"SitDown"
 
 [node name="LookAtCat" type="Node" parent="Camera3D/ViewStates"]
@@ -696,9 +800,8 @@ text = "Interaction Label"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="GameStates" type="Node" parent="." node_paths=PackedStringArray("CameraState", "body")]
+[node name="GameStates" type="Node" parent="." node_paths=PackedStringArray("body")]
 script = ExtResource("22_gtci2")
-CameraState = NodePath("../Camera3D/ViewStates")
 body = NodePath("..")
 
 [node name="Intro" type="Node" parent="GameStates"]

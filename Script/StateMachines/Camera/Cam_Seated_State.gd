@@ -7,8 +7,7 @@ var look_dir: Vector2 # Input direction for look/aim
 @onready var camera: Camera3D
 func default_lifecycle():
 	if Input.is_action_just_released("Mouse_Confirm"):
-		return GlobalSignalPipe.context.to_lower()
-		
+		return GlobalSignalPipe.current_interaction.trigger_state
 	return "continue"
 
 func on_enter() -> void:
