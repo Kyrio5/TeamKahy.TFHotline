@@ -1,6 +1,7 @@
-[gd_scene load_steps=52 format=4 uid="uid://dcdmtk8iir4ly"]
+[gd_scene load_steps=56 format=4 uid="uid://dcdmtk8iir4ly"]
 
 [ext_resource type="PackedScene" uid="uid://bxl4evdxiurum" path="res://Mesh/Room.glb" id="1_0nyey"]
+[ext_resource type="Script" path="res://Script/InteractionZones.gd" id="1_swfkt"]
 [ext_resource type="PackedScene" uid="uid://bdi8ao1wn7e3c" path="res://Mesh/Desk.glb" id="2_64l47"]
 [ext_resource type="PackedScene" uid="uid://bfojpif51mgm4" path="res://Mesh/Drawer.glb" id="3_06m7j"]
 [ext_resource type="PackedScene" uid="uid://gcvd20op3sqe" path="res://Mesh/LongDrawer.glb" id="4_bvniv"]
@@ -17,17 +18,20 @@
 [ext_resource type="PackedScene" uid="uid://cx040c8y3b8ae" path="res://Mesh/Coatrack.glb" id="12_h3668"]
 [ext_resource type="Script" path="res://Script/StateMachines/Camera/Cam_Intro_State.gd" id="15_c5uax"]
 [ext_resource type="Script" path="res://Script/StateMachines/Camera/Cam_Seated_State.gd" id="16_a7j42"]
-[ext_resource type="Script" path="res://Scenes/Level/Cam_LookCat_State.gd" id="16_eriqk"]
-[ext_resource type="Script" path="res://Scenes/Level/Cam_Drawers_State.gd" id="16_vsrjl"]
+[ext_resource type="Script" path="res://Script/StateMachines/Camera/Cam_LookCat_State.gd" id="16_eriqk"]
+[ext_resource type="Script" path="res://Script/StateMachines/Camera/Cam_Drawers_State.gd" id="16_vsrjl"]
 [ext_resource type="Animation" uid="uid://ceeimhrpg442o" path="res://Anim/PickUpPhone.res" id="16_w655s"]
 [ext_resource type="Material" uid="uid://cp5ifetu6sk5n" path="res://Materials/pixelshader_mat.tres" id="17_cosua"]
-[ext_resource type="Script" path="res://Scenes/Level/UINode.gd" id="17_hqtwi"]
-[ext_resource type="Script" path="res://Scenes/Level/CamStateMachine.gd" id="17_ut0lg"]
-[ext_resource type="Script" path="res://Scenes/Level/Cam_Wait_State.gd" id="18_fnigv"]
-[ext_resource type="Script" path="res://Scenes/Level/Cam_Bookshelf_State.gd" id="18_varta"]
-[ext_resource type="Script" path="res://Scenes/Level/Cam_Examine_State.gd" id="22_38sxo"]
-[ext_resource type="Script" path="res://Scenes/Level/GameStateController.gd" id="22_gtci2"]
-[ext_resource type="Script" path="res://Scenes/Level/Main_Game_State.gd" id="23_uum5g"]
+[ext_resource type="Script" path="res://Script/UINode.gd" id="17_hqtwi"]
+[ext_resource type="Script" path="res://Script/StateMachines/Camera/CamStateMachine.gd" id="17_ut0lg"]
+[ext_resource type="Script" path="res://Script/StateMachines/Camera/Cam_Wait_State.gd" id="18_fnigv"]
+[ext_resource type="Script" path="res://Script/StateMachines/Camera/Cam_Bookshelf_State.gd" id="18_varta"]
+[ext_resource type="Script" path="res://Script/StateMachines/Camera/Cam_Examine_State.gd" id="22_38sxo"]
+[ext_resource type="Script" path="res://Script/StateMachines/GameStates/Main_Game_State.gd" id="23_uum5g"]
+[ext_resource type="PackedScene" uid="uid://bkwcm81ptsrb6" path="res://Scenes/TitleScreen.tscn" id="26_xfmph"]
+[ext_resource type="Script" path="res://Script/StateMachines/GameStates/GameStateController.gd" id="28_gi48k"]
+[ext_resource type="Script" path="res://Script/StateMachines/GameStates/Title_Screen_State.gd" id="28_nh4lm"]
+[ext_resource type="Script" path="res://Script/StateMachines/GameStates/Intro_State.gd" id="29_om64p"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qpe1c"]
 size = Vector3(1.29736, 0.749146, 1.20605)
@@ -41,11 +45,11 @@ size = Vector3(1, 0.334473, 1.35986)
 [sub_resource type="BoxShape3D" id="BoxShape3D_4ejj0"]
 size = Vector3(6.56445, 9.53418, 2.14868)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_a7p37"]
-size = Vector3(3.0769, 0.657654, 1)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_dnmh6"]
 size = Vector3(2.1037, 1.58496, 1.34131)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a7p37"]
+size = Vector3(3.0769, 0.657654, 1)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_nfkkb"]
 _surfaces = [{
@@ -459,6 +463,7 @@ glow_enabled = true
 [node name="Game" type="Node3D"]
 
 [node name="InteractionZones" type="Node3D" parent="."]
+script = ExtResource("1_swfkt")
 
 [node name="Seated" type="Node3D" parent="InteractionZones"]
 visible = false
@@ -467,6 +472,7 @@ visible = false
 transform = Transform3D(0.852202, 0, 0.523213, 0, 1, 0, -0.523213, 0, 0.852202, -2.90934, 3.92123, -1.74523)
 script = ExtResource("6_fus12")
 context = "Phone"
+trigger_state = "examine"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionZones/Seated/PhoneMouseOver"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0131876, 0.278121, 0.323717)
@@ -476,6 +482,7 @@ shape = SubResource("BoxShape3D_qpe1c")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6644, -1.74523)
 script = ExtResource("6_fus12")
 context = "Drawers"
+trigger_state = "drawers"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionZones/Seated/DrawersMouseOver"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00866294, 1.77496, 1.42732)
@@ -485,6 +492,7 @@ shape = SubResource("BoxShape3D_tv3jd")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.759823, 3.93142, -1.20903)
 script = ExtResource("6_fus12")
 context = "Binder"
+trigger_state = "examine"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionZones/Seated/BinderMouseOver"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.92285, 0.292772, -0.473904)
@@ -494,10 +502,20 @@ shape = SubResource("BoxShape3D_a5y0w")
 transform = Transform3D(0.938566, 0, -0.345101, 0, 1, 0, 0.345101, 0, 0.938566, 7.20262, 4.50459, -2.05666)
 script = ExtResource("6_fus12")
 context = "Bookshelf"
+trigger_state = "bookshelf"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionZones/Seated/ShelfMouseOver"]
 transform = Transform3D(0.999996, 0, 3.12924e-07, 0, 1, 0, -3.12924e-07, 0, 0.999996, -0.548523, 0, 1.05887)
 shape = SubResource("BoxShape3D_4ejj0")
+
+[node name="PrinterMouseOver" type="Area3D" parent="InteractionZones/Seated"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.64885, 3.98708, -2.24172)
+script = ExtResource("6_fus12")
+context = "Print/Fax"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionZones/Seated/PrinterMouseOver"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.207912, 0.570601, 0.153063)
+shape = SubResource("BoxShape3D_dnmh6")
 
 [node name="Drawers" type="Node3D" parent="InteractionZones"]
 visible = false
@@ -574,14 +592,6 @@ transform = Transform3D(0.852202, 0, 0.523213, 0, 1, 0, -0.523213, 0, 0.852202, 
 
 [node name="Printer" parent="Room/Desk" instance=ExtResource("6_luqux")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.64885, 2.32268, -0.496486)
-
-[node name="PrinterMouseOver" type="Area3D" parent="Room/Desk/Printer"]
-script = ExtResource("6_fus12")
-context = "Print/Fax"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Desk/Printer/PrinterMouseOver"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.207912, 0.570601, 0.153063)
-shape = SubResource("BoxShape3D_dnmh6")
 
 [node name="Binder" parent="Room/Desk" instance=ExtResource("8_8tnwm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.759823, 2.26702, 0.536201)
@@ -789,19 +799,28 @@ text = "Interaction Label"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="TitleScreen" parent="UI" instance=ExtResource("26_xfmph")]
+visible = false
+layout_mode = 1
+
 [node name="GameStates" type="Node" parent="." node_paths=PackedStringArray("body")]
-script = ExtResource("22_gtci2")
+script = ExtResource("28_gi48k")
 body = NodePath("..")
 
 [node name="Intro" type="Node" parent="GameStates"]
+script = ExtResource("29_om64p")
+state_name = "default"
 
-[node name="TitleScreen" type="Node" parent="GameStates"]
+[node name="TitleScreen" type="Node" parent="GameStates" node_paths=PackedStringArray("title_screen")]
+script = ExtResource("28_nh4lm")
+title_screen = NodePath("../../UI/TitleScreen")
+state_name = "title"
 
 [node name="Tutorial" type="Node" parent="GameStates"]
 
 [node name="Game" type="Node" parent="GameStates"]
 script = ExtResource("23_uum5g")
-state_name = "default"
+state_name = "main"
 
 [node name="Pause" type="Node" parent="GameStates"]
 

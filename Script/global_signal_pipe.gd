@@ -13,10 +13,6 @@ var context : String :
 		context = value
 		UI_node.context_label.text = context
 
-func _ready() -> void:
-	var Interactions = find_child("InteractionZones") as Node3D
-	interactionZones = Interactions.get_children()
-
 func change_context(new_context : String):
 	for x : Node3D in interactionZones:
 		x.hide()
