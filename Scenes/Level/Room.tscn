@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://dcdmtk8iir4ly"]
+[gd_scene load_steps=55 format=3 uid="uid://dcdmtk8iir4ly"]
 
 [ext_resource type="PackedScene" uid="uid://bxl4evdxiurum" path="res://Mesh/Room.glb" id="1_0nyey"]
 [ext_resource type="Script" path="res://Script/InteractionZones.gd" id="1_swfkt"]
@@ -31,6 +31,7 @@
 [ext_resource type="PackedScene" uid="uid://bkkxykabig7mc" path="res://Mesh/openbook.glb" id="27_ullrp"]
 [ext_resource type="Script" path="res://Script/StateMachines/GameStates/GameStateController.gd" id="28_gi48k"]
 [ext_resource type="Script" path="res://Script/StateMachines/GameStates/Title_Screen_State.gd" id="28_nh4lm"]
+[ext_resource type="PackedScene" uid="uid://sjfh5tfvqkd1" path="res://Scenes/DialogueBox.tscn" id="29_28n34"]
 [ext_resource type="Script" path="res://Script/StateMachines/GameStates/Intro_State.gd" id="29_om64p"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qpe1c"]
@@ -526,6 +527,7 @@ shape = SubResource("BoxShape3D_tv3jd")
 
 [node name="DrawersMouseOver6" type="Area3D" parent="InteractionZones/Drawers"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.55414, 2.18873, -1.74523)
+visible = false
 script = ExtResource("6_fus12")
 context = "Treatment Forms"
 
@@ -660,7 +662,7 @@ state_name = "bookshelf"
 animation = &"LookShelf"
 
 [node name="PhonePickedUp" parent="Camera3D" instance=ExtResource("7_yjjn6")]
-transform = Transform3D(0.112148, -0.859635, -0.49845, -0.570263, 0.355113, -0.74074, 0.81377, 0.36732, -0.450393, -0.30537, -2.7781, -0.330028)
+transform = Transform3D(0.112148, -0.859635, -0.49845, -0.570262, 0.355113, -0.74074, 0.81377, 0.36732, -0.450393, -0.30537, -2.7781, -0.330028)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_vn56m")
@@ -751,6 +753,10 @@ vertical_alignment = 1
 visible = false
 layout_mode = 1
 
+[node name="Dialogue" parent="UI" instance=ExtResource("29_28n34")]
+visible = false
+layout_mode = 1
+
 [node name="GameStates" type="Node" parent="." node_paths=PackedStringArray("body")]
 script = ExtResource("28_gi48k")
 body = NodePath("..")
@@ -778,6 +784,14 @@ state_name = "main"
 [node name="Credits" type="Node" parent="GameStates"]
 
 [node name="Settings" type="Node" parent="GameStates"]
+
+[node name="AudioManager" type="Node" parent="."]
+
+[node name="AudioStream_Ambience" type="AudioStreamPlayer" parent="AudioManager"]
+bus = &"Ambience"
+
+[node name="AudioStream_UI" type="AudioStreamPlayer" parent="AudioManager"]
+bus = &"SFX_UI"
 
 [editable path="Room/Desk/Binder"]
 [editable path="Room/Corkboard"]
