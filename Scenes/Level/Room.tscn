@@ -668,7 +668,7 @@ state_name = "bookshelf"
 animation = &"LookShelf"
 
 [node name="PhonePickedUp" parent="Camera3D" instance=ExtResource("7_yjjn6")]
-transform = Transform3D(0.112148, -0.859635, -0.49845, -0.570262, 0.355113, -0.74074, 0.81377, 0.36732, -0.450393, -0.30537, -2.7781, -0.330028)
+transform = Transform3D(0.112148, -0.859635, -0.49845, -0.570263, 0.355113, -0.74074, 0.81377, 0.36732, -0.450393, -0.30537, -2.7781, -0.330028)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_vn56m")
@@ -760,6 +760,7 @@ visible = false
 layout_mode = 1
 
 [node name="Dialogue" parent="UI" instance=ExtResource("29_28n34")]
+visible = false
 layout_mode = 1
 
 [node name="GameStates" type="Node" parent="." node_paths=PackedStringArray("body")]
