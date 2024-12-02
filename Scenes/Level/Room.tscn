@@ -436,6 +436,25 @@ glow_enabled = true
 
 [node name="Game" type="Node3D"]
 
+[node name="AudioManager" type="Node" parent="." node_paths=PackedStringArray("phoneAudioPlayer")]
+script = ExtResource("34_04mdi")
+phoneAudioPlayer = NodePath("AudioStream_Phone")
+phoneAudio_Ring = ExtResource("35_x1tqo")
+phoneAudio_Pickup = ExtResource("36_df6wp")
+phoneAudio_SetDown = ExtResource("37_jkpr1")
+
+[node name="AudioStream_Ambience" type="AudioStreamPlayer" parent="AudioManager"]
+
+[node name="AudioStream_UI" type="AudioStreamPlayer" parent="AudioManager"]
+
+[node name="AudioStream_Phone" type="AudioStreamPlayer3D" parent="AudioManager"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.82742, 4.15748, -1.66671)
+
+[node name="ScenarioDirector" type="Node" parent="." node_paths=PackedStringArray("audioManager", "phoneInteraction")]
+script = ExtResource("34_gpimc")
+audioManager = NodePath("../AudioManager")
+phoneInteraction = NodePath("../InteractionZones/Seated/PhoneMouseOver")
+
 [node name="InteractionZones" type="Node3D" parent="."]
 script = ExtResource("1_swfkt")
 
@@ -790,24 +809,6 @@ state_name = "main"
 [node name="Credits" type="Node" parent="GameStates"]
 
 [node name="Settings" type="Node" parent="GameStates"]
-
-[node name="AudioManager" type="Node" parent="." node_paths=PackedStringArray("phoneAudioPlayer")]
-script = ExtResource("34_04mdi")
-phoneAudioPlayer = NodePath("AudioStream_Phone")
-phoneAudio_Ring = ExtResource("35_x1tqo")
-phoneAudio_Pickup = ExtResource("36_df6wp")
-phoneAudio_SetDown = ExtResource("37_jkpr1")
-
-[node name="AudioStream_Ambience" type="AudioStreamPlayer" parent="AudioManager"]
-
-[node name="AudioStream_UI" type="AudioStreamPlayer" parent="AudioManager"]
-
-[node name="AudioStream_Phone" type="AudioStreamPlayer3D" parent="AudioManager"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.82742, 4.15748, -1.66671)
-
-[node name="ScenarioDirector" type="Node" parent="." node_paths=PackedStringArray("audioManager")]
-script = ExtResource("34_gpimc")
-audioManager = NodePath("../AudioManager")
 
 [editable path="Room/Desk/Binder"]
 [editable path="Room/Corkboard"]

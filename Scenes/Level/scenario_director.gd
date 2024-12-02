@@ -12,6 +12,7 @@ enum ScenarioState {
 
 # public variables
 @export var audioManager : AudioManager
+@export var phoneInteraction : Interaction
 
 # private variables
 var rng = RandomNumberGenerator.new()
@@ -20,7 +21,7 @@ var waitTimer : float # How long to wait before giving the player something to d
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	waitTimer = 60 # Always start at one minute to get the player acquainted
+	waitTimer = 10 # Always start at one minute to get the player acquainted
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -32,10 +33,17 @@ func _process(delta: float) -> void:
 					waitTimer -= delta
 				else:
 					mainState = ScenarioState.PhoneRinging
-					waitTimer = rng.randf_range(20.0, 90.0)
-					audioManager._play_Audio_Phone(audioManager.phoneAudio_Ring)
+					audioManager.play_audio_phone(audioManager.phoneAudio_Ring)
 			ScenarioState.PhoneRinging:
-				pass
+				if (waitTimer > 0):
+					waitTimer -= delta
+				else:
+					waitTimer = 2.5
+					audioManager.play_audio_phone(audioManager.phoneAudio_Ring)
+				
+				if (GlobalSignalPipe.current_interaction == phoneInteraction):
+					pass
+					#print("phone interacting")
 			ScenarioState.OnPhone_Intro:
 				pass
 			ScenarioState.OnPhone_Question:

@@ -6,7 +6,7 @@ class_name AudioManager
 @export var phoneAudio_Pickup : AudioStreamWAV
 @export var phoneAudio_SetDown : AudioStreamWAV
 
-func _play_Audio_Phone (audio : AudioStreamWAV) -> void:
+func play_audio_phone (audio : AudioStreamWAV) -> void:
 	phoneAudioPlayer.stop()
 	phoneAudioPlayer.stream = audio
 	phoneAudioPlayer.play()
