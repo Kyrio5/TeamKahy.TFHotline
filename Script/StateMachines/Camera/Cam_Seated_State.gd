@@ -8,7 +8,7 @@ var look_dir: Vector2 # Input direction for look/aim
 func default_lifecycle():
 	if Input.is_action_just_released("Mouse_Confirm"):
 		if GlobalSignalPipe.current_interaction != null:
-			return GlobalSignalPipe.current_interaction.trigger_state
+			return GlobalSignalPipe.current_interaction.interact(body)
 	return "continue"
 
 func on_enter() -> void:

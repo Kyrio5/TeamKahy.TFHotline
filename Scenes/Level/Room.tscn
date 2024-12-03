@@ -424,6 +424,9 @@ _data = {
 
 [sub_resource type="Environment" id="Environment_vn56m"]
 background_mode = 1
+background_color = Color(0.255659, 0.255659, 0.255659, 1)
+ambient_light_color = Color(0.201527, 0.201527, 0.201527, 1)
+ambient_light_energy = 2.0
 ssao_enabled = true
 ssil_enabled = true
 glow_enabled = true
@@ -579,6 +582,9 @@ transform = Transform3D(0.447463, 0.209748, -0.495765, -0.00336226, 0.645753, 0.
 [node name="Shelf" parent="Room/Shelf" instance=ExtResource("13_1g1oh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.98023e-08, 0, 0.790003)
 
+[node name="BookClosed" type="Node3D" parent="Room/Shelf"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.54514, 0, 4.2023)
+
 [node name="Cattree" parent="Room" instance=ExtResource("11_vr1j1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.28747, 0, -1.64768)
 
@@ -643,6 +649,7 @@ animation = &"LookNoodle"
 script = ExtResource("16_a7j42")
 camera_sens = 2.0
 state_name = "seated"
+animation = null
 
 [node name="Drawers" type="Node" parent="Camera3D/ViewStates"]
 script = ExtResource("16_vsrjl")
@@ -662,6 +669,9 @@ animation = &"LookShelf"
 
 [node name="PhonePickedUp" parent="Camera3D" instance=ExtResource("7_yjjn6")]
 transform = Transform3D(0.112148, -0.859635, -0.49845, -0.570263, 0.355113, -0.74074, 0.81377, 0.36732, -0.450393, -0.30537, -2.7781, -0.330028)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Camera3D"]
+light_energy = 5.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_vn56m")
@@ -711,7 +721,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.4018)
 cull_mask = 1048574
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="UI/SubViewportContainer/SubViewport/Node3D"]
-transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 0, 9.3978, 3.0569)
+transform = Transform3D(1, 0, 0, 0, 0.731318, 0.682037, 0, -0.682037, 0.731318, 0, 9.3978, 5.9965)
 layers = 2
 light_cull_mask = 4294967294
 
