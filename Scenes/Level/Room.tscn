@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://dcdmtk8iir4ly"]
+[gd_scene load_steps=66 format=3 uid="uid://dcdmtk8iir4ly"]
 
 [ext_resource type="PackedScene" uid="uid://bxl4evdxiurum" path="res://Mesh/Room.glb" id="1_0nyey"]
 [ext_resource type="Script" path="res://Script/InteractionZones.gd" id="1_swfkt"]
@@ -15,15 +15,21 @@
 [ext_resource type="PackedScene" uid="uid://4r3lqnm0sdkd" path="res://Mesh/Cattree.glb" id="11_vr1j1"]
 [ext_resource type="PackedScene" uid="uid://cx040c8y3b8ae" path="res://Mesh/Coatrack.glb" id="12_h3668"]
 [ext_resource type="PackedScene" uid="uid://k66ikmj1fbv" path="res://Mesh/Shelf.glb" id="13_1g1oh"]
+[ext_resource type="PackedScene" uid="uid://chmahpepcajhn" path="res://Mesh/BookClosed.glb" id="14_4lcjo"]
+[ext_resource type="Texture2D" uid="uid://b3mv7i3pyxdf1" path="res://Image/CompendiumCover.png" id="15_4hnrh"]
 [ext_resource type="Script" path="res://Script/StateMachines/Camera/Cam_Intro_State.gd" id="15_c5uax"]
+[ext_resource type="Texture2D" uid="uid://dytcpxid54ujh" path="res://Image/DraughtyCover.png" id="16_41blc"]
 [ext_resource type="Script" path="res://Script/StateMachines/Camera/Cam_Seated_State.gd" id="16_a7j42"]
 [ext_resource type="Script" path="res://Script/StateMachines/Camera/Cam_LookCat_State.gd" id="16_eriqk"]
 [ext_resource type="Script" path="res://Script/StateMachines/Camera/Cam_Drawers_State.gd" id="16_vsrjl"]
 [ext_resource type="Animation" uid="uid://ceeimhrpg442o" path="res://Anim/PickUpPhone.res" id="16_w655s"]
 [ext_resource type="Material" uid="uid://cp5ifetu6sk5n" path="res://Materials/pixelshader_mat.tres" id="17_cosua"]
 [ext_resource type="Script" path="res://Script/UINode.gd" id="17_hqtwi"]
+[ext_resource type="Texture2D" uid="uid://dme1jny2dksux" path="res://Image/FantasticLeafsCover.png" id="17_m6geq"]
 [ext_resource type="Script" path="res://Script/StateMachines/Camera/CamStateMachine.gd" id="17_ut0lg"]
+[ext_resource type="Texture2D" uid="uid://bka2ms74k7fp7" path="res://Image/GAPcover.png" id="18_fbn48"]
 [ext_resource type="Script" path="res://Script/StateMachines/Camera/Cam_Wait_State.gd" id="18_fnigv"]
+[ext_resource type="Texture2D" uid="uid://c4k554g8uklio" path="res://Image/Spellscover.png" id="18_h10fi"]
 [ext_resource type="Script" path="res://Script/StateMachines/Camera/Cam_Bookshelf_State.gd" id="18_varta"]
 [ext_resource type="Script" path="res://Script/StateMachines/Camera/Cam_Examine_State.gd" id="22_38sxo"]
 [ext_resource type="Script" path="res://Script/StateMachines/GameStates/Main_Game_State.gd" id="23_uum5g"]
@@ -50,6 +56,39 @@ size = Vector3(2.1037, 1.58496, 1.34131)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a7p37"]
 size = Vector3(3.0769, 0.657654, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_157pa"]
+resource_name = "Book"
+cull_mode = 2
+albedo_texture = ExtResource("15_4hnrh")
+roughness = 0.847518
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_famdm"]
+size = Vector3(0.382568, 2.00391, 1.65601)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2rpr6"]
+resource_name = "Book"
+cull_mode = 2
+albedo_texture = ExtResource("16_41blc")
+roughness = 0.847518
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kyvvf"]
+resource_name = "Book"
+cull_mode = 2
+albedo_texture = ExtResource("17_m6geq")
+roughness = 0.847518
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c430q"]
+resource_name = "Book"
+cull_mode = 2
+albedo_texture = ExtResource("18_h10fi")
+roughness = 0.847518
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vdbdx"]
+resource_name = "Book"
+cull_mode = 2
+albedo_texture = ExtResource("18_fbn48")
+roughness = 0.847518
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_1qmm6"]
 radius = 0.727944
@@ -536,6 +575,8 @@ context = "Treatment Forms"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.52244, 0.721566, 1.08822)
 shape = SubResource("BoxShape3D_a7p37")
 
+[node name="Bookshelf" type="Node3D" parent="InteractionZones"]
+
 [node name="Room" parent="." instance=ExtResource("1_0nyey")]
 
 [node name="Desk" parent="Room" instance=ExtResource("2_64l47")]
@@ -566,6 +607,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.64885, 2.32268, -1.07126)
 
 [node name="Binder" parent="Room/Desk" instance=ExtResource("8_8tnwm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.759823, 2.26702, 0.536201)
+visible = false
 
 [node name="Torus" parent="Room/Desk/Binder/Armature_001/Skeleton3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.47053, 0, 0)
@@ -582,8 +624,80 @@ transform = Transform3D(0.447463, 0.209748, -0.495765, -0.00336226, 0.645753, 0.
 [node name="Shelf" parent="Room/Shelf" instance=ExtResource("13_1g1oh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.98023e-08, 0, 0.790003)
 
-[node name="BookClosed" type="Node3D" parent="Room/Shelf"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.54514, 0, 4.2023)
+[node name="Compendium" parent="Room/Shelf" instance=ExtResource("14_4lcjo")]
+transform = Transform3D(1.19961, -0.0191021, 9.5278e-05, 0.0305633, 0.749724, -0.00749188, 0.000143439, 0.00702363, 0.799966, 0.0609412, 3.8026, 0.76014)
+
+[node name="Cube_017" parent="Room/Shelf/Compendium" index="0"]
+transform = Transform3D(-4.37114e-08, 1, 0, 4.37114e-08, 0, -1, -1, -4.37114e-08, -4.37114e-08, 0, 0, 0)
+surface_material_override/1 = SubResource("StandardMaterial3D_157pa")
+
+[node name="Interaction" type="Area3D" parent="Room/Shelf/Compendium"]
+script = ExtResource("6_fus12")
+context = "Finn Medallion's  \"Creature Compendium, Second Edition\""
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Shelf/Compendium/Interaction"]
+transform = Transform3D(1, -2.98643e-08, 5.96046e-08, -2.65396e-09, 1, 1.74237e-07, 8.9407e-08, 2.50411e-08, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_famdm")
+
+[node name="Draughty" parent="Room/Shelf" instance=ExtResource("14_4lcjo")]
+transform = Transform3D(1.19961, -0.0191021, 9.5278e-05, 0.0305633, 0.749724, -0.00749188, 0.000143468, 0.00702363, 0.799965, -1.87108, 2.2379, 0.820671)
+
+[node name="Cube_017" parent="Room/Shelf/Draughty" index="0"]
+transform = Transform3D(-4.37114e-08, 1.2, -4.37114e-08, 0, -5.24537e-08, -1, -1, -5.24537e-08, 1.91069e-15, 0, 0, 0)
+surface_material_override/1 = SubResource("StandardMaterial3D_2rpr6")
+
+[node name="Interaction" type="Area3D" parent="Room/Shelf/Draughty"]
+script = ExtResource("6_fus12")
+context = "\"A Bit Draughty Innit\" - Serena Soleil"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Shelf/Draughty/Interaction"]
+transform = Transform3D(1, -2.98643e-08, 5.96046e-08, -2.65396e-09, 1, 1.74237e-07, 8.9407e-08, 2.50411e-08, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_famdm")
+
+[node name="FantasticHerbs" parent="Room/Shelf" instance=ExtResource("14_4lcjo")]
+transform = Transform3D(1.19961, -0.0191021, 9.5278e-05, 0.0305633, 0.749724, -0.00749188, 0.000143468, 0.00702363, 0.799965, 0.878222, 2.27915, 0.82073)
+
+[node name="Cube_017" parent="Room/Shelf/FantasticHerbs" index="0"]
+transform = Transform3D(-4.37114e-08, 0.6, -4.37114e-08, 0, -2.62268e-08, -1, -1, -2.62268e-08, 1.91069e-15, 0, 0, 0)
+surface_material_override/1 = SubResource("StandardMaterial3D_kyvvf")
+
+[node name="Interaction" type="Area3D" parent="Room/Shelf/FantasticHerbs"]
+script = ExtResource("6_fus12")
+context = "\"Fantastic Leafs and How to Mind Them\" - Fern Brussels"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Shelf/FantasticHerbs/Interaction"]
+transform = Transform3D(1, -2.98643e-08, 5.96046e-08, -2.65396e-09, 1, 1.74237e-07, 8.9407e-08, 2.50411e-08, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_famdm")
+
+[node name="Encantationary" parent="Room/Shelf" instance=ExtResource("14_4lcjo")]
+transform = Transform3D(1.19961, -0.0191021, 9.5278e-05, 0.0305633, 0.749724, -0.00749188, 0.000143439, 0.00702363, 0.799966, 0.977863, 0.755302, 0.801647)
+
+[node name="Cube_017" parent="Room/Shelf/Encantationary" index="0"]
+transform = Transform3D(-4.37114e-08, 1.4, -3.49691e-08, 0, -6.11959e-08, -0.8, -1, -6.11959e-08, 1.52855e-15, 0.099985, -0.120175, -2.45488e-09)
+surface_material_override/1 = SubResource("StandardMaterial3D_c430q")
+
+[node name="Interaction" type="Area3D" parent="Room/Shelf/Encantationary"]
+script = ExtResource("6_fus12")
+context = "Mildred Webspinner's \"Encantationary\""
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Shelf/Encantationary/Interaction"]
+transform = Transform3D(1, -2.98643e-08, 5.96046e-08, -2.65396e-09, 1, 1.74237e-07, 8.9407e-08, 2.50411e-08, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_famdm")
+
+[node name="GAP" parent="Room/Shelf" instance=ExtResource("14_4lcjo")]
+transform = Transform3D(1.19961, -0.0191021, 9.5278e-05, 0.0305633, 0.749724, -0.00749188, 0.000143409, 0.00702363, 0.799966, -0.906982, -0.815963, 0.787066)
+
+[node name="Cube_017" parent="Room/Shelf/GAP" index="0"]
+transform = Transform3D(-4.37114e-08, 1.2, -5.68248e-08, 0, -5.24537e-08, -1.3, -1, -5.24537e-08, 2.48389e-15, 0, 0, 0)
+surface_material_override/1 = SubResource("StandardMaterial3D_vdbdx")
+
+[node name="Interaction" type="Area3D" parent="Room/Shelf/GAP"]
+script = ExtResource("6_fus12")
+context = "\"G.A.P. Guide to Geomancy\" - Andy Stephens"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Shelf/GAP/Interaction"]
+transform = Transform3D(1, -2.98643e-08, 5.96046e-08, -2.65396e-09, 1, 1.74237e-07, 8.9407e-08, 2.50411e-08, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_famdm")
 
 [node name="Cattree" parent="Room" instance=ExtResource("11_vr1j1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.28747, 0, -1.64768)
@@ -649,7 +763,6 @@ animation = &"LookNoodle"
 script = ExtResource("16_a7j42")
 camera_sens = 2.0
 state_name = "seated"
-animation = null
 
 [node name="Drawers" type="Node" parent="Camera3D/ViewStates"]
 script = ExtResource("16_vsrjl")
@@ -792,6 +905,11 @@ state_name = "main"
 
 [editable path="Room/Desk/Binder"]
 [editable path="Room/Corkboard"]
+[editable path="Room/Shelf/Compendium"]
+[editable path="Room/Shelf/Draughty"]
+[editable path="Room/Shelf/FantasticHerbs"]
+[editable path="Room/Shelf/Encantationary"]
+[editable path="Room/Shelf/GAP"]
 [editable path="Room/Cattree"]
 [editable path="UI/SubViewportContainer/SubViewport/Node3D/ViewBinder"]
 [editable path="UI/SubViewportContainer/SubViewport/Node3D/openbook"]

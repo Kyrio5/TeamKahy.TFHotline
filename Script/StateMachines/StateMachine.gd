@@ -29,7 +29,8 @@ func load_states():
 			#set the state to their state_name in the dictionary
 			states_list[x.state_name] = x
 			x.animator = animator
-			x.my_machine = self
+		
+			x.machine = self
 
 func switch_state(new_state : String):
 	if(current_state != null):

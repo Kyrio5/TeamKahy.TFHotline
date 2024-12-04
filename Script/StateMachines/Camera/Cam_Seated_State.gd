@@ -4,16 +4,16 @@ extends State
 var mouse_captured: bool = false
 var look_dir: Vector2 # Input direction for look/aim
 
-@onready var camera: Camera3D
+
 func default_lifecycle():
 	if Input.is_action_just_released("Mouse_Confirm"):
 		if GlobalSignalPipe.current_interaction != null:
-			return GlobalSignalPipe.current_interaction.interact(body)
+			return GlobalSignalPipe.current_interaction.interact(machine.body)
 	return "continue"
 
 func on_enter() -> void:
 	GlobalSignalPipe.change_context("Seated")
-	camera = my_machine.body
+
 
 func _input(event: InputEvent) -> void:
 	pass
@@ -27,5 +27,6 @@ func release_mouse() -> void:
 	mouse_captured = false
 
 func _rotate_camera(sens_mod: float = 1.0) -> void:
+	var camera = machine.body
 	camera.rotation.y -= look_dir.x * camera_sens * sens_mod
 	camera.rotation.x = clamp(camera.rotation.x - look_dir.y * camera_sens * sens_mod, -1.5, 1.5)

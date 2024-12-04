@@ -3,11 +3,12 @@ class_name State
 
 @export var state_name : String
 @export var animation : StringName
-@export var my_machine : StateMachine
+@export var machine : StateMachine
 var animator : AnimationPlayer
 var start_time : float
 var duration : float = 0
 var has_forced : bool = false
+var parent_object : Node3D
 signal state_exited
 
 func on_enter():
