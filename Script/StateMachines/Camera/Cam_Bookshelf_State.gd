@@ -9,3 +9,6 @@ func default_lifecycle():
 	
 func on_exit():
 	animator.play_backwards(animation)
+
+func on_enter():
+	GlobalSignalPipe.change_context("Bookshelf")
