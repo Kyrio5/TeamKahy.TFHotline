@@ -1,3 +1,4 @@
+
 [gd_scene load_steps=66 format=3 uid="uid://dcdmtk8iir4ly"]
 
 [ext_resource type="PackedScene" uid="uid://bxl4evdxiurum" path="res://Mesh/Room.glb" id="1_0nyey"]
@@ -37,7 +38,13 @@
 [ext_resource type="PackedScene" uid="uid://bkkxykabig7mc" path="res://Mesh/openbook.glb" id="27_ullrp"]
 [ext_resource type="Script" path="res://Script/StateMachines/GameStates/GameStateController.gd" id="28_gi48k"]
 [ext_resource type="Script" path="res://Script/StateMachines/GameStates/Title_Screen_State.gd" id="28_nh4lm"]
+[ext_resource type="PackedScene" uid="uid://sjfh5tfvqkd1" path="res://Scenes/DialogueBox.tscn" id="29_28n34"]
 [ext_resource type="Script" path="res://Script/StateMachines/GameStates/Intro_State.gd" id="29_om64p"]
+[ext_resource type="Script" path="res://Scenes/Level/audio_manager.gd" id="34_04mdi"]
+[ext_resource type="Script" path="res://Scenes/Level/scenario_director.gd" id="34_gpimc"]
+[ext_resource type="AudioStream" uid="uid://blbpsy0tsh81d" path="res://Sound/TFH_SFX-Phone_Ring.wav" id="35_x1tqo"]
+[ext_resource type="AudioStream" uid="uid://bubyuqe7jaqou" path="res://Sound/TFH_SFX-Phone_Pickup.wav" id="36_df6wp"]
+[ext_resource type="AudioStream" uid="uid://bs87vitsf2uvm" path="res://Sound/TFH_SFX-Phone_SetDown.wav" id="37_jkpr1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qpe1c"]
 size = Vector3(1.29736, 0.749146, 1.20605)
@@ -472,6 +479,25 @@ glow_enabled = true
 
 [node name="Game" type="Node3D"]
 
+[node name="AudioManager" type="Node" parent="." node_paths=PackedStringArray("phoneAudioPlayer")]
+script = ExtResource("34_04mdi")
+phoneAudioPlayer = NodePath("AudioStream_Phone")
+phoneAudio_Ring = ExtResource("35_x1tqo")
+phoneAudio_Pickup = ExtResource("36_df6wp")
+phoneAudio_SetDown = ExtResource("37_jkpr1")
+
+[node name="AudioStream_Ambience" type="AudioStreamPlayer" parent="AudioManager"]
+
+[node name="AudioStream_UI" type="AudioStreamPlayer" parent="AudioManager"]
+
+[node name="AudioStream_Phone" type="AudioStreamPlayer3D" parent="AudioManager"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.82742, 4.15748, -1.66671)
+
+[node name="ScenarioDirector" type="Node" parent="." node_paths=PackedStringArray("audioManager", "phoneInteraction")]
+script = ExtResource("34_gpimc")
+audioManager = NodePath("../AudioManager")
+phoneInteraction = NodePath("../InteractionZones/Seated/PhoneMouseOver")
+
 [node name="InteractionZones" type="Node3D" parent="."]
 script = ExtResource("1_swfkt")
 
@@ -568,6 +594,7 @@ shape = SubResource("BoxShape3D_tv3jd")
 
 [node name="DrawersMouseOver6" type="Area3D" parent="InteractionZones/Drawers"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.55414, 2.18873, -1.74523)
+visible = false
 script = ExtResource("6_fus12")
 context = "Treatment Forms"
 
@@ -872,6 +899,10 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TitleScreen" parent="UI" instance=ExtResource("26_xfmph")]
+visible = false
+layout_mode = 1
+
+[node name="Dialogue" parent="UI" instance=ExtResource("29_28n34")]
 visible = false
 layout_mode = 1
 

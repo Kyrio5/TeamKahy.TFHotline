@@ -5,6 +5,7 @@ class_name Interaction
 @export var trigger_state: String
 @export var object_animator : AnimationPlayer
 @export var animation : StringName
+
 func _ready() -> void:
 	mouse_entered.connect(_on_area_3d_mouse_entered)
 	mouse_exited.connect(_on_area_3d_mouse_exited)
