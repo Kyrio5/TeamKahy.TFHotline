@@ -1,0 +1,327 @@
+[gd_scene load_steps=19 format=3 uid="uid://dtpsrboqge6pa"]
+
+[ext_resource type="Script" path="res://Script/ObjectSlot.gd" id="1_p30rh"]
+[ext_resource type="Script" path="res://Script/StateMachines/Camera/CamStateMachine.gd" id="9_fjpvu"]
+[ext_resource type="Script" path="res://Script/StateMachines/Camera/Cam_Wait_State.gd" id="10_aasps"]
+[ext_resource type="Script" path="res://Script/StateMachines/Camera/Cam_Intro_State.gd" id="11_7t7d6"]
+[ext_resource type="Script" path="res://Script/StateMachines/Camera/Cam_LookCat_State.gd" id="12_4eq5l"]
+[ext_resource type="Script" path="res://Script/StateMachines/Camera/Cam_Seated_State.gd" id="13_7yepe"]
+[ext_resource type="Script" path="res://Script/StateMachines/Camera/Cam_Drawers_State.gd" id="14_7yro5"]
+[ext_resource type="Script" path="res://Script/StateMachines/Camera/Cam_Examine_State.gd" id="15_hmcol"]
+[ext_resource type="Script" path="res://Script/StateMachines/Camera/Cam_Bookshelf_State.gd" id="16_t8jtx"]
+[ext_resource type="PackedScene" uid="uid://c5aceswqht11c" path="res://Mesh/PhoneHorn.glb" id="17_07grl"]
+
+[sub_resource type="Animation" id="Animation_2qvre"]
+resource_name = "LookBoard"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.0174375, 5.21841, 1.28598), Vector3(-0.271101, 6.15425, -0.568915)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -0.00069812, 0), Vector3(0, -0.00069812, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_yjwkv"]
+resource_name = "LookDrawers"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.0174375, 5.21841, 1.28598)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.466667),
+"transitions": PackedFloat32Array(2.82843, 0.353553),
+"update": 0,
+"values": [Vector3(0, -0.00069812, 0), Vector3(-0.731293, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_h4gj3"]
+resource_name = "LookCat"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.0174375, 5.21841, 1.28598), Vector3(-2.97742, 5.86665, 0.0149274)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -0.00069812, 0), Vector3(0.391538, 0.730999, -0.0480411)]
+}
+
+[sub_resource type="Animation" id="Animation_uni7a"]
+resource_name = "LookShelf"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.0174375, 5.21841, 1.28598), Vector3(0.888339, 5.21841, 1.28598), Vector3(5.96897, 6.38848, 3.22621)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(-0.0333333, 0.366667, 1),
+"transitions": PackedFloat32Array(1, 1.86607, 1),
+"update": 0,
+"values": [Vector3(0, -0.00069812, 0), Vector3(0, -0.975639, 0), Vector3(0, -0.244346, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_nunxs"]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.429902, 6.01398, 5.25884)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Room/Desk/Phone/PhoneHorn:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Room/Desk/Phone/PhoneHorn:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PhonePickedUp:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.30537, -2.7781, -0.330028)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("PhonePickedUp:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.83417, -2.30559, -1.01384)]
+}
+
+[sub_resource type="Animation" id="Animation_e7o27"]
+resource_name = "Seated"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.0174375, 5.21841, 1.28598)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -0.00069812, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_enqdy"]
+resource_name = "SitDown"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.5, 2.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.429902, 6.01398, 5.25884), Vector3(-0.429902, 6.01398, 2.79579), Vector3(-0.429902, 6.01398, 2.79579), Vector3(-0.0182824, 6.01398, 2.49624), Vector3(-0.0174375, 5.21841, 1.28598)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 1.5, 2.2, 2.63333, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.0993441, 0), Vector3(0, 0.0993441, 0), Vector3(0, -0.529219, 0), Vector3(0, -0.529219, 0), Vector3(0, -0.00069812, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qx82k"]
+_data = {
+"LookCorkboard": SubResource("Animation_2qvre"),
+"LookDrawers": SubResource("Animation_yjwkv"),
+"LookNoodle": SubResource("Animation_h4gj3"),
+"LookShelf": SubResource("Animation_uni7a"),
+"RESET": SubResource("Animation_nunxs"),
+"Seated": SubResource("Animation_e7o27"),
+"SitDown": SubResource("Animation_enqdy")
+}
+
+[node name="Camera3D" type="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.429902, 6.01398, 5.25884)
+cull_mask = 1048573
+
+[node name="HeldItem" type="Area3D" parent="." node_paths=PackedStringArray("slot_position")]
+script = ExtResource("1_p30rh")
+player_slot = true
+slot_position = NodePath("Position")
+
+[node name="Position" type="Marker3D" parent="HeldItem"]
+transform = Transform3D(-0.719444, 0.0656123, -0.691445, 0.245264, 0.955392, -0.164537, 0.649805, -0.287961, -0.703443, 1.70976, -0.441389, -1.91708)
+
+[node name="ViewAnimator" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qx82k")
+}
+playback_auto_capture_ease_type = 2
+
+[node name="ViewStates" type="Node" parent="." node_paths=PackedStringArray("body", "animator")]
+script = ExtResource("9_fjpvu")
+body = NodePath("..")
+animator = NodePath("../ViewAnimator")
+
+[node name="Wait" type="Node" parent="ViewStates"]
+script = ExtResource("10_aasps")
+state_name = "default"
+
+[node name="Intro" type="Node" parent="ViewStates"]
+script = ExtResource("11_7t7d6")
+state_name = "intro"
+animation = &"SitDown"
+
+[node name="LookAtCat" type="Node" parent="ViewStates"]
+script = ExtResource("12_4eq5l")
+state_name = "noodle"
+animation = &"LookNoodle"
+
+[node name="Seated" type="Node" parent="ViewStates"]
+script = ExtResource("13_7yepe")
+camera_sens = 2.0
+state_name = "seated"
+
+[node name="Drawers" type="Node" parent="ViewStates"]
+script = ExtResource("14_7yro5")
+state_name = "drawers"
+animation = &"LookDrawers"
+
+[node name="Examine" type="Node" parent="ViewStates"]
+script = ExtResource("15_hmcol")
+state_name = "examine"
+
+[node name="Phone" type="Node" parent="ViewStates"]
+
+[node name="Shelf" type="Node" parent="ViewStates"]
+script = ExtResource("16_t8jtx")
+state_name = "bookshelf"
+animation = &"LookShelf"
+
+[node name="PhonePickedUp" parent="." instance=ExtResource("17_07grl")]
+transform = Transform3D(0.112148, -0.859635, -0.49845, -0.570263, 0.355113, -0.74074, 0.81377, 0.36732, -0.450393, -0.30537, -2.7781, -0.330028)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_energy = 1.5
