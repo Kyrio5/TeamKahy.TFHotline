@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=3 uid="uid://b77ffqxu4v1fx"]
+
+[ext_resource type="Script" path="res://Script/UINode.gd" id="1_iv7vh"]
+[ext_resource type="Material" uid="uid://cp5ifetu6sk5n" path="res://Materials/pixelshader_mat.tres" id="2_xsujh"]
+[ext_resource type="PackedScene" uid="uid://bkwcm81ptsrb6" path="res://Scenes/TitleScreen.tscn" id="3_ok510"]
+[ext_resource type="PackedScene" uid="uid://sjfh5tfvqkd1" path="res://Scenes/DialogueBox.tscn" id="4_35bic"]
+
+[node name="UI" type="Control" node_paths=PackedStringArray("title_overlay", "context_label")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_iv7vh")
+title_overlay = NodePath("TitleScreen")
+context_label = NodePath("ContextLabel")
+
+[node name="ShaderRect" type="ColorRect" parent="."]
+material = ExtResource("2_xsujh")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ContextLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -79.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 35
+text = "Interaction Label"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TitleScreen" parent="." instance=ExtResource("3_ok510")]
+layout_mode = 1
+
+[node name="Dialogue" parent="." instance=ExtResource("4_35bic")]
+visible = false
+layout_mode = 1
