@@ -9,6 +9,7 @@ class_name AudioManager
 func _ready() -> void:
 	GlobalSignalPipe.object_picked_up.connect(play_audio_pick_up)
 	GlobalSignalPipe.object_put_down.connect(play_audio_put_down)
+	GlobalSignalPipe.state_start.connect(play_audio_on_state_start)
 
 func play_audio_phone (audio : AudioStreamWAV) -> void:
 	phoneAudioPlayer.stop()
@@ -41,4 +42,9 @@ func play_audio_put_down(type : Utility.ObjectType):
 		Utility.ObjectType.BINDER:
 			pass
 		_:	#default
+			pass
+
+func play_audio_on_state_start(state_name):
+	match state_name:
+		_: #default
 			pass
