@@ -3,7 +3,11 @@ extends Node
 signal current_item_changed
 signal object_picked_up(type)
 signal object_put_down(type)
-
+signal phone_picked_up
+signal phone_put_down
+signal phone_ring_start
+signal phone_ring_stop
+signal state_start(state_name)
 
 @export var UI_node : UINode
 @export var GameState : StateMachine

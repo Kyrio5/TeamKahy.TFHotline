@@ -33,6 +33,7 @@ func _process(delta: float) -> void:
 					waitTimer -= delta
 				else:
 					mainState = ScenarioState.PhoneRinging
+					GlobalSignalPipe.phone_ring_start.emit()
 					audioManager.play_audio_phone(audioManager.phoneAudio_Ring)
 			ScenarioState.PhoneRinging:
 				if (waitTimer > 0):
