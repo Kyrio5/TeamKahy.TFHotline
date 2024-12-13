@@ -30,10 +30,11 @@
 [ext_resource type="Script" path="res://Script/StateMachines/GameStates/Title_Screen_State.gd" id="28_nh4lm"]
 [ext_resource type="PackedScene" uid="uid://dtpsrboqge6pa" path="res://Scenes/PlayerView.tscn" id="29_c48ta"]
 [ext_resource type="Script" path="res://Script/StateMachines/GameStates/Intro_State.gd" id="29_om64p"]
-[ext_resource type="Script" path="res://Scenes/Level/audio_manager.gd" id="34_04mdi"]
+[ext_resource type="Script" path="res://Script/audio_manager.gd" id="34_04mdi"]
 [ext_resource type="PackedScene" uid="uid://b77ffqxu4v1fx" path="res://Scenes/UINode.tscn" id="34_dfl7e"]
-[ext_resource type="Script" path="res://Scenes/Level/scenario_director.gd" id="34_gpimc"]
+[ext_resource type="Script" path="res://Script/scenario_director.gd" id="34_gpimc"]
 [ext_resource type="Script" path="res://Script/StateMachines/GameStates/Phone.gd" id="35_a12cj"]
+[ext_resource type="Script" path="res://Script/lightswing.gd" id="35_q114k"]
 [ext_resource type="AudioStream" uid="uid://blbpsy0tsh81d" path="res://Sound/TFH_SFX-Phone_Ring.wav" id="35_x1tqo"]
 [ext_resource type="AudioStream" uid="uid://bubyuqe7jaqou" path="res://Sound/TFH_SFX-Phone_Pickup.wav" id="36_df6wp"]
 [ext_resource type="AudioStream" uid="uid://bs87vitsf2uvm" path="res://Sound/TFH_SFX-Phone_SetDown.wav" id="37_jkpr1"]
@@ -125,6 +126,22 @@ material = SubResource("StandardMaterial3D_l2s3l")
 radius = 0.05
 height = 0.1
 
+[sub_resource type="Animation" id="Animation_mbjtm"]
+resource_name = "Blink"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:mesh:material:emission_energy_multiplier")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 3.0, 3.0, 0.0, 0.0]
+}
+
 [sub_resource type="Animation" id="Animation_1ajhn"]
 resource_name = "Off"
 tracks/0/type = "value"
@@ -153,22 +170,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.0]
-}
-
-[sub_resource type="Animation" id="Animation_mbjtm"]
-resource_name = "Blink"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:mesh:material:emission_energy_multiplier")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [0.0, 3.0, 3.0, 0.0, 0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_murrs"]
@@ -283,15 +284,6 @@ roughness = 0.847518
 [sub_resource type="SphereShape3D" id="SphereShape3D_1qmm6"]
 radius = 0.727944
 
-[sub_resource type="Environment" id="Environment_vn56m"]
-background_mode = 1
-background_color = Color(0.255659, 0.255659, 0.255659, 1)
-ambient_light_color = Color(0.201527, 0.201527, 0.201527, 1)
-ambient_light_energy = 2.0
-ssao_enabled = true
-ssil_enabled = true
-glow_enabled = true
-
 [node name="Game" type="Node3D"]
 
 [node name="AudioManager" type="Node" parent="." node_paths=PackedStringArray("phoneAudioPlayer")]
@@ -308,10 +300,9 @@ phoneAudio_SetDown = ExtResource("37_jkpr1")
 [node name="AudioStream_Phone" type="AudioStreamPlayer3D" parent="AudioManager"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.82742, 4.15748, -1.66671)
 
-[node name="ScenarioDirector" type="Node" parent="." node_paths=PackedStringArray("audioManager", "phoneInteraction")]
+[node name="ScenarioDirector" type="Node" parent="." node_paths=PackedStringArray("audioManager")]
 script = ExtResource("34_gpimc")
 audioManager = NodePath("../AudioManager")
-phoneInteraction = NodePath("")
 
 [node name="GameStates" type="Node" parent="ScenarioDirector" node_paths=PackedStringArray("body")]
 script = ExtResource("28_gi48k")
@@ -763,14 +754,34 @@ shape = SubResource("SphereShape3D_1qmm6")
 [node name="Coatrack" parent="Room" instance=ExtResource("12_h3668")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.82436, 0.276311, 0)
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Room"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00661802, 6.84754, 1.81343)
+[node name="SecondaryLight" type="SpotLight3D" parent="Room"]
+transform = Transform3D(0.971109, -1.04311e-08, 0.238635, -0.238635, -4.24485e-08, 0.971109, 0, -1, -4.37114e-08, 1.83969, 10.6476, -2.16151)
+light_color = Color(1, 0.964706, 0.784314, 1)
+light_energy = 13.24
+shadow_enabled = true
+spot_range = 10.9894
+spot_angle = 28.1357
+
+[node name="MainLight" type="SpotLight3D" parent="Room"]
+transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, -0.142667, 16.6416, 4.57237)
 light_color = Color(1, 1, 0.631373, 1)
-light_energy = 5.0
-light_cull_mask = 4294967293
-omni_range = 20.3192
+light_energy = 10.0
+light_bake_mode = 0
+shadow_enabled = true
+shadow_bias = 0.1
+shadow_normal_bias = 2.28
+shadow_blur = 0.1
+spot_range = 40.5318
+spot_angle = 62.3882
+script = ExtResource("35_q114k")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Room"]
+transform = Transform3D(0.544818, 0, 0, 0, 0.0569249, 0, 0, 0, 0.73775, 0.308891, 3.88979, -1.89488)
+cast_shadow = 0
+size = Vector3(1, 0.078125, 1)
 
 [node name="Camera3D" parent="." instance=ExtResource("29_c48ta")]
+far = 100.0
 
 [node name="Phone" parent="Camera3D/ViewStates" index="6"]
 script = ExtResource("35_a12cj")
@@ -783,7 +794,6 @@ transform = Transform3D(0.112148, -0.859635, -0.49845, -0.570263, 0.355113, -0.7
 visible = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_vn56m")
 
 [node name="UI" parent="." instance=ExtResource("34_dfl7e")]
 

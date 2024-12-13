@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b77ffqxu4v1fx" path="res://Scenes/UINode.tscn" id="2_62py1"]
 [ext_resource type="PackedScene" uid="uid://chmahpepcajhn" path="res://Mesh/BookClosed.glb" id="3_0boof"]
 [ext_resource type="Script" path="res://Script/Holdable.gd" id="4_3x41n"]
-[ext_resource type="Script" path="res://Scenes/Level/audio_manager.gd" id="7_qauie"]
+[ext_resource type="Script" path="res://Script/audio_manager.gd" id="7_qauie"]
 [ext_resource type="AudioStream" uid="uid://blbpsy0tsh81d" path="res://Sound/TFH_SFX-Phone_Ring.wav" id="8_ptjaq"]
 [ext_resource type="AudioStream" uid="uid://bubyuqe7jaqou" path="res://Sound/TFH_SFX-Phone_Pickup.wav" id="9_ek7si"]
 [ext_resource type="AudioStream" uid="uid://bs87vitsf2uvm" path="res://Sound/TFH_SFX-Phone_SetDown.wav" id="10_mjy4d"]
