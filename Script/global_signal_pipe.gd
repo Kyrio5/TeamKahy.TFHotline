@@ -3,6 +3,10 @@ extends Node
 signal current_item_changed
 signal object_picked_up(type)
 signal object_put_down(type)
+signal object_drag_pickup
+signal object_drag_place
+signal object_drag_pin
+signal object_drag_unpin
 signal phone_picked_up
 signal phone_put_down
 signal phone_ring_start
@@ -20,8 +24,7 @@ var current_item : String :
 			emit_signal("current_item_changed")
 		else:
 			current_item = value
-
-
+var current_draggable : Draggable
 var held_item : Holdable
 var carry_slot: ItemSlot
 
@@ -42,7 +45,7 @@ func mouse_over_context(area : Area3D):
 	if area is Interaction:
 		current_interaction = area
 		context = area.get_context()
-		
+
 func mouse_off_context(area : Area3D):
 	current_interaction = null
 	context = ""

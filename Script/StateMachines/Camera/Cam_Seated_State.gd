@@ -11,6 +11,17 @@ func default_lifecycle():
 			var interaction = GlobalSignalPipe.current_interaction
 			GlobalSignalPipe.current_interaction = null
 			return interaction.interact(machine.body)
+	
+	# Currently for draggables only. If you want to use this for more general
+	# interactions, look into why GlobalSignalPipe.current_interaction returns
+	# null here. - Kai
+	if Input.is_action_just_released("Mouse_Confirm"):
+		if GlobalSignalPipe.current_draggable != null:
+			print(GlobalSignalPipe.current_draggable.get_context())
+			var interaction = GlobalSignalPipe.current_draggable
+			interaction._on_area_3d_mouse_exited()
+			return interaction.forceStopInteract(machine.body)
+	
 	return "continue"
 
 func on_enter() -> void:

@@ -22,5 +22,8 @@ func _on_area_3d_mouse_exited() -> void:
 func interact(other):
 	return trigger_state
 
+func forceStopInteract(other):
+	return trigger_state
+
 func get_context():
 	return context

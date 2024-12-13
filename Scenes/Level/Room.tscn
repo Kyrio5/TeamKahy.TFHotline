@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=4 uid="uid://dcdmtk8iir4ly"]
+[gd_scene load_steps=68 format=4 uid="uid://dcdmtk8iir4ly"]
 
 [ext_resource type="PackedScene" uid="uid://bxl4evdxiurum" path="res://Mesh/Room.glb" id="1_0nyey"]
 [ext_resource type="Script" path="res://Script/InteractionZones.gd" id="1_swfkt"]
@@ -37,6 +37,7 @@
 [ext_resource type="Script" path="res://Script/lightswing.gd" id="35_q114k"]
 [ext_resource type="AudioStream" uid="uid://blbpsy0tsh81d" path="res://Sound/TFH_SFX-Phone_Ring.wav" id="35_x1tqo"]
 [ext_resource type="AudioStream" uid="uid://bubyuqe7jaqou" path="res://Sound/TFH_SFX-Phone_Pickup.wav" id="36_df6wp"]
+[ext_resource type="Script" path="res://Scenes/Level/Draggable.gd" id="36_k5fvx"]
 [ext_resource type="AudioStream" uid="uid://bs87vitsf2uvm" path="res://Sound/TFH_SFX-Phone_SetDown.wav" id="37_jkpr1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tv3jd"]
@@ -191,6 +192,9 @@ albedo_color = Color(1, 1, 0, 0.101961)
 material = SubResource("StandardMaterial3D_ep4cq")
 size = Vector3(0.3, 1.4, 1.2)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_maj5t"]
+size = Vector3(7.35046, 3.35852, 0.621948)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o8mso"]
 resource_name = "Book"
 cull_mode = 2
@@ -283,6 +287,8 @@ roughness = 0.847518
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_1qmm6"]
 radius = 0.727944
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7bvgt"]
 
 [node name="Game" type="Node3D"]
 
@@ -478,10 +484,11 @@ transform = Transform3D(-0.0261769, 4.48556e-08, -0.999657, 0.999657, -4.36964e-
 
 [node name="Interaction" type="Area3D" parent="Room/Desk/DeskItem1" node_paths=PackedStringArray("slot_position", "indicator")]
 transform = Transform3D(1, 2.59638e-09, -1.45519e-11, -4.54736e-09, 1, -9.31323e-10, -1.45519e-11, 0, 1, 0, 0, 0)
+collision_priority = 2.0
 script = ExtResource("23_e2v83")
 slot_position = NodePath("Marker3D")
 indicator = NodePath("Indicator")
-context = "put down"
+context = "Place Item"
 
 [node name="Marker3D" type="Marker3D" parent="Room/Desk/DeskItem1/Interaction"]
 
@@ -500,10 +507,11 @@ transform = Transform3D(-0.0261769, 4.48556e-08, -0.999657, 0.999657, -4.36964e-
 
 [node name="Interaction" type="Area3D" parent="Room/Desk/DeskItem2" node_paths=PackedStringArray("slot_position", "indicator")]
 transform = Transform3D(1, 2.59638e-09, -1.45519e-11, -4.54736e-09, 1, -9.31323e-10, -1.45519e-11, 0, 1, 0, 0, 0)
+collision_priority = 2.0
 script = ExtResource("23_e2v83")
 slot_position = NodePath("Marker3D")
 indicator = NodePath("Indicator")
-context = "put down"
+context = "Place Item"
 
 [node name="Marker3D" type="Marker3D" parent="Room/Desk/DeskItem2/Interaction"]
 
@@ -522,10 +530,11 @@ transform = Transform3D(-0.0261769, 4.48556e-08, -0.999657, 0.999657, -4.36964e-
 
 [node name="Interaction" type="Area3D" parent="Room/Desk/DeskItem3" node_paths=PackedStringArray("slot_position", "indicator")]
 transform = Transform3D(1, 2.59638e-09, -1.45519e-11, -4.54736e-09, 1, -9.31323e-10, -1.45519e-11, 0, 1, 0, 0, 0)
+collision_priority = 2.0
 script = ExtResource("23_e2v83")
 slot_position = NodePath("Marker3D")
 indicator = NodePath("Indicator")
-context = "put down"
+context = "Place Item"
 
 [node name="Marker3D" type="Marker3D" parent="Room/Desk/DeskItem3/Interaction"]
 
@@ -541,6 +550,17 @@ skeleton = NodePath("../CollisionShape3D")
 
 [node name="Corkboard" parent="Room" instance=ExtResource("7_xip52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.20646, -3.613)
+
+[node name="Cube_008" parent="Room/Corkboard" index="0"]
+layers = 4
+
+[node name="Area3D" type="Area3D" parent="Room/Corkboard/Cube_008" index="0"]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Corkboard/Cube_008/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0164185, -2.11102, -0.189026)
+shape = SubResource("BoxShape3D_maj5t")
 
 [node name="Shelf" type="Node3D" parent="Room"]
 transform = Transform3D(0.938566, 0, -0.345101, 0, 1, 0, 0.345101, 0, 0.938566, 7.20262, 4.50459, -2.05666)
@@ -775,10 +795,26 @@ spot_range = 40.5318
 spot_angle = 62.3882
 script = ExtResource("35_q114k")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Room"]
-transform = Transform3D(0.544818, 0, 0, 0, 0.0569249, 0, 0, 0, 0.73775, 0.308891, 3.88979, -1.89488)
+[node name="Draggable" type="Area3D" parent="Room" node_paths=PackedStringArray("camera")]
+transform = Transform3D(1, 4.75127e-10, 1.9705e-11, -2.5535e-11, 0.0950289, -0.995475, -4.7485e-10, 0.995475, 0.0950289, 0.565366, 5.45227, -2.00772)
+collision_layer = 4
+collision_mask = 4
+collision_priority = 2.0
+script = ExtResource("36_k5fvx")
+camera = NodePath("../../Camera3D")
+context = "Paper"
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Room/Draggable"]
+transform = Transform3D(1, -2.59638e-09, 1.45517e-11, 4.54736e-09, 1, -5.21541e-08, 1.4551e-11, 0, 1, -0.142029, -0.0244142, -0.0126953)
+layers = 4
 cast_shadow = 0
-size = Vector3(1, 0.078125, 1)
+use_collision = true
+collision_layer = 4
+collision_mask = 4
+size = Vector3(0.715942, 0.0292969, 0.974609)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Draggable"]
+shape = SubResource("BoxShape3D_7bvgt")
 
 [node name="Camera3D" parent="." instance=ExtResource("29_c48ta")]
 far = 100.0
