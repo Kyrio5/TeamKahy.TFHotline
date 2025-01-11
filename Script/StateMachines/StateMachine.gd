@@ -29,7 +29,8 @@ func load_states():
 			#set the state to their state_name in the dictionary
 			states_list[x.state_name] = x
 			x.animator = animator
-			x.my_machine = self
+		
+			x.machine = self
 
 func switch_state(new_state : String):
 	if(current_state != null):
@@ -39,6 +40,8 @@ func switch_state(new_state : String):
 	current_state = states_list[new_state]
 	#Set the time the state was entered
 	current_state.mark_entered()
+	#Signal that the state has started
+	GlobalSignalPipe.state_start.emit(current_state.state_name)
 	#Run the entrance function
 	current_state.on_enter()
 	#Play the transition animation if applicable

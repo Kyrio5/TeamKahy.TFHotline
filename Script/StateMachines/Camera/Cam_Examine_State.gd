@@ -1,14 +1,14 @@
 extends State
 
-@onready var object_animator: AnimationPlayer = $"../../ObjectAnimator"
+#@onready var object_animator: AnimationPlayer = $"../../ObjectAnimator"
 var abort = false
 
 func on_enter():
 	animation = StringName("ObjectAnim/PickUp"+GlobalSignalPipe.context)
-	if object_animator.has_animation(animation):
-		object_animator.play(animation)
-	else:
-		abort = true
+#	if object_animator.has_animation(animation):
+#		object_animator.play(animation)
+#	else:
+#		abort = true
 		
 
 func default_lifecycle():
@@ -19,5 +19,5 @@ func default_lifecycle():
 	
 func on_exit():
 	abort = false
-	if object_animator.has_animation(animation):
-		object_animator.play_backwards(animation)
+#	if object_animator.has_animation(animation):
+#		object_animator.play_backwards(animation)

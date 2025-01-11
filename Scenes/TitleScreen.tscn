@@ -1,13 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://bkwcm81ptsrb6"]
+[gd_scene load_steps=10 format=3 uid="uid://bkwcm81ptsrb6"]
 
 [ext_resource type="Script" path="res://Scenes/title_screen.gd" id="1_osbd3"]
+[ext_resource type="AudioStream" uid="uid://b00276i2ui5i2" path="res://Sound/TFH_SFX-TitleHover.wav" id="2_aajdl"]
 [ext_resource type="FontFile" uid="uid://8tgdlb4d31kx" path="res://Materials/Fonts/FANTONY.otf" id="2_g74ay"]
+[ext_resource type="AudioStream" uid="uid://d14svdfgintn8" path="res://Sound/TFH_SFX-TitleSelect.wav" id="3_bojiy"]
 [ext_resource type="FontFile" uid="uid://26ewtnm04etc" path="res://Materials/Fonts/micross.ttf" id="3_udlwn"]
 [ext_resource type="StyleBox" uid="uid://dmeocjbj31ur4" path="res://Materials/Styleboxes/Title/title-hover.tres" id="3_ur0nq"]
 [ext_resource type="StyleBox" uid="uid://bj5v88gfgf2nf" path="res://Materials/Styleboxes/Title/title-normal.tres" id="4_2kdmo"]
+[ext_resource type="AudioStream" uid="uid://ccephex7lnq62" path="res://Sound/TFH_MUS-MainTheme.wav" id="4_ebvhg"]
 [ext_resource type="Material" uid="uid://nrn7e0wp5kgk" path="res://Materials/Shaders/vhsshader.tres" id="5_lxlhd"]
 
-[node name="TitleScreen" type="Control"]
+[node name="TitleScreen" type="Control" node_paths=PackedStringArray("titleSoundPlayer", "titleMusicPlayer")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -16,9 +19,13 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_osbd3")
+titleSoundPlayer = NodePath("TitleUIAudio")
+titleMusicPlayer = NodePath("TitleMusicAudio")
+hoverSFX = ExtResource("2_aajdl")
+selectSFX = ExtResource("3_bojiy")
+bgMusic = ExtResource("4_ebvhg")
 
 [node name="Control" type="Control" parent="."]
-custom_minimum_size = Vector2(3840, 2160)
 anchors_preset = 0
 offset_right = 3840.0
 offset_bottom = 2160.0
@@ -179,4 +186,15 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
+[node name="TitleUIAudio" type="AudioStreamPlayer" parent="."]
+volume_db = -15.0
+
+[node name="TitleMusicAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ebvhg")
+volume_db = -5.0
+autoplay = true
+
+[connection signal="mouse_entered" from="Control/VBoxContainer/EnterGameButton" to="." method="_on_game_button_mouse_entered"]
 [connection signal="pressed" from="Control/VBoxContainer/EnterGameButton" to="." method="_on_enter_game_button_pressed"]
+[connection signal="mouse_entered" from="Control/VBoxContainer/CreditsButton" to="." method="_on_game_button_mouse_entered"]
+[connection signal="mouse_entered" from="Control/VBoxContainer/ExitGameButton" to="." method="_on_game_button_mouse_entered"]

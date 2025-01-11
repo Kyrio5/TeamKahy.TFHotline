@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://dcdmtk8iir4ly"]
+[gd_scene load_steps=68 format=4 uid="uid://dcdmtk8iir4ly"]
 
 [ext_resource type="PackedScene" uid="uid://bxl4evdxiurum" path="res://Mesh/Room.glb" id="1_0nyey"]
 [ext_resource type="Script" path="res://Script/InteractionZones.gd" id="1_swfkt"]
@@ -10,37 +10,38 @@
 [ext_resource type="PackedScene" uid="uid://k5jgkcoget6j" path="res://Mesh/Printer.glb" id="6_luqux"]
 [ext_resource type="PackedScene" uid="uid://csxr6je25dalm" path="res://Mesh/Corkboard.glb" id="7_xip52"]
 [ext_resource type="PackedScene" uid="uid://c5aceswqht11c" path="res://Mesh/PhoneHorn.glb" id="7_yjjn6"]
-[ext_resource type="PackedScene" uid="uid://4cw1cl282a2s" path="res://Mesh/Binder.glb" id="8_8tnwm"]
 [ext_resource type="PackedScene" uid="uid://bwxj6bxleoxff" path="res://Mesh/Skull.glb" id="9_jykcf"]
 [ext_resource type="PackedScene" uid="uid://4r3lqnm0sdkd" path="res://Mesh/Cattree.glb" id="11_vr1j1"]
 [ext_resource type="PackedScene" uid="uid://cx040c8y3b8ae" path="res://Mesh/Coatrack.glb" id="12_h3668"]
 [ext_resource type="PackedScene" uid="uid://k66ikmj1fbv" path="res://Mesh/Shelf.glb" id="13_1g1oh"]
-[ext_resource type="Script" path="res://Script/StateMachines/Camera/Cam_Intro_State.gd" id="15_c5uax"]
-[ext_resource type="Script" path="res://Script/StateMachines/Camera/Cam_Seated_State.gd" id="16_a7j42"]
-[ext_resource type="Script" path="res://Script/StateMachines/Camera/Cam_LookCat_State.gd" id="16_eriqk"]
-[ext_resource type="Script" path="res://Script/StateMachines/Camera/Cam_Drawers_State.gd" id="16_vsrjl"]
-[ext_resource type="Animation" uid="uid://ceeimhrpg442o" path="res://Anim/PickUpPhone.res" id="16_w655s"]
-[ext_resource type="Material" uid="uid://cp5ifetu6sk5n" path="res://Materials/pixelshader_mat.tres" id="17_cosua"]
-[ext_resource type="Script" path="res://Script/UINode.gd" id="17_hqtwi"]
-[ext_resource type="Script" path="res://Script/StateMachines/Camera/CamStateMachine.gd" id="17_ut0lg"]
-[ext_resource type="Script" path="res://Script/StateMachines/Camera/Cam_Wait_State.gd" id="18_fnigv"]
-[ext_resource type="Script" path="res://Script/StateMachines/Camera/Cam_Bookshelf_State.gd" id="18_varta"]
-[ext_resource type="Script" path="res://Script/StateMachines/Camera/Cam_Examine_State.gd" id="22_38sxo"]
+[ext_resource type="PackedScene" uid="uid://chmahpepcajhn" path="res://Mesh/BookClosed.glb" id="14_4lcjo"]
+[ext_resource type="Texture2D" uid="uid://b3mv7i3pyxdf1" path="res://Image/CompendiumCover.png" id="15_4hnrh"]
+[ext_resource type="Texture2D" uid="uid://dytcpxid54ujh" path="res://Image/DraughtyCover.png" id="16_41blc"]
+[ext_resource type="Script" path="res://Mesh/PhoneHelper.gd" id="17_kfh8j"]
+[ext_resource type="Texture2D" uid="uid://dme1jny2dksux" path="res://Image/FantasticLeafsCover.png" id="17_m6geq"]
+[ext_resource type="Animation" uid="uid://ceeimhrpg442o" path="res://Anim/PickUpPhone.res" id="18_0fdek"]
+[ext_resource type="Texture2D" uid="uid://bka2ms74k7fp7" path="res://Image/GAPcover.png" id="18_fbn48"]
+[ext_resource type="Texture2D" uid="uid://c4k554g8uklio" path="res://Image/Spellscover.png" id="18_h10fi"]
+[ext_resource type="Script" path="res://Script/Holdable.gd" id="20_pl3wx"]
+[ext_resource type="Script" path="res://Script/ObjectSlot.gd" id="23_e2v83"]
 [ext_resource type="Script" path="res://Script/StateMachines/GameStates/Main_Game_State.gd" id="23_uum5g"]
-[ext_resource type="PackedScene" uid="uid://bkwcm81ptsrb6" path="res://Scenes/TitleScreen.tscn" id="26_xfmph"]
-[ext_resource type="PackedScene" uid="uid://bkkxykabig7mc" path="res://Mesh/openbook.glb" id="27_ullrp"]
+[ext_resource type="Material" uid="uid://bcdp280axodh6" path="res://Mesh/Book.tres" id="27_3wq1p"]
 [ext_resource type="Script" path="res://Script/StateMachines/GameStates/GameStateController.gd" id="28_gi48k"]
 [ext_resource type="Script" path="res://Script/StateMachines/GameStates/Title_Screen_State.gd" id="28_nh4lm"]
+[ext_resource type="PackedScene" uid="uid://dtpsrboqge6pa" path="res://Scenes/PlayerView.tscn" id="29_c48ta"]
 [ext_resource type="Script" path="res://Script/StateMachines/GameStates/Intro_State.gd" id="29_om64p"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_qpe1c"]
-size = Vector3(1.29736, 0.749146, 1.20605)
+[ext_resource type="Script" path="res://Script/audio_manager.gd" id="34_04mdi"]
+[ext_resource type="PackedScene" uid="uid://b77ffqxu4v1fx" path="res://Scenes/UINode.tscn" id="34_dfl7e"]
+[ext_resource type="Script" path="res://Script/scenario_director.gd" id="34_gpimc"]
+[ext_resource type="Script" path="res://Script/StateMachines/GameStates/Phone.gd" id="35_a12cj"]
+[ext_resource type="Script" path="res://Script/lightswing.gd" id="35_q114k"]
+[ext_resource type="AudioStream" uid="uid://blbpsy0tsh81d" path="res://Sound/TFH_SFX-Phone_Ring.wav" id="35_x1tqo"]
+[ext_resource type="AudioStream" uid="uid://bubyuqe7jaqou" path="res://Sound/TFH_SFX-Phone_Pickup.wav" id="36_df6wp"]
+[ext_resource type="Script" path="res://Scenes/Level/Draggable.gd" id="36_k5fvx"]
+[ext_resource type="AudioStream" uid="uid://bs87vitsf2uvm" path="res://Sound/TFH_SFX-Phone_SetDown.wav" id="37_jkpr1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tv3jd"]
 size = Vector3(1.64588, 1, 0.522949)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_a5y0w"]
-size = Vector3(1, 0.334473, 1.35986)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4ejj0"]
 size = Vector3(6.56445, 9.53418, 2.14868)
@@ -48,139 +49,30 @@ size = Vector3(6.56445, 9.53418, 2.14868)
 [sub_resource type="BoxShape3D" id="BoxShape3D_dnmh6"]
 size = Vector3(2.1037, 1.58496, 1.34131)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_t2qcl"]
+size = Vector3(0.508789, 1.58496, 1.11621)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_a7p37"]
 size = Vector3(3.0769, 0.657654, 1)
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_1qmm6"]
-radius = 0.727944
-
-[sub_resource type="Animation" id="Animation_2qvre"]
-resource_name = "LookBoard"
+[sub_resource type="Animation" id="Animation_5h47n"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-0.0174375, 5.21841, 1.28598), Vector3(-0.271101, 6.15425, -0.568915)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 0
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, -0.00069812, 0), Vector3(0, -0.00069812, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_yjwkv"]
-resource_name = "LookDrawers"
-length = 0.6
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
+tracks/0/path = NodePath("Phone/PhoneHorn:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(-0.0174375, 5.21841, 1.28598)]
+"values": [Vector3(0, 0, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.466667),
-"transitions": PackedFloat32Array(2.82843, 0.353553),
-"update": 0,
-"values": [Vector3(0, -0.00069812, 0), Vector3(-0.731293, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_h4gj3"]
-resource_name = "LookCat"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.9),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-0.0174375, 5.21841, 1.28598), Vector3(-2.97742, 5.86665, 0.0149274)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.9),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, -0.00069812, 0), Vector3(0.391538, 0.730999, -0.0480411)]
-}
-
-[sub_resource type="Animation" id="Animation_uni7a"]
-resource_name = "LookShelf"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(-0.0174375, 5.21841, 1.28598), Vector3(0.888339, 5.21841, 1.28598), Vector3(5.96897, 6.38848, 3.22621)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(-0.0333333, 0.366667, 1),
-"transitions": PackedFloat32Array(1, 1.86607, 1),
-"update": 0,
-"values": [Vector3(0, -0.00069812, 0), Vector3(0, -0.975639, 0), Vector3(0, -0.244346, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_nunxs"]
-resource_name = "RESET"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-0.429902, 6.01398, 5.25884)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
+tracks/1/path = NodePath("Phone/PhoneHorn:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -192,259 +84,264 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../Room/Desk/Phone/PhoneHorn:position")
+tracks/2/path = NodePath("../../Camera3D/PhonePickedUp:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("../Room/Desk/Phone/PhoneHorn:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("PhonePickedUp:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-0.30537, -2.7781, -0.330028)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("PhonePickedUp:rotation")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(0.83417, -2.30559, -1.01384)]
 }
-
-[sub_resource type="Animation" id="Animation_e7o27"]
-resource_name = "Seated"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-0.0174375, 5.21841, 1.28598)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, -0.00069812, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_enqdy"]
-resource_name = "SitDown"
-length = 4.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 1.5, 2.5, 3),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(-0.429902, 6.01398, 5.25884), Vector3(-0.429902, 6.01398, 2.79579), Vector3(-0.429902, 6.01398, 2.79579), Vector3(-0.0182824, 6.01398, 2.49624), Vector3(-0.0174375, 5.21841, 1.28598)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1, 1.5, 2.2, 2.63333, 3),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0.0993441, 0), Vector3(0, 0.0993441, 0), Vector3(0, -0.529219, 0), Vector3(0, -0.529219, 0), Vector3(0, -0.00069812, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_qx82k"]
-_data = {
-"LookCorkboard": SubResource("Animation_2qvre"),
-"LookDrawers": SubResource("Animation_yjwkv"),
-"LookNoodle": SubResource("Animation_h4gj3"),
-"LookShelf": SubResource("Animation_uni7a"),
-"RESET": SubResource("Animation_nunxs"),
-"Seated": SubResource("Animation_e7o27"),
-"SitDown": SubResource("Animation_enqdy")
-}
-
-[sub_resource type="Animation" id="Animation_bq82v"]
-resource_name = "OpenDrawerTopLeft"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../Room/Desk/Drawer:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-2.82655, 0.987795, -0.0126672), Vector3(-2.82655, 0.987795, 1.72994)]
-}
-
-[sub_resource type="Animation" id="Animation_3vyhy"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../UI/SubViewportContainer/SubViewport/Node3D/ViewBinder:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, -2.30916, 2.55493)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../Room/Desk/Binder:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.759823, 2.26702, 0.536201)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../Room/Desk/Binder:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("../Room/Desk/Drawer:position")
+tracks/3/path = NodePath("../../Camera3D/PhonePickedUp:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(-2.82655, 0.987795, -0.0126672)]
+"values": [Vector3(-0.30537, -2.7781, -0.330028)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_mw4lu"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hxxsk"]
 _data = {
-"OpenDrawerTopLeft": SubResource("Animation_bq82v"),
-"RESET": SubResource("Animation_3vyhy")
+"RESET": SubResource("Animation_5h47n")
 }
 
-[sub_resource type="Animation" id="Animation_bjmuo"]
-resource_name = "PickUpBinder"
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2n0i3"]
+_data = {
+"PickUpPhone": ExtResource("18_0fdek")
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l2s3l"]
+albedo_color = Color(0.126093, 0.102711, 0.0829673, 1)
+emission_enabled = true
+emission = Color(0.898275, 2.59906e-06, 1.2514e-06, 1)
+emission_energy_multiplier = 0.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_iggrc"]
+material = SubResource("StandardMaterial3D_l2s3l")
+radius = 0.05
+height = 0.1
+
+[sub_resource type="Animation" id="Animation_mbjtm"]
+resource_name = "Blink"
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../UI/SubViewportContainer/SubViewport/Node3D/ViewBinder:position")
-tracks/0/interp = 2
+tracks/0/path = NodePath(".:mesh:material:emission_energy_multiplier")
+tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.666667, 1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0, -2.15362, 2.55493), Vector3(0, -0.652289, 2.55493)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../Room/Desk/Binder:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0.759823, 2.26702, 0.536201), Vector3(0.759823, 2.06609, 3.88864)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../Room/Desk/Binder:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0.86968, 0, 0)]
+"values": [0.0, 3.0, 3.0, 0.0, 0.0]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_awu4g"]
+[sub_resource type="Animation" id="Animation_1ajhn"]
+resource_name = "Off"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:mesh:material:emission_energy_multiplier")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_a2sbh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:mesh:material:emission_energy_multiplier")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_murrs"]
 _data = {
-"PickUpBinder": SubResource("Animation_bjmuo"),
-"PickUpPhone": ExtResource("16_w655s")
+"Blink": SubResource("Animation_mbjtm"),
+"Off": SubResource("Animation_1ajhn"),
+"RESET": SubResource("Animation_a2sbh")
 }
 
-[sub_resource type="Environment" id="Environment_vn56m"]
-background_mode = 1
-ssao_enabled = true
-ssil_enabled = true
-glow_enabled = true
+[sub_resource type="BoxShape3D" id="BoxShape3D_c33m3"]
+size = Vector3(0.382568, 2.00391, 1.65601)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ep4cq"]
+transparency = 1
+blend_mode = 1
+albedo_color = Color(1, 1, 0, 0.101961)
+
+[sub_resource type="BoxMesh" id="BoxMesh_y5hda"]
+material = SubResource("StandardMaterial3D_ep4cq")
+size = Vector3(0.3, 1.4, 1.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_maj5t"]
+size = Vector3(7.35046, 3.35852, 0.621948)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o8mso"]
+resource_name = "Book"
+cull_mode = 2
+albedo_texture = ExtResource("15_4hnrh")
+roughness = 0.847518
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k3trd"]
+resource_name = "Paper"
+cull_mode = 2
+albedo_color = Color(0.906332, 0.906332, 0.906332, 1)
+roughness = 0.5
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_32pqx"]
+_surfaces = [{
+"aabb": AABB(-0.569128, -0.0966687, -0.862803, 1.14424, 0.20506, 1.71165),
+"format": 34896613377,
+"index_count": 90,
+"index_data": PackedByteArray("FAADAAEAFAAVAAMAFQAHAAMAFQAWAAcAFgAFAAcAFgAXAAUAFwABAAUAFwAUAAEAAgAEAAYAAgAAAAQABwABAAMABwAFAAEACwAMAAkACwAPAAwAEgAIABEAEgAKAAgADQAPAA4ADQAMAA8AEwARABAAEwASABEAEAAOABMAEAANAA4ABAAUABcABAAAABQABgAXABYABgAEABcAAgAWABUAAgAGABYAAAAVABQAAAACABUA"),
+"name": "Paper",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("JwYT+hP6AAAnBusFE/oAAOsFE/oqBgAA6wXrBSoGAAAT+hP61PkAABP66wXU+QAA1/kT+usFAADX+esF6wUAAP////+8/wAA//8AALz/AAC/////AAAAAL//AAAAAAAAgQMAAP7/AAA/AFgQ//8AAAAAWBBCAAAAQQMAAEEAAAA/AFfs//8AACoE///9/wAA6gP//0EAAAAAAFfsQgAAACcG/38T+gAA6wX/fyoGAADX+f9/6wUAABP6/3/U+QAA")
+}, {
+"aabb": AABB(-0.604852, -0.126553, -0.862803, 1.17997, 0.264828, 1.71171),
+"format": 34359742465,
+"index_count": 102,
+"index_data": PackedByteArray("AAAWABEAAAAGABYACAAHAAEACAANAAcABQANAA4ABQAHAA0AAwAOAAsAAwAFAA4AEAAMAAkAEAAXAAwAAgAGAAAAAgAEAAYACgAUABMACgAPABQAFwAPAAwAFwAUAA8AAQAFAAMAAQAHAAUAFQAGAAQAFQAWAAYADQAPAA4ADQAMAA8ADgAKAAsADgAPAAoACAAMAA0ACAAJAAwAEgAEAAIAEgAVAAQAFQAXABYAFQAUABcAEgAUABUAEgATABQAFgAQABEAFgAXABAA"),
+"name": "Book",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("vzoTPyr83T2q3Fg/vzoTP0P6xb2q3Fg/8/ESPyr83T2h4Fy/8/ESP0P6xb2h4Fy/8/ESPwmYDT6h4Fy/8/ESPxuXAb6h4Fy/vzoTPwmYDT6q3Fg/vzoTPxuXAb6q3Fg/rK8Nv0P6xb29TFk/l2kRv14qq70uTlk/YrIRv14qq70gb1y/d/gNv0P6xb2RcFy/zY4av0Rx1r29UVk/vN8Wvy158b1PUFk/hygXvy158b0CbVy/mNcav0Rx1r2Ua1y/l2kRvz6+vT0uTlk/fe4Mvyr83T1xTFk/SDcNvyr83T3dcFy/YrIRvz2+vT0gb1y/mNcavxsF6T2Ua1y/i2kWvzHDBD5NbVy/wSAWvzHDBD4FUFk/zY4avxsF6T29UVk/")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_xk3pw"]
+resource_name = "BookClosed_Cube_027"
+_surfaces = [{
+"aabb": AABB(-0.569128, -0.0966687, -0.862803, 1.14424, 0.20506, 1.71165),
+"attribute_data": PackedByteArray("SJL/n9q2///atv9/////n2zb//9s2/9/SJL/v9q2/9/atv/f////v2zb/99s2//f2rb/n9q2/5/atv+fbNv/n2zb/59s2/+f2rb/v9q2/7/atv+/bNv/v2zb/79s2/+/ev//n2zb/596//+/bNv/v4f//58Kf+T/tYDk/7WA5P+1gHuAtYB7gIf//78Kf3uA6Nr/nyyX5P932/+fd9v/n3fb/7932/+/6Nr/vyyXe4Ajyf//I8n/fyPJ/98jyf/fI8n/vyPJ/78jyf+fI8n/nw=="),
+"format": 34896613399,
+"index_count": 90,
+"index_data": PackedByteArray("LAALAAQALAAvAAsALgAWAAoALgAwABYAMQARABcAMQAzABEAMgAFABAAMgAtAAUABgAMABIABgAAAAwAFQADAAkAFQAPAAMAGwAcABkAGwAiABwAKAAYACYAKAAaABgAHgAjACAAHgAdACMAKgAnACQAKgApACcAJQAhACsAJQAfACEADQAtADIADQACAC0AFAAzADEAFAAOADMABwAwAC4ABwATADAAAQAvACwAAQAIAC8A"),
+"material": SubResource("StandardMaterial3D_k3trd"),
+"name": "Paper",
+"primitive": 3,
+"uv_scale": Vector4(1.75, 2, 0, 0),
+"vertex_count": 52,
+"vertex_data": PackedByteArray("JwYT+hP6/78nBhP6E/pY1ScGE/oT+vT/JwbrBRP68/8nBusFE/pY1ScG6wUT+vT/6wUT+ioG/7/rBRP6Kgb/v+sFE/oqBljV6wXrBSoG8//rBesFKgb/v+sF6wUqBljVE/oT+tT5/78T+hP61Pn0/xP6E/rU+VDVE/rrBdT58/8T+usF1Pn0/xP66wXU+VDV1/kT+usF/7/X+RP66wX/v9f5E/rrBVDV1/nrBesF8//X+esF6wX/v9f56wXrBVDV/////7z//z///wAAvP8LAL////8AAP8/v/8AAAAACgCBAwAA/v8LAIEDAAD+/x/rPwBYEP//H+s/AFgQ//9Q1QAAWBBCABnrAABYEEIAUNVBAwAAQQALAEEDAABBABnrPwBX7P//wjo/AFfs//9Q1SoE///9//8/KgT///3/wjrqA///QQD/P+oD//9BAMI6AABX7EIAwjoAAFfsQgBQ1ScG/38T+ljVJwb/fxP69P/rBf9/Kgb/v+sF/38qBljV1/n/f+sF/7/X+f9/6wVQ1RP6/3/U+fT/E/r/f9T5UNUxAOZ/rKpSVQVA+b8LgPm/rKpSVQVA+b8xAOZ/GIDmf6yqUlULgPm/GIDmf6yqUlUxAOZ/BUD5v1dVp6oLgPm/BUD5v1dVp6oxAOZ/GIDmf1dVp6oLgPm/GIDmf1dVp6rm/81/+T/y/+b/zX/5P/P/+T/y/0zKaOtMymjrVtVW1UfKbetW1VbV+T/y/0fKbetC5I+3VtVW1eb/zX9C5I+35v/Nf0Lkj7dC5I+3VtVW1ayqUlUFQPm/GIDmf6yqUlUYgOZ/V1WnqgVA+b9XVaeq")
+}, {
+"aabb": AABB(-0.604852, -0.126553, -0.862803, 1.17997, 0.264828, 1.71171),
+"attribute_data": PackedByteArray("mRdfPwQAgD6ZF18/BACAPgAAID8EAIA+AAAgPwQAgD6ZF18/AAAAP5kXXz8AAAA/AAAgPwAAAD8AACA/AAAAP5kXXz8AAAA/emR9PwCcsjuZF18/AAAAPwAAID8AAAA/sCpMPrr/ez8AACA/AAAAP54UfT+DWX4/mRdfPwQAgD6ZF18/BACAPt/wTT5C9ns/AAAgPwQAgD4AACA/BACAPmEvXz8EAIA+8CXWu//Kfz8YsJ87/8p/Pw2wnzsA0ng7YS9fPwAAAD/wJda7ANN4OzSPfT7oYXw/rpw/O//Kfz/MnD87/8p/P93WjT5/4X0/3daNPn/hfT8BOF8/BACAPvAl1rv/yn8/AThfPwAAAD/wJda7ANJ4O54sez+EWX4/nix7P4RZfj+unD87ANN4O3a1fT+EWX4/4Jw/OwDTeDslPiI+/8p/P5kXHz8EAIA+dxIgPwQAgD53EiA/AAAAPyU+Ij4A03g7mRcfPwAAAD+xpCQ+ANN4O5oXHz8AAAA/eXolPgCcsjuxpCQ+ANN4OxkIID8AAAA/aK80PgCcsjtkqzE+AJyyOwqlNT6DWX4/4ZcyPoNZfj8YCCA/BACAPhNvJj6DWX4/saQkPv/Kfz+xpCQ+/8p/P5kXHz8EAIA+"),
+"format": 34359742487,
+"index_count": 102,
+"index_data": PackedByteArray("AAA3ACoAAAAPADcAFAASAAIAFAAfABIADAAdACMADAARAB0ABgAhABgABgALACEAKAAcABYAKAA6ABwABQAQAAEABQAKABAAFwAuACwAFwAlAC4AOQAnABsAOQAxACcAAwANAAcAAwATAA0AMwAOAAkAMwA1AA4AHgAmACQAHgAaACYAIgAXABkAIgAlABcAFQAcACAAFQAWABwAKwAIAAQAKwAyAAgANAA4ADYANAAwADgAKwAvADIAKwAtAC8ANwApACoANwA7ACkA"),
+"material": ExtResource("27_3wq1p"),
+"name": "Book",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 60,
+"vertex_data": PackedByteArray("vzoTPyr83T2q3Fg/vzoTPyr83T2q3Fg/vzoTP0P6xb2q3Fg/vzoTP0P6xb2q3Fg/8/ESPyr83T2h4Fy/8/ESPyr83T2h4Fy/8/ESP0P6xb2h4Fy/8/ESP0P6xb2h4Fy/8/ESPwmYDT6h4Fy/8/ESPwmYDT6h4Fy/8/ESPwmYDT6h4Fy/8/ESPxuXAb6h4Fy/8/ESPxuXAb6h4Fy/8/ESPxuXAb6h4Fy/vzoTPwmYDT6q3Fg/vzoTPwmYDT6q3Fg/vzoTPwmYDT6q3Fg/vzoTPxuXAb6q3Fg/vzoTPxuXAb6q3Fg/vzoTPxuXAb6q3Fg/rK8Nv0P6xb29TFk/rK8Nv0P6xb29TFk/l2kRv14qq70uTlk/YrIRv14qq70gb1y/d/gNv0P6xb2RcFy/d/gNv0P6xb2RcFy/zY4av0Rx1r29UVk/zY4av0Rx1r29UVk/zY4av0Rx1r29UVk/vN8Wvy158b1PUFk/vN8Wvy158b1PUFk/vN8Wvy158b1PUFk/vN8Wvy158b1PUFk/hygXvy158b0CbVy/hygXvy158b0CbVy/hygXvy158b0CbVy/hygXvy158b0CbVy/mNcav0Rx1r2Ua1y/mNcav0Rx1r2Ua1y/mNcav0Rx1r2Ua1y/l2kRvz6+vT0uTlk/l2kRvz6+vT0uTlk/fe4Mvyr83T1xTFk/SDcNvyr83T3dcFy/YrIRvz2+vT0gb1y/YrIRvz2+vT0gb1y/mNcavxsF6T2Ua1y/mNcavxsF6T2Ua1y/mNcavxsF6T2Ua1y/mNcavxsF6T2Ua1y/i2kWvzHDBD5NbVy/i2kWvzHDBD5NbVy/i2kWvzHDBD5NbVy/wSAWvzHDBD4FUFk/wSAWvzHDBD4FUFk/wSAWvzHDBD4FUFk/zY4avxsF6T29UVk/zY4avxsF6T29UVk/zY4avxsF6T29UVk/zY4avxsF6T29UVk/AADN/////78TAP9/////PwAAzf////+/EwD/f////z8wgP9/////PxMA/3////8/MID/f////z8TAP9/////PzCA/3////8/8IDwAA7/bj8TAP9/////PzCA/3////8/8IAO/2t+AMATAP9/////P/CA8AAO/24/AADN/////78TAP9/////P/CADv9rfgDAAADN/////78TAP9/////PwAAzf////+/AADN/////78AAM3/////vzCA/3+PjEUGMID/f////z8wgP9/GbF75z+9yMJFAUP///8TgP9/AAAAAM3/////v/CADv9rfgDAP73Iwt8B8P4AAM3/////vwAAzf////+/MID/f////z8wgP9/GbGDGPCADv/i/2J4P73Iwkg9lt4wgP9/5J5sDz+9yML2PMLe//8TgP9/AAAAAM3/////vwAAzf////+/AADN/////78wgP9/////PzCA/3+lL8LXMID/f////z8wgP9//38AADCA/3////8/P702PdDCWyH//xOA/38AADCA/3////8/8IDwAA7/bj8/vTY90MJbIfCA8AAO/24/P702PdDCWyEAAM3/////vz+9Nj3Qwlsh//8TgP9/AAAAAM3/////vwAAzf////+/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_32pqx")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2rpr6"]
+resource_name = "Book"
+cull_mode = 2
+albedo_texture = ExtResource("16_41blc")
+roughness = 0.847518
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kyvvf"]
+resource_name = "Book"
+cull_mode = 2
+albedo_texture = ExtResource("17_m6geq")
+roughness = 0.847518
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vdbdx"]
+resource_name = "Book"
+cull_mode = 2
+albedo_texture = ExtResource("18_fbn48")
+roughness = 0.847518
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c430q"]
+resource_name = "Book"
+cull_mode = 2
+albedo_texture = ExtResource("18_h10fi")
+roughness = 0.847518
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_1qmm6"]
+radius = 0.727944
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7bvgt"]
 
 [node name="Game" type="Node3D"]
+
+[node name="AudioManager" type="Node" parent="." node_paths=PackedStringArray("phoneAudioPlayer")]
+script = ExtResource("34_04mdi")
+phoneAudioPlayer = NodePath("AudioStream_Phone")
+phoneAudio_Ring = ExtResource("35_x1tqo")
+phoneAudio_Pickup = ExtResource("36_df6wp")
+phoneAudio_SetDown = ExtResource("37_jkpr1")
+
+[node name="AudioStream_Ambience" type="AudioStreamPlayer" parent="AudioManager"]
+
+[node name="AudioStream_UI" type="AudioStreamPlayer" parent="AudioManager"]
+
+[node name="AudioStream_Phone" type="AudioStreamPlayer3D" parent="AudioManager"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.82742, 4.15748, -1.66671)
+
+[node name="ScenarioDirector" type="Node" parent="." node_paths=PackedStringArray("audioManager")]
+script = ExtResource("34_gpimc")
+audioManager = NodePath("../AudioManager")
+
+[node name="GameStates" type="Node" parent="ScenarioDirector" node_paths=PackedStringArray("body")]
+script = ExtResource("28_gi48k")
+body = NodePath("../..")
+
+[node name="Intro" type="Node" parent="ScenarioDirector/GameStates"]
+script = ExtResource("29_om64p")
+state_name = "default"
+
+[node name="TitleScreen" type="Node" parent="ScenarioDirector/GameStates"]
+script = ExtResource("28_nh4lm")
+state_name = "title"
+
+[node name="Tutorial" type="Node" parent="ScenarioDirector/GameStates"]
+
+[node name="Game" type="Node" parent="ScenarioDirector/GameStates"]
+script = ExtResource("23_uum5g")
+state_name = "main"
+
+[node name="Pause" type="Node" parent="ScenarioDirector/GameStates"]
+
+[node name="EndDayReport" type="Node" parent="ScenarioDirector/GameStates"]
+
+[node name="GameOver" type="Node" parent="ScenarioDirector/GameStates"]
+
+[node name="Credits" type="Node" parent="ScenarioDirector/GameStates"]
+
+[node name="Settings" type="Node" parent="ScenarioDirector/GameStates"]
 
 [node name="InteractionZones" type="Node3D" parent="."]
 script = ExtResource("1_swfkt")
 
 [node name="Seated" type="Node3D" parent="InteractionZones"]
-visible = false
-
-[node name="PhoneMouseOver" type="Area3D" parent="InteractionZones/Seated"]
-transform = Transform3D(0.852202, 0, 0.523213, 0, 1, 0, -0.523213, 0, 0.852202, -2.90934, 3.92123, -1.74523)
-script = ExtResource("6_fus12")
-context = "Phone"
-trigger_state = "examine"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionZones/Seated/PhoneMouseOver"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0131876, 0.278121, 0.323717)
-shape = SubResource("BoxShape3D_qpe1c")
 
 [node name="DrawersMouseOver" type="Area3D" parent="InteractionZones/Seated"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6644, -1.74523)
@@ -455,16 +352,6 @@ trigger_state = "drawers"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionZones/Seated/DrawersMouseOver"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00866294, 1.77496, 1.42732)
 shape = SubResource("BoxShape3D_tv3jd")
-
-[node name="BinderMouseOver" type="Area3D" parent="InteractionZones/Seated"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.759823, 3.93142, -1.20903)
-script = ExtResource("6_fus12")
-context = "Binder"
-trigger_state = "examine"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionZones/Seated/BinderMouseOver"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.92285, 0.292772, -0.473904)
-shape = SubResource("BoxShape3D_a5y0w")
 
 [node name="ShelfMouseOver" type="Area3D" parent="InteractionZones/Seated"]
 transform = Transform3D(0.938566, 0, -0.345101, 0, 1, 0, 0.345101, 0, 0.938566, 7.20262, 4.50459, -2.05666)
@@ -484,6 +371,16 @@ context = "Print/Fax"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionZones/Seated/PrinterMouseOver"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.207912, 0.570601, 0.153063)
 shape = SubResource("BoxShape3D_dnmh6")
+
+[node name="PhoneMouseOver" type="Area3D" parent="InteractionZones/Seated"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.93777, 3.98708, -1.5208)
+script = ExtResource("6_fus12")
+context = "Phone"
+trigger_state = "phone"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionZones/Seated/PhoneMouseOver"]
+transform = Transform3D(0.891205, 0, 0.453602, 0, 1, 0, -0.453602, 0, 0.891205, -0.248691, 0, 0.146036)
+shape = SubResource("BoxShape3D_t2qcl")
 
 [node name="Drawers" type="Node3D" parent="InteractionZones"]
 visible = false
@@ -526,12 +423,16 @@ shape = SubResource("BoxShape3D_tv3jd")
 
 [node name="DrawersMouseOver6" type="Area3D" parent="InteractionZones/Drawers"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.55414, 2.18873, -1.74523)
+visible = false
 script = ExtResource("6_fus12")
 context = "Treatment Forms"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionZones/Drawers/DrawersMouseOver6"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.52244, 0.721566, 1.08822)
 shape = SubResource("BoxShape3D_a7p37")
+
+[node name="Bookshelf" type="Node3D" parent="InteractionZones"]
+visible = false
 
 [node name="Room" parent="." instance=ExtResource("1_0nyey")]
 
@@ -554,30 +455,306 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.84352, -0.3721, -0.0126672)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.23807, 1.45294)
 
 [node name="Phone" parent="Room/Desk" instance=ExtResource("5_1g6lf")]
-transform = Transform3D(0.852202, 0, 0.523213, 0, 1, 0, -0.523213, 0, 0.852202, -2.90934, 2.25683, 0)
+transform = Transform3D(0.852202, 0, 0.523213, 0, 1, 0, -0.523213, 0, 0.852202, -2.90934, 2.07087, 0)
+script = ExtResource("17_kfh8j")
 
 [node name="PhoneHorn" parent="Room/Desk/Phone" instance=ExtResource("7_yjjn6")]
 
+[node name="PhoneAnim" type="AnimationPlayer" parent="Room/Desk/Phone"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_hxxsk"),
+"Phone": SubResource("AnimationLibrary_2n0i3")
+}
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Room/Desk/Phone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.427249, 0.501253, 0.0777843)
+mesh = SubResource("SphereMesh_iggrc")
+
+[node name="Blinkin" type="AnimationPlayer" parent="Room/Desk/Phone/MeshInstance3D"]
+libraries = {
+"": SubResource("AnimationLibrary_murrs")
+}
+
 [node name="Printer" parent="Room/Desk" instance=ExtResource("6_luqux")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.64885, 2.32268, -0.496486)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.64885, 2.32268, -1.07126)
 
-[node name="Binder" parent="Room/Desk" instance=ExtResource("8_8tnwm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.759823, 2.26702, 0.536201)
+[node name="DeskItem1" type="Node3D" parent="Room/Desk"]
+transform = Transform3D(-0.0261769, 4.48556e-08, -0.999657, 0.999657, -4.36964e-08, -0.0261769, -4.48556e-08, -1, -4.36964e-08, 2.27439, 2.32451, 0.485403)
 
-[node name="Torus" parent="Room/Desk/Binder/Armature_001/Skeleton3D" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.47053, 0, 0)
+[node name="Interaction" type="Area3D" parent="Room/Desk/DeskItem1" node_paths=PackedStringArray("slot_position", "indicator")]
+transform = Transform3D(1, 2.59638e-09, -1.45519e-11, -4.54736e-09, 1, -9.31323e-10, -1.45519e-11, 0, 1, 0, 0, 0)
+collision_priority = 2.0
+script = ExtResource("23_e2v83")
+slot_position = NodePath("Marker3D")
+indicator = NodePath("Indicator")
+context = "Place Item"
+
+[node name="Marker3D" type="Marker3D" parent="Room/Desk/DeskItem1/Interaction"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Desk/DeskItem1/Interaction"]
+transform = Transform3D(1, -2.98643e-08, 5.96046e-08, -2.65396e-09, 1, 1.74237e-07, 8.9407e-08, 2.50411e-08, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_c33m3")
+
+[node name="Indicator" type="MeshInstance3D" parent="Room/Desk/DeskItem1/Interaction"]
+transform = Transform3D(1, -2.90666e-08, 5.95901e-08, 7.04858e-11, 1, 1.73226e-07, 8.94215e-08, 2.51457e-08, 1, 0, 0, 0)
+visible = false
+mesh = SubResource("BoxMesh_y5hda")
+skeleton = NodePath("../CollisionShape3D")
+
+[node name="DeskItem2" type="Node3D" parent="Room/Desk"]
+transform = Transform3D(-0.0261769, 4.48556e-08, -0.999657, 0.999657, -4.36964e-08, -0.0261769, -4.48556e-08, -1, -4.36964e-08, 0.60804, 2.28087, 0.485403)
+
+[node name="Interaction" type="Area3D" parent="Room/Desk/DeskItem2" node_paths=PackedStringArray("slot_position", "indicator")]
+transform = Transform3D(1, 2.59638e-09, -1.45519e-11, -4.54736e-09, 1, -9.31323e-10, -1.45519e-11, 0, 1, 0, 0, 0)
+collision_priority = 2.0
+script = ExtResource("23_e2v83")
+slot_position = NodePath("Marker3D")
+indicator = NodePath("Indicator")
+context = "Place Item"
+
+[node name="Marker3D" type="Marker3D" parent="Room/Desk/DeskItem2/Interaction"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Desk/DeskItem2/Interaction"]
+transform = Transform3D(1, -2.98643e-08, 5.96046e-08, -2.65396e-09, 1, 1.74237e-07, 8.9407e-08, 2.50411e-08, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_c33m3")
+
+[node name="Indicator" type="MeshInstance3D" parent="Room/Desk/DeskItem2/Interaction"]
+transform = Transform3D(1, -2.90666e-08, 5.95901e-08, 7.04858e-11, 1, 1.73226e-07, 8.94215e-08, 2.51457e-08, 1, 0, 0, 0)
+visible = false
+mesh = SubResource("BoxMesh_y5hda")
+skeleton = NodePath("../CollisionShape3D")
+
+[node name="DeskItem3" type="Node3D" parent="Room/Desk"]
+transform = Transform3D(-0.0261769, 4.48556e-08, -0.999657, 0.999657, -4.36964e-08, -0.0261769, -4.48556e-08, -1, -4.36964e-08, -1.10465, 2.23602, 0.485403)
+
+[node name="Interaction" type="Area3D" parent="Room/Desk/DeskItem3" node_paths=PackedStringArray("slot_position", "indicator")]
+transform = Transform3D(1, 2.59638e-09, -1.45519e-11, -4.54736e-09, 1, -9.31323e-10, -1.45519e-11, 0, 1, 0, 0, 0)
+collision_priority = 2.0
+script = ExtResource("23_e2v83")
+slot_position = NodePath("Marker3D")
+indicator = NodePath("Indicator")
+context = "Place Item"
+
+[node name="Marker3D" type="Marker3D" parent="Room/Desk/DeskItem3/Interaction"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Desk/DeskItem3/Interaction"]
+transform = Transform3D(1, -2.98643e-08, 5.96046e-08, -2.65396e-09, 1, 1.74237e-07, 8.9407e-08, 2.50411e-08, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_c33m3")
+
+[node name="Indicator" type="MeshInstance3D" parent="Room/Desk/DeskItem3/Interaction"]
+transform = Transform3D(1, -2.90666e-08, 5.95901e-08, 7.04858e-11, 1, 1.73226e-07, 8.94215e-08, 2.51457e-08, 1, 0, 0, 0)
+visible = false
+mesh = SubResource("BoxMesh_y5hda")
+skeleton = NodePath("../CollisionShape3D")
 
 [node name="Corkboard" parent="Room" instance=ExtResource("7_xip52")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.20646, -2.84175)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.20646, -3.613)
+
+[node name="Cube_008" parent="Room/Corkboard" index="0"]
+layers = 4
+
+[node name="Area3D" type="Area3D" parent="Room/Corkboard/Cube_008" index="0"]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Corkboard/Cube_008/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0164185, -2.11102, -0.189026)
+shape = SubResource("BoxShape3D_maj5t")
 
 [node name="Shelf" type="Node3D" parent="Room"]
 transform = Transform3D(0.938566, 0, -0.345101, 0, 1, 0, 0.345101, 0, 0.938566, 7.20262, 4.50459, -2.05666)
 
-[node name="Skull" parent="Room/Shelf" instance=ExtResource("9_jykcf")]
-transform = Transform3D(0.447463, 0.209748, -0.495765, -0.00336226, 0.645753, 0.27017, 0.538299, -0.17032, 0.413794, 1.75877, 0.531456, 0.758317)
+[node name="Mesh" parent="Room/Shelf" instance=ExtResource("13_1g1oh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.790003)
 
-[node name="Shelf" parent="Room/Shelf" instance=ExtResource("13_1g1oh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.98023e-08, 0, 0.790003)
+[node name="Skull" parent="Room/Shelf" instance=ExtResource("9_jykcf")]
+transform = Transform3D(0.447463, 0.209748, -0.495765, -0.00336226, 0.645753, 0.27017, 0.538299, -0.17032, 0.413794, 1.91709, 0.531456, 0.713958)
+
+[node name="ShelfSlot1" type="Node3D" parent="Room/Shelf"]
+transform = Transform3D(0.999676, -0.0254694, 0.000119001, 0.0254694, 0.999632, -0.00936484, 0.000119537, 0.00936484, 0.999956, 0.0861206, 3.80147, 0.820725)
+
+[node name="Interaction" type="Area3D" parent="Room/Shelf/ShelfSlot1" node_paths=PackedStringArray("slot_position", "indicator")]
+transform = Transform3D(1, 2.59638e-09, -1.45519e-11, -4.54736e-09, 1, -9.31323e-10, -1.45519e-11, 0, 1, 0, 0, 0)
+script = ExtResource("23_e2v83")
+slot_position = NodePath("Marker3D")
+indicator = NodePath("Indicator")
+context = "put down"
+
+[node name="Marker3D" type="Marker3D" parent="Room/Shelf/ShelfSlot1/Interaction"]
+
+[node name="Compendium" parent="Room/Shelf/ShelfSlot1/Interaction/Marker3D" instance=ExtResource("14_4lcjo")]
+script = ExtResource("20_pl3wx")
+context = "Finn Medallion's \"Creature Compendium\""
+object_type = 2
+
+[node name="Cube_017" parent="Room/Shelf/ShelfSlot1/Interaction/Marker3D/Compendium" index="0"]
+transform = Transform3D(-2.40413e-08, 0.8, -2.84124e-08, 0, -3.49691e-08, -0.65, -0.55, -3.49691e-08, 1.24195e-15, -1.56844e-09, -0.0381354, -1.45525e-11)
+surface_material_override/1 = SubResource("StandardMaterial3D_o8mso")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Shelf/ShelfSlot1/Interaction"]
+transform = Transform3D(1, -2.98643e-08, 5.96046e-08, -2.65396e-09, 1, 1.74237e-07, 8.9407e-08, 2.50411e-08, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_c33m3")
+
+[node name="Indicator" type="MeshInstance3D" parent="Room/Shelf/ShelfSlot1/Interaction"]
+transform = Transform3D(1, -2.90666e-08, 5.95901e-08, 7.04858e-11, 1, 1.73226e-07, 8.94215e-08, 2.51457e-08, 1, 0, 0, 0)
+visible = false
+mesh = SubResource("BoxMesh_y5hda")
+skeleton = NodePath("../CollisionShape3D")
+
+[node name="ShelfSlot2" type="Node3D" parent="Room/Shelf"]
+transform = Transform3D(0.999676, -0.0254694, 0.000119001, 0.0254694, 0.999632, -0.00936484, 0.000119537, 0.00936484, 0.999956, -1.87108, 2.2379, 0.820671)
+
+[node name="Interaction" type="Area3D" parent="Room/Shelf/ShelfSlot2" node_paths=PackedStringArray("slot_position", "indicator")]
+transform = Transform3D(1, 2.59638e-09, -1.45519e-11, -4.54736e-09, 1, -9.31323e-10, -1.45519e-11, 0, 1, 0, 0, 0)
+script = ExtResource("23_e2v83")
+slot_position = NodePath("Marker3D")
+indicator = NodePath("Indicator")
+context = "put down"
+
+[node name="Marker3D" type="Marker3D" parent="Room/Shelf/ShelfSlot2/Interaction"]
+
+[node name="Draughty" type="Node3D" parent="Room/Shelf/ShelfSlot2/Interaction/Marker3D"]
+script = ExtResource("20_pl3wx")
+context = "\"A Bit Draughty Innit\" - Serena Soleil"
+object_type = 2
+
+[node name="Cube_018" type="MeshInstance3D" parent="Room/Shelf/ShelfSlot2/Interaction/Marker3D/Draughty"]
+transform = Transform3D(-3.0598e-08, 0.996554, -0.0580632, 0, -0.0829474, -0.697588, -0.7, -4.35608e-08, 2.53802e-09, -0.0334769, -0.00254204, -0.00794828)
+mesh = SubResource("ArrayMesh_xk3pw")
+skeleton = NodePath("")
+surface_material_override/1 = SubResource("StandardMaterial3D_2rpr6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Shelf/ShelfSlot2/Interaction"]
+transform = Transform3D(0.999999, -5.33646e-08, 5.96046e-08, -2.49229e-08, 0.999999, 1.74615e-07, 7.45058e-07, 1.67876e-08, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_c33m3")
+
+[node name="Indicator" type="MeshInstance3D" parent="Room/Shelf/ShelfSlot2/Interaction"]
+transform = Transform3D(1, -2.90666e-08, 5.95901e-08, 7.04858e-11, 1, 1.73226e-07, 8.94215e-08, 2.51457e-08, 1, 0, 0, 0)
+visible = false
+mesh = SubResource("BoxMesh_y5hda")
+skeleton = NodePath("../CollisionShape3D")
+
+[node name="ShelfSlot3" type="Node3D" parent="Room/Shelf"]
+transform = Transform3D(0.999676, -0.0254694, 0.00011903, 0.0254694, 0.999632, -0.00936484, 0.000119507, 0.00936484, 0.999956, 0.878222, 2.27915, 0.82073)
+
+[node name="Interaction" type="Area3D" parent="Room/Shelf/ShelfSlot3" node_paths=PackedStringArray("slot_position", "indicator")]
+transform = Transform3D(1, 2.59638e-09, -1.45519e-11, -4.54736e-09, 1, -9.31323e-10, -1.45519e-11, 0, 1, 0, 0, 0)
+script = ExtResource("23_e2v83")
+slot_position = NodePath("Marker3D")
+indicator = NodePath("Indicator")
+context = "put down"
+
+[node name="Marker3D" type="Marker3D" parent="Room/Shelf/ShelfSlot3/Interaction"]
+
+[node name="FantasticLeafs" type="Node3D" parent="Room/Shelf/ShelfSlot3/Interaction/Marker3D"]
+script = ExtResource("20_pl3wx")
+context = "\"Fantastic Leafs and How to Mind Them\" - Fern Brussels"
+object_type = 2
+
+[node name="Cube_017" type="MeshInstance3D" parent="Room/Shelf/ShelfSlot3/Interaction/Marker3D/FantasticLeafs"]
+transform = Transform3D(-3.49691e-08, 0.697405, 0.0602178, 0, 0.0602178, -0.697405, -0.8, -3.04845e-08, -2.63221e-09, -0.00543874, -0.00585422, 3.21797e-09)
+mesh = SubResource("ArrayMesh_xk3pw")
+skeleton = NodePath("")
+surface_material_override/1 = SubResource("StandardMaterial3D_kyvvf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Shelf/ShelfSlot3/Interaction"]
+transform = Transform3D(1, -2.98643e-08, 5.96046e-08, -2.65396e-09, 1, 1.74237e-07, 8.9407e-08, 2.50411e-08, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_c33m3")
+
+[node name="Indicator" type="MeshInstance3D" parent="Room/Shelf/ShelfSlot3/Interaction"]
+transform = Transform3D(1, -2.90666e-08, 5.95901e-08, 7.04858e-11, 1, 1.73226e-07, 8.94215e-08, 2.51457e-08, 1, 0, 0, 0)
+visible = false
+mesh = SubResource("BoxMesh_y5hda")
+skeleton = NodePath("../CollisionShape3D")
+
+[node name="ShelfSlot4" type="Node3D" parent="Room/Shelf"]
+transform = Transform3D(0.999143, -0.0413801, 0.000452846, 0.0413812, 0.998956, -0.0193478, 0.00034827, 0.01935, 0.999813, -0.906915, -0.818303, 0.916076)
+
+[node name="Interaction" type="Area3D" parent="Room/Shelf/ShelfSlot4" node_paths=PackedStringArray("slot_position", "indicator")]
+transform = Transform3D(1, 2.59638e-09, -1.45519e-11, -4.54736e-09, 1, -9.31323e-10, -1.45519e-11, 0, 1, 0, 0, 0)
+script = ExtResource("23_e2v83")
+slot_position = NodePath("Marker3D")
+indicator = NodePath("Indicator")
+context = "put down"
+
+[node name="Marker3D" type="Marker3D" parent="Room/Shelf/ShelfSlot4/Interaction"]
+
+[node name="GAPBook" type="Node3D" parent="Room/Shelf/ShelfSlot4/Interaction/Marker3D"]
+script = ExtResource("20_pl3wx")
+context = "\"G.A.P. Guide to Geomancy\" - Andy Stephens"
+object_type = 2
+
+[node name="Cube_017" type="MeshInstance3D" parent="Room/Shelf/ShelfSlot4/Interaction/Marker3D/GAPBook"]
+transform = Transform3D(-4.78864e-05, 0.99917, -0.0305477, -0.00599346, -0.040729, -0.74934, -0.59997, 0.000327125, 0.00748804, 0, 0, 0)
+mesh = SubResource("ArrayMesh_xk3pw")
+skeleton = NodePath("")
+surface_material_override/1 = SubResource("StandardMaterial3D_vdbdx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Shelf/ShelfSlot4/Interaction"]
+transform = Transform3D(1, -2.98643e-08, 5.96046e-08, -2.65396e-09, 1, 1.74237e-07, 8.9407e-08, 2.50411e-08, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_c33m3")
+
+[node name="Indicator" type="MeshInstance3D" parent="Room/Shelf/ShelfSlot4/Interaction"]
+transform = Transform3D(1, -2.90666e-08, 5.95901e-08, 7.04858e-11, 1, 1.73226e-07, 8.94215e-08, 2.51457e-08, 1, 0, 0, 0)
+visible = false
+mesh = SubResource("BoxMesh_y5hda")
+skeleton = NodePath("../CollisionShape3D")
+
+[node name="ShelfSlot5" type="Node3D" parent="Room/Shelf"]
+transform = Transform3D(0.999676, -0.0254694, 0.00011903, 0.0254694, 0.999632, -0.00936484, 0.000119507, 0.00936484, 0.999956, 1.06127, 0.646846, 0.800622)
+
+[node name="Interaction" type="Area3D" parent="Room/Shelf/ShelfSlot5" node_paths=PackedStringArray("slot_position", "indicator")]
+transform = Transform3D(1, 2.59638e-09, -1.45519e-11, -4.54736e-09, 1, -9.31323e-10, -1.45519e-11, 0, 1, 0, 0, 0)
+script = ExtResource("23_e2v83")
+slot_position = NodePath("Marker3D")
+indicator = NodePath("Indicator")
+context = "put down"
+
+[node name="Marker3D" type="Marker3D" parent="Room/Shelf/ShelfSlot5/Interaction"]
+
+[node name="Book" type="Node3D" parent="Room/Shelf/ShelfSlot5/Interaction/Marker3D"]
+script = ExtResource("20_pl3wx")
+context = "Mildred Webspinner's \"Incantationary\""
+object_type = 2
+
+[node name="Cube_018" type="MeshInstance3D" parent="Room/Shelf/ShelfSlot5/Interaction/Marker3D/Book"]
+transform = Transform3D(-3.49691e-08, 1.4, -3.0598e-08, 0, -6.11959e-08, -0.7, -0.8, -6.11959e-08, 1.33748e-15, 3.15965e-09, 0.0741989, 5.35509e-11)
+mesh = SubResource("ArrayMesh_xk3pw")
+skeleton = NodePath("")
+surface_material_override/1 = SubResource("StandardMaterial3D_c430q")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Shelf/ShelfSlot5/Interaction"]
+transform = Transform3D(1, -2.98643e-08, 5.96046e-08, -2.65396e-09, 1, 1.74237e-07, 8.9407e-08, 2.50411e-08, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_c33m3")
+
+[node name="Indicator" type="MeshInstance3D" parent="Room/Shelf/ShelfSlot5/Interaction"]
+transform = Transform3D(1, -2.90666e-08, 5.95901e-08, 7.04858e-11, 1, 1.73226e-07, 8.94215e-08, 2.51457e-08, 1, 0, 0, 0)
+visible = false
+mesh = SubResource("BoxMesh_y5hda")
+skeleton = NodePath("../CollisionShape3D")
+
+[node name="ShelfSlot6" type="Node3D" parent="Room/Shelf"]
+transform = Transform3D(0.999676, -0.0254694, 0.00011903, 0.0254694, 0.999632, -0.00936484, 0.000119507, 0.00936484, 0.999956, -2.34655, -0.820809, 0.787282)
+
+[node name="Interaction" type="Area3D" parent="Room/Shelf/ShelfSlot6" node_paths=PackedStringArray("slot_position", "indicator")]
+transform = Transform3D(1, 2.59638e-09, -1.45519e-11, -4.54736e-09, 1, -9.31323e-10, -1.45519e-11, 0, 1, 0, 0, 0)
+script = ExtResource("23_e2v83")
+slot_position = NodePath("Marker3D")
+indicator = NodePath("Indicator")
+context = "put down"
+
+[node name="Marker3D" type="Marker3D" parent="Room/Shelf/ShelfSlot6/Interaction"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Shelf/ShelfSlot6/Interaction"]
+transform = Transform3D(1, -2.98643e-08, 5.96046e-08, -2.65396e-09, 1, 1.74237e-07, 8.9407e-08, 2.50411e-08, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_c33m3")
+
+[node name="Indicator" type="MeshInstance3D" parent="Room/Shelf/ShelfSlot6/Interaction"]
+transform = Transform3D(1, -2.90666e-08, 5.95901e-08, 7.04858e-11, 1, 1.73226e-07, 8.94215e-08, 2.51457e-08, 1, 0, 0, 0)
+visible = false
+mesh = SubResource("BoxMesh_y5hda")
+skeleton = NodePath("../CollisionShape3D")
 
 [node name="Cattree" parent="Room" instance=ExtResource("11_vr1j1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.28747, 0, -1.64768)
@@ -588,6 +765,7 @@ bones/0/rotation = Quaternion(0.28897, -0.0507826, -0.0936558, 0.951392)
 [node name="Area3D" type="Area3D" parent="Room/Cattree"]
 script = ExtResource("6_fus12")
 context = "Noodle"
+trigger_state = "noodle"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Cattree/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.93905, 6.42414, 0.0766485)
@@ -596,191 +774,66 @@ shape = SubResource("SphereShape3D_1qmm6")
 [node name="Coatrack" parent="Room" instance=ExtResource("12_h3668")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.82436, 0.276311, 0)
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Room"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00661802, 6.84754, 1.81343)
+[node name="SecondaryLight" type="SpotLight3D" parent="Room"]
+transform = Transform3D(0.971109, -1.04311e-08, 0.238635, -0.238635, -4.24485e-08, 0.971109, 0, -1, -4.37114e-08, 1.83969, 10.6476, -2.16151)
+light_color = Color(1, 0.964706, 0.784314, 1)
+light_energy = 13.24
+shadow_enabled = true
+spot_range = 10.9894
+spot_angle = 28.1357
+
+[node name="MainLight" type="SpotLight3D" parent="Room"]
+transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, -0.142667, 16.6416, 4.57237)
 light_color = Color(1, 1, 0.631373, 1)
-light_energy = 5.0
-light_cull_mask = 4294967293
-omni_range = 20.3192
+light_energy = 10.0
+light_bake_mode = 0
+shadow_enabled = true
+shadow_bias = 0.1
+shadow_normal_bias = 2.28
+shadow_blur = 0.1
+spot_range = 40.5318
+spot_angle = 62.3882
+script = ExtResource("35_q114k")
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.429902, 6.01398, 5.25884)
-cull_mask = 1048573
+[node name="Draggable" type="Area3D" parent="Room" node_paths=PackedStringArray("camera")]
+transform = Transform3D(1, 4.75127e-10, 1.9705e-11, -2.5535e-11, 0.0950289, -0.995475, -4.7485e-10, 0.995475, 0.0950289, 0.565366, 5.45227, -2.00772)
+collision_layer = 4
+collision_mask = 4
+collision_priority = 2.0
+script = ExtResource("36_k5fvx")
+camera = NodePath("../../Camera3D")
+context = "Paper"
 
-[node name="ViewAnimator" type="AnimationPlayer" parent="Camera3D"]
-libraries = {
-"": SubResource("AnimationLibrary_qx82k")
-}
-playback_auto_capture_ease_type = 2
+[node name="CSGBox3D" type="CSGBox3D" parent="Room/Draggable"]
+transform = Transform3D(1, -2.59638e-09, 1.45517e-11, 4.54736e-09, 1, -5.21541e-08, 1.4551e-11, 0, 1, -0.142029, -0.0244142, -0.0126953)
+layers = 4
+cast_shadow = 0
+use_collision = true
+collision_layer = 4
+collision_mask = 4
+size = Vector3(0.715942, 0.0292969, 0.974609)
 
-[node name="ObjectAnimator" type="AnimationPlayer" parent="Camera3D"]
-libraries = {
-"": SubResource("AnimationLibrary_mw4lu"),
-"ObjectAnim": SubResource("AnimationLibrary_awu4g")
-}
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Draggable"]
+shape = SubResource("BoxShape3D_7bvgt")
 
-[node name="ViewStates" type="Node" parent="Camera3D" node_paths=PackedStringArray("body", "animator")]
-script = ExtResource("17_ut0lg")
-body = NodePath("..")
-animator = NodePath("../ViewAnimator")
+[node name="Camera3D" parent="." instance=ExtResource("29_c48ta")]
+far = 100.0
 
-[node name="Wait" type="Node" parent="Camera3D/ViewStates"]
-script = ExtResource("18_fnigv")
-state_name = "default"
+[node name="Phone" parent="Camera3D/ViewStates" index="6"]
+script = ExtResource("35_a12cj")
+state_name = "phone"
 
-[node name="Intro" type="Node" parent="Camera3D/ViewStates"]
-script = ExtResource("15_c5uax")
-state_name = "intro"
-animation = &"SitDown"
-
-[node name="LookAtCat" type="Node" parent="Camera3D/ViewStates"]
-script = ExtResource("16_eriqk")
-state_name = "noodle"
-animation = &"LookNoodle"
-
-[node name="Seated" type="Node" parent="Camera3D/ViewStates"]
-script = ExtResource("16_a7j42")
-camera_sens = 2.0
-state_name = "seated"
-
-[node name="Drawers" type="Node" parent="Camera3D/ViewStates"]
-script = ExtResource("16_vsrjl")
-state_name = "drawers"
-animation = &"LookDrawers"
-
-[node name="Examine" type="Node" parent="Camera3D/ViewStates"]
-script = ExtResource("22_38sxo")
-state_name = "examine"
-
-[node name="Phone" type="Node" parent="Camera3D/ViewStates"]
-
-[node name="Shelf" type="Node" parent="Camera3D/ViewStates"]
-script = ExtResource("18_varta")
-state_name = "bookshelf"
-animation = &"LookShelf"
-
-[node name="PhonePickedUp" parent="Camera3D" instance=ExtResource("7_yjjn6")]
+[node name="PhonePickedUp" parent="Camera3D" index="3"]
 transform = Transform3D(0.112148, -0.859635, -0.49845, -0.570263, 0.355113, -0.74074, 0.81377, 0.36732, -0.450393, -0.30537, -2.7781, -0.330028)
 
+[node name="OmniLight3D" parent="Camera3D" index="4"]
+visible = false
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_vn56m")
 
-[node name="UI" type="Control" parent="." node_paths=PackedStringArray("title_overlay", "context_label")]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
-script = ExtResource("17_hqtwi")
-title_overlay = NodePath("TitleScreen")
-context_label = NodePath("ContextLabel")
+[node name="UI" parent="." instance=ExtResource("34_dfl7e")]
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="UI"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-stretch = true
-
-[node name="SubViewport" type="SubViewport" parent="UI/SubViewportContainer"]
-transparent_bg = true
-handle_input_locally = false
-size = Vector2i(1920, 1080)
-size_2d_override_stretch = true
-render_target_update_mode = 4
-
-[node name="Node3D" type="Node3D" parent="UI/SubViewportContainer/SubViewport"]
-
-[node name="ViewBinder" parent="UI/SubViewportContainer/SubViewport/Node3D" instance=ExtResource("8_8tnwm")]
-transform = Transform3D(1, 0, 0, 0, -0.0575641, -0.998342, 0, 0.998342, -0.0575641, 0, -2.30916, 2.55493)
-
-[node name="Torus" parent="UI/SubViewportContainer/SubViewport/Node3D/ViewBinder/Armature_001/Skeleton3D" index="0"]
-transform = Transform3D(1, 0, 0, 0, 0.99816, 0.0606308, 0, -0.0606308, 0.99816, 0, -0.0890298, -0.0672038)
-layers = 2
-
-[node name="AnimationPlayer" parent="UI/SubViewportContainer/SubViewport/Node3D/ViewBinder" index="1"]
-speed_scale = 0.0
-
-[node name="Camera3D" type="Camera3D" parent="UI/SubViewportContainer/SubViewport/Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.4018)
-cull_mask = 1048574
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="UI/SubViewportContainer/SubViewport/Node3D"]
-transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 0, 9.3978, 3.0569)
-layers = 2
-light_cull_mask = 4294967294
-
-[node name="openbook" parent="UI/SubViewportContainer/SubViewport/Node3D" instance=ExtResource("27_ullrp")]
-transform = Transform3D(-3.61347e-08, 0.141018, -0.685649, -0.7, -3.0598e-08, 3.0598e-08, -2.38066e-08, 0.685649, 0.141018, -0.848295, -0.100582, 2.59217)
-visible = false
-
-[node name="Cube" parent="UI/SubViewportContainer/SubViewport/Node3D/openbook" index="0"]
-layers = 2
-
-[node name="ShaderRect" type="ColorRect" parent="UI"]
-material = ExtResource("17_cosua")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="ContextLabel" type="Label" parent="UI"]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -79.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 5
-theme_override_font_sizes/font_size = 35
-text = "Interaction Label"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="TitleScreen" parent="UI" instance=ExtResource("26_xfmph")]
-visible = false
-layout_mode = 1
-
-[node name="GameStates" type="Node" parent="." node_paths=PackedStringArray("body")]
-script = ExtResource("28_gi48k")
-body = NodePath("..")
-
-[node name="Intro" type="Node" parent="GameStates"]
-script = ExtResource("29_om64p")
-state_name = "default"
-
-[node name="TitleScreen" type="Node" parent="GameStates"]
-script = ExtResource("28_nh4lm")
-state_name = "title"
-
-[node name="Tutorial" type="Node" parent="GameStates"]
-
-[node name="Game" type="Node" parent="GameStates"]
-script = ExtResource("23_uum5g")
-state_name = "main"
-
-[node name="Pause" type="Node" parent="GameStates"]
-
-[node name="EndDayReport" type="Node" parent="GameStates"]
-
-[node name="GameOver" type="Node" parent="GameStates"]
-
-[node name="Credits" type="Node" parent="GameStates"]
-
-[node name="Settings" type="Node" parent="GameStates"]
-
-[editable path="Room/Desk/Binder"]
 [editable path="Room/Corkboard"]
+[editable path="Room/Shelf/ShelfSlot1/Interaction/Marker3D/Compendium"]
 [editable path="Room/Cattree"]
-[editable path="UI/SubViewportContainer/SubViewport/Node3D/ViewBinder"]
-[editable path="UI/SubViewportContainer/SubViewport/Node3D/openbook"]
+[editable path="Camera3D"]
