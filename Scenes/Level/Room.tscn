@@ -125,6 +125,22 @@ material = SubResource("StandardMaterial3D_l2s3l")
 radius = 0.05
 height = 0.1
 
+[sub_resource type="Animation" id="Animation_mbjtm"]
+resource_name = "Blink"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:mesh:material:emission_energy_multiplier")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 3.0, 3.0, 0.0, 0.0]
+}
+
 [sub_resource type="Animation" id="Animation_1ajhn"]
 resource_name = "Off"
 tracks/0/type = "value"
@@ -153,22 +169,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.0]
-}
-
-[sub_resource type="Animation" id="Animation_mbjtm"]
-resource_name = "Blink"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:mesh:material:emission_energy_multiplier")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [0.0, 3.0, 3.0, 0.0, 0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_murrs"]
@@ -308,10 +308,9 @@ phoneAudio_SetDown = ExtResource("37_jkpr1")
 [node name="AudioStream_Phone" type="AudioStreamPlayer3D" parent="AudioManager"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.82742, 4.15748, -1.66671)
 
-[node name="ScenarioDirector" type="Node" parent="." node_paths=PackedStringArray("audioManager", "phoneInteraction")]
+[node name="ScenarioDirector" type="Node" parent="." node_paths=PackedStringArray("audioManager")]
 script = ExtResource("34_gpimc")
 audioManager = NodePath("../AudioManager")
-phoneInteraction = NodePath("")
 
 [node name="GameStates" type="Node" parent="ScenarioDirector" node_paths=PackedStringArray("body")]
 script = ExtResource("28_gi48k")
