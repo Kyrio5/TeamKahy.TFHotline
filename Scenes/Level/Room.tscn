@@ -192,8 +192,8 @@ albedo_color = Color(1, 1, 0, 0.101961)
 material = SubResource("StandardMaterial3D_ep4cq")
 size = Vector3(0.3, 1.4, 1.2)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_maj5t"]
-size = Vector3(7.35046, 3.35852, 0.621948)
+[sub_resource type="BoxShape3D" id="BoxShape3D_tnoft"]
+size = Vector3(6.96408, 3.06276, 0.676605)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o8mso"]
 resource_name = "Book"
@@ -289,6 +289,7 @@ roughness = 0.847518
 radius = 0.727944
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7bvgt"]
+size = Vector3(0.724426, 1.00269, 0.11377)
 
 [node name="Game" type="Node3D"]
 
@@ -551,16 +552,14 @@ skeleton = NodePath("../CollisionShape3D")
 [node name="Corkboard" parent="Room" instance=ExtResource("7_xip52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.20646, -3.613)
 
-[node name="Cube_008" parent="Room/Corkboard" index="0"]
-layers = 4
+[node name="RigidBody3D" type="RigidBody3D" parent="Room/Corkboard/Cube_008" index="0"]
+gravity_scale = 0.0
+lock_rotation = true
+freeze = true
 
-[node name="Area3D" type="Area3D" parent="Room/Corkboard/Cube_008" index="0"]
-collision_layer = 4
-collision_mask = 4
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Corkboard/Cube_008/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0164185, -2.11102, -0.189026)
-shape = SubResource("BoxShape3D_maj5t")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Corkboard/Cube_008/RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0175061, -2.11043, -0.0796771)
+shape = SubResource("BoxShape3D_tnoft")
 
 [node name="Shelf" type="Node3D" parent="Room"]
 transform = Transform3D(0.938566, 0, -0.345101, 0, 1, 0, 0.345101, 0, 0.938566, 7.20262, 4.50459, -2.05666)
@@ -572,7 +571,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.790003)
 transform = Transform3D(0.447463, 0.209748, -0.495765, -0.00336226, 0.645753, 0.27017, 0.538299, -0.17032, 0.413794, 1.91709, 0.531456, 0.713958)
 
 [node name="ShelfSlot1" type="Node3D" parent="Room/Shelf"]
-transform = Transform3D(0.999676, -0.0254694, 0.000119001, 0.0254694, 0.999632, -0.00936484, 0.000119537, 0.00936484, 0.999956, 0.0861206, 3.80147, 0.820725)
+transform = Transform3D(0.999676, -0.0254694, 0.000118971, 0.0254694, 0.999632, -0.00936484, 0.000119537, 0.00936484, 0.999956, 0.0871682, 3.80263, 0.819874)
 
 [node name="Interaction" type="Area3D" parent="Room/Shelf/ShelfSlot1" node_paths=PackedStringArray("slot_position", "indicator")]
 transform = Transform3D(1, 2.59638e-09, -1.45519e-11, -4.54736e-09, 1, -9.31323e-10, -1.45519e-11, 0, 1, 0, 0, 0)
@@ -795,17 +794,19 @@ spot_range = 40.5318
 spot_angle = 62.3882
 script = ExtResource("35_q114k")
 
-[node name="Draggable" type="Area3D" parent="Room" node_paths=PackedStringArray("camera")]
-transform = Transform3D(1, 4.75127e-10, 1.9705e-11, -2.5535e-11, 0.0950289, -0.995475, -4.7485e-10, 0.995475, 0.0950289, 0.565366, 5.45227, -2.00772)
+[node name="Draggable" type="Area3D" parent="Room" node_paths=PackedStringArray("camera", "debugObj")]
+transform = Transform3D(1, 8.11296e-09, -1.74428e-07, -9.44923e-09, 0.999971, -0.00766224, 1.7436e-07, 0.00766224, 0.999971, 0.890207, 5.45227, -2.00772)
 collision_layer = 4
 collision_mask = 4
 collision_priority = 2.0
 script = ExtResource("36_k5fvx")
 camera = NodePath("../../Camera3D")
+collisionMask = 1
+debugObj = NodePath("../../RaycastDebug")
 context = "Paper"
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Room/Draggable"]
-transform = Transform3D(1, -2.59638e-09, 1.45517e-11, 4.54736e-09, 1, -5.21541e-08, 1.4551e-11, 0, 1, -0.142029, -0.0244142, -0.0126953)
+transform = Transform3D(1, -1.57408e-09, 3.22995e-08, 3.22127e-08, -0.0153059, -0.999883, 4.01864e-09, 0.999883, -0.015306, -0.142029, -0.0244126, -0.0126948)
 layers = 4
 cast_shadow = 0
 use_collision = true
@@ -814,6 +815,7 @@ collision_mask = 4
 size = Vector3(0.715942, 0.0292969, 0.974609)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Draggable"]
+transform = Transform3D(1, 2.78666e-14, 4.1922e-12, -4.44089e-16, 1.00001, -1.19209e-07, 0, 1.19209e-07, 1.00001, -0.136342, -0.0203824, -0.000244141)
 shape = SubResource("BoxShape3D_7bvgt")
 
 [node name="Camera3D" parent="." instance=ExtResource("29_c48ta")]
@@ -832,6 +834,10 @@ visible = false
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 
 [node name="UI" parent="." instance=ExtResource("34_dfl7e")]
+
+[node name="RaycastDebug" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.6141, 0)
+radius = 0.1
 
 [editable path="Room/Corkboard"]
 [editable path="Room/Shelf/ShelfSlot1/Interaction/Marker3D/Compendium"]
