@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://b77ffqxu4v1fx"]
+[gd_scene load_steps=6 format=3 uid="uid://b77ffqxu4v1fx"]
 
 [ext_resource type="Script" path="res://Script/UINode.gd" id="1_iv7vh"]
 [ext_resource type="Material" uid="uid://cp5ifetu6sk5n" path="res://Materials/pixelshader_mat.tres" id="2_xsujh"]
 [ext_resource type="PackedScene" uid="uid://bkwcm81ptsrb6" path="res://Scenes/TitleScreen.tscn" id="3_ok510"]
 [ext_resource type="PackedScene" uid="uid://sjfh5tfvqkd1" path="res://Scenes/DialogueBox.tscn" id="4_35bic"]
+[ext_resource type="PackedScene" uid="uid://m6v1all8ets5" path="res://Scenes/Prefab/BookOverlay.tscn" id="5_rn86q"]
 
 [node name="UI" type="Control" node_paths=PackedStringArray("title_overlay", "context_label")]
 layout_mode = 3
@@ -43,9 +44,13 @@ text = "Interaction Label"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TitleScreen" parent="." instance=ExtResource("3_ok510")]
+[node name="BookContents" parent="." instance=ExtResource("5_rn86q")]
+visible = false
 layout_mode = 1
 
 [node name="Dialogue" parent="." instance=ExtResource("4_35bic")]
 visible = false
+layout_mode = 1
+
+[node name="TitleScreen" parent="." instance=ExtResource("3_ok510")]
 layout_mode = 1

@@ -3,6 +3,7 @@ class_name StateMachine
 
 @export var body : Node3D
 @export var current_state : State
+var previous_state_name : String = "default"
 @export var animator : AnimationPlayer
 var states_list : Dictionary
 ###
@@ -36,6 +37,7 @@ func switch_state(new_state : String):
 	if(current_state != null):
 		#if there's a state currently active, then do its exit function
 		current_state.on_exit()
+		previous_state_name = current_state.state_name
 	#Set the new state from the given string
 	current_state = states_list[new_state]
 	#Set the time the state was entered

@@ -1,0 +1,94 @@
+[gd_scene load_steps=2 format=3 uid="uid://m6v1all8ets5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wv4pj"]
+
+[node name="BookContents" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 611.0
+offset_top = 69.0
+offset_right = 1376.0
+offset_bottom = 1050.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_wv4pj")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="RichTextLabel" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/table_border = Color(0, 0, 0, 1)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 30
+text = "This is Text on a book! Content will be populated here through a json file or something! I'm sure images and stuff will also be possible too eventually."
+fit_content = true
+autowrap_mode = 2
+
+[node name="Panel2" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 1404.0
+offset_top = 344.0
+offset_right = 1898.0
+offset_bottom = 1058.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel2/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Add Page" type="Button" parent="Panel2/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Copy Page to Board"
+
+[node name="Next" type="Button" parent="Panel2/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Next Page"
+
+[node name="Back" type="Button" parent="Panel2/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Previous Page
+"
+
+[node name="Close Book" type="Button" parent="Panel2/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Close Book
+"
