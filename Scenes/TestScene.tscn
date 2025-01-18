@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://d1dgchscdwnj3"]
+[gd_scene load_steps=18 format=3 uid="uid://d1dgchscdwnj3"]
 
 [ext_resource type="PackedScene" uid="uid://dtpsrboqge6pa" path="res://Scenes/PlayerView.tscn" id="1_jw505"]
 [ext_resource type="PackedScene" uid="uid://b77ffqxu4v1fx" path="res://Scenes/UINode.tscn" id="2_62py1"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://blbpsy0tsh81d" path="res://Sound/TFH_SFX-Phone_Ring.wav" id="8_ptjaq"]
 [ext_resource type="AudioStream" uid="uid://bubyuqe7jaqou" path="res://Sound/TFH_SFX-Phone_Pickup.wav" id="9_ek7si"]
 [ext_resource type="AudioStream" uid="uid://bs87vitsf2uvm" path="res://Sound/TFH_SFX-Phone_SetDown.wav" id="10_mjy4d"]
+[ext_resource type="PackedScene" uid="uid://m6v1all8ets5" path="res://Scenes/Prefab/BookOverlay.tscn" id="11_id1yw"]
 [ext_resource type="Script" path="res://Script/StateMachines/GameStates/GameStateController.gd" id="12_kms0j"]
 [ext_resource type="Script" path="res://Script/ObjectSlot.gd" id="13_3h8bw"]
 [ext_resource type="Script" path="res://Script/StateMachines/GameStates/Intro_State.gd" id="13_l2st6"]
@@ -73,6 +74,8 @@ state_name = "main"
 
 [node name="PhonePickedUp" parent="Camera3D" index="3"]
 transform = Transform3D(0.112148, -0.859634, -0.49845, -0.570263, 0.355113, -0.74074, 0.81377, 0.36732, -0.450393, -0.30537, -2.7781, -0.330028)
+
+[node name="BookContents" parent="." instance=ExtResource("11_id1yw")]
 
 [node name="UI" parent="." instance=ExtResource("2_62py1")]
 

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://c44lyjxxgurpj"]
+
+[ext_resource type="Script" path="res://Script/Holdable.gd" id="1_xd01j"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_cjap5"]
+size = Vector3(0.85, 0.01, 1.1)
+
+[node name="Page" type="Node3D"]
+script = ExtResource("1_xd01j")
+context = "Blank Page"
+object_type = 1
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, -0.111628, 4.87943e-09, -4.87943e-09)
+mesh = SubResource("BoxMesh_cjap5")

@@ -1,9 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://dtpsrboqge6pa"]
+[gd_scene load_steps=24 format=3 uid="uid://dtpsrboqge6pa"]
 
 [ext_resource type="Script" path="res://Script/ObjectSlot.gd" id="1_p30rh"]
 [ext_resource type="Script" path="res://Script/StateMachines/Camera/CamStateMachine.gd" id="9_fjpvu"]
+[ext_resource type="Script" path="res://Scenes/Cam_Books_State.gd" id="10_203b2"]
 [ext_resource type="Script" path="res://Script/StateMachines/Camera/Cam_Wait_State.gd" id="10_aasps"]
 [ext_resource type="Script" path="res://Script/StateMachines/Camera/Cam_Intro_State.gd" id="11_7t7d6"]
+[ext_resource type="PackedScene" uid="uid://csposw0fdqv0l" path="res://Scenes/Prefab/OpenBook.tscn" id="11_epw21"]
 [ext_resource type="Script" path="res://Script/StateMachines/Camera/Cam_LookCat_State.gd" id="12_4eq5l"]
 [ext_resource type="Script" path="res://Script/StateMachines/Camera/Cam_Seated_State.gd" id="13_7yepe"]
 [ext_resource type="Script" path="res://Script/StateMachines/Camera/Cam_Drawers_State.gd" id="14_7yro5"]
@@ -194,6 +196,30 @@ tracks/5/keys = {
 "update": 0,
 "values": [Vector3(0.83417, -2.30559, -1.01384)]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("OpenBook:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.412626, -3.02014, -1.41516)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("HeldItem:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_e7o27"]
 resource_name = "Seated"
@@ -251,8 +277,36 @@ tracks/1/keys = {
 "values": [Vector3(0, 0, 0), Vector3(0, 0.0993441, 0), Vector3(0, 0.0993441, 0), Vector3(0, -0.529219, 0), Vector3(0, -0.529219, 0), Vector3(0, -0.00069812, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_iap8x"]
+resource_name = "LookBook"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OpenBook:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.633333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.412626, -3.02014, -1.41516), Vector3(-0.412626, -3.02014, -1.41516), Vector3(-0.433976, 0.0226457, -1.41516)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HeldItem:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.233333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -2.39612, 1.26187)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qx82k"]
 _data = {
+"LookBook": SubResource("Animation_iap8x"),
 "LookCorkboard": SubResource("Animation_2qvre"),
 "LookDrawers": SubResource("Animation_yjwkv"),
 "LookNoodle": SubResource("Animation_h4gj3"),
@@ -261,6 +315,12 @@ _data = {
 "Seated": SubResource("Animation_e7o27"),
 "SitDown": SubResource("Animation_enqdy")
 }
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_62d4j"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_ouok2"]
+material = SubResource("StandardMaterial3D_62d4j")
+size = Vector2(1.48, 1.9)
 
 [node name="Camera3D" type="Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.429902, 6.01398, 5.25884)
@@ -320,8 +380,20 @@ script = ExtResource("16_t8jtx")
 state_name = "bookshelf"
 animation = &"LookShelf"
 
+[node name="Book" type="Node" parent="ViewStates"]
+script = ExtResource("10_203b2")
+state_name = "book"
+animation = &"LookBook"
+
 [node name="PhonePickedUp" parent="." instance=ExtResource("17_07grl")]
 transform = Transform3D(0.112148, -0.859635, -0.49845, -0.570263, 0.355113, -0.74074, 0.81377, 0.36732, -0.450393, -0.30537, -2.7781, -0.330028)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 light_energy = 1.5
+
+[node name="OpenBook" parent="." instance=ExtResource("11_epw21")]
+transform = Transform3D(-4.37114e-08, -0.00701617, -0.999975, 0, 0.999975, -0.00701617, 1, -3.06686e-10, -4.37103e-08, -0.412626, -3.02014, -1.41516)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="OpenBook"]
+transform = Transform3D(0.0408758, -0.0373055, 0.998468, 0.00125187, 0.999304, 0.0372855, -0.999164, -0.000274121, 0.040894, 0.135494, -0.0019809, -0.480725)
+mesh = SubResource("QuadMesh_ouok2")

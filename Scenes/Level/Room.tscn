@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=4 uid="uid://dcdmtk8iir4ly"]
+[gd_scene load_steps=69 format=4 uid="uid://dcdmtk8iir4ly"]
 
 [ext_resource type="PackedScene" uid="uid://bxl4evdxiurum" path="res://Mesh/Room.glb" id="1_0nyey"]
 [ext_resource type="Script" path="res://Script/InteractionZones.gd" id="1_swfkt"]
@@ -30,6 +30,7 @@
 [ext_resource type="Script" path="res://Script/StateMachines/GameStates/Title_Screen_State.gd" id="28_nh4lm"]
 [ext_resource type="PackedScene" uid="uid://dtpsrboqge6pa" path="res://Scenes/PlayerView.tscn" id="29_c48ta"]
 [ext_resource type="Script" path="res://Script/StateMachines/GameStates/Intro_State.gd" id="29_om64p"]
+[ext_resource type="Script" path="res://Book.gd" id="32_o202x"]
 [ext_resource type="Script" path="res://Script/audio_manager.gd" id="34_04mdi"]
 [ext_resource type="PackedScene" uid="uid://b77ffqxu4v1fx" path="res://Scenes/UINode.tscn" id="34_dfl7e"]
 [ext_resource type="Script" path="res://Script/scenario_director.gd" id="34_gpimc"]
@@ -527,7 +528,7 @@ mesh = SubResource("BoxMesh_y5hda")
 skeleton = NodePath("../CollisionShape3D")
 
 [node name="DeskItem3" type="Node3D" parent="Room/Desk"]
-transform = Transform3D(-0.0261769, 4.48556e-08, -0.999657, 0.999657, -4.36964e-08, -0.0261769, -4.48556e-08, -1, -4.36964e-08, -1.10465, 2.23602, 0.485403)
+transform = Transform3D(-0.0261769, 4.48556e-08, -0.999657, 0.999657, -4.36964e-08, -0.0261769, -4.48556e-08, -1, -4.36964e-08, -1.1061, 2.29153, 0.485403)
 
 [node name="Interaction" type="Area3D" parent="Room/Desk/DeskItem3" node_paths=PackedStringArray("slot_position", "indicator")]
 transform = Transform3D(1, 2.59638e-09, -1.45519e-11, -4.54736e-09, 1, -9.31323e-10, -1.45519e-11, 0, 1, 0, 0, 0)
@@ -713,7 +714,7 @@ context = "put down"
 [node name="Marker3D" type="Marker3D" parent="Room/Shelf/ShelfSlot5/Interaction"]
 
 [node name="Book" type="Node3D" parent="Room/Shelf/ShelfSlot5/Interaction/Marker3D"]
-script = ExtResource("20_pl3wx")
+script = ExtResource("32_o202x")
 context = "Mildred Webspinner's \"Incantationary\""
 object_type = 2
 
@@ -824,9 +825,6 @@ far = 100.0
 [node name="Phone" parent="Camera3D/ViewStates" index="6"]
 script = ExtResource("35_a12cj")
 state_name = "phone"
-
-[node name="PhonePickedUp" parent="Camera3D" index="3"]
-transform = Transform3D(0.112148, -0.859635, -0.49845, -0.570263, 0.355113, -0.74074, 0.81377, 0.36732, -0.450393, -0.30537, -2.7781, -0.330028)
 
 [node name="OmniLight3D" parent="Camera3D" index="4"]
 visible = false

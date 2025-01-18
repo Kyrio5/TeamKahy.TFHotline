@@ -12,6 +12,8 @@ signal phone_put_down
 signal phone_ring_start
 signal phone_ring_stop
 signal state_start(state_name)
+signal open_book
+signal close_book 
 
 @export var UI_node : UINode
 @export var GameState : StateMachine
@@ -38,8 +40,8 @@ var context : String :
 func change_context(new_context : String):
 	for x : Node3D in interactionZones:
 		x.hide()
-		if x.name == new_context:
-			x.show()
+		#if x.name == new_context:
+		#	x.show()
 
 func mouse_over_context(area : Area3D):
 	if area is Interaction:

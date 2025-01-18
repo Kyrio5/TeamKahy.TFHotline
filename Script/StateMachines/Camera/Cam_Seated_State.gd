@@ -12,6 +12,17 @@ func default_lifecycle():
 			GlobalSignalPipe.current_interaction = null
 			return interaction.interact(machine.body)
 	
+	if Input. is_action_just_pressed("Mouse_Cancel"):
+		if GlobalSignalPipe.held_item is Book:
+			return "book"
+	
+	if Input.is_action_just_pressed("left"):
+		return "noodle"
+	if Input.is_action_just_pressed("right"):
+		return "bookshelf"
+	if Input.is_action_just_pressed("down"):
+		return "drawers"
+	
 	# Currently for draggables only. If you want to use this for more general
 	# interactions, look into why GlobalSignalPipe.current_interaction returns
 	# null here. - Kai
