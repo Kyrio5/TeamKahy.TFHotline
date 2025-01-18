@@ -72,9 +72,6 @@ state_name = "main"
 
 [node name="Camera3D" parent="." instance=ExtResource("1_jw505")]
 
-[node name="Seated" parent="Camera3D/ViewStates" index="3"]
-animation = &""
-
 [node name="PhonePickedUp" parent="Camera3D" index="3"]
 transform = Transform3D(0.112148, -0.859634, -0.49845, -0.570263, 0.355113, -0.74074, 0.81377, 0.36732, -0.450393, -0.30537, -2.7781, -0.330028)
 
